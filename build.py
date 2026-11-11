@@ -19,9 +19,9 @@ PHONE2, PHONE2_TEL = "212-837-2147", "+12128372147"
 GTM_ID = "GTM-M2T83X8J"  # his existing Tag Manager container, carried over from the old site
 FONTS = ("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800"
          "&family=Instrument+Sans:wght@400;500;600&display=swap")
-NAV = [("intercom-repair/", "Repair"), ("intercom-installation/", "Installation"),
-       ("lee-dan-intercom-systems/", "Lee-Dan"), ("brands/", "Brands"),
-       ("property-managers/", "Property managers"), ("pricing/", "Pricing"), ("contact/", "Contact")]
+NAV = [("intercom-repair/", "Repair"), ("intercom-maintenance-contract/", "Service agreements"),
+       ("intercom-replacement/", "Upgrades"), ("property-managers/", "Portfolios"),
+       ("lee-dan-intercom-systems/", "Lee-Dan"), ("projects/", "Projects"), ("contact/", "Contact")]
 BUILT = {p["path"] for p in PAGES}
 SHOTS = {
     1: "Brooklyn brownstone entrance with an intercom panel beside the door",
@@ -57,9 +57,9 @@ PAGE_SHOT = {
     "intercom-repair/not-working/": 16, "intercom-repair/emergency/": 18, "contact/": 3,
     "intercom-installation/": 3, "intercom-installation/video/": 5, "intercom-installation/wireless/": 7,
     "intercom-installation/ip-smartphone/": 7, "intercom-installation/telephone-entry/": 8,
-    "intercom-installation/audio/": 20, "intercom-replacement/": 4, "pricing/": 16,
-    "property-managers/": 17, "intercom-maintenance-contract/": 17,
-    "apartment-building-intercom/": 10, "brownstone-intercom/": 1, "co-op-condo-intercom/": 3, "commercial-intercom/": 8,
+    "intercom-installation/audio/": 20, "intercom-replacement/": 24, "pricing/": 16,
+    "property-managers/": 22, "superintendents/": 16, "vendor-onboarding/": 17, "projects/": 3, "intercom-maintenance-contract/": 17,
+    "apartment-building-intercom/": 10, "co-op-condo-intercom/": 3, "commercial-intercom/": 8,
     "intercom-installation-brooklyn/": 1, "intercom-installation-manhattan/": 10, "intercom-installation-queens/": 11,
     "intercom-installation-bronx/": 12,
     "lee-dan-intercom-systems/": 25, "lee-dan-intercom-systems/repair/": 25, "lee-dan-intercom-systems/ir-203/": 25,
@@ -133,6 +133,9 @@ GOOGLE_REVIEW = "https://search.google.com/local/writereview?placeid=ChIJF42LFM5
 
 # Old WordPress URLs -> new pages (301). Borough, Lee-Dan and product URLs are unchanged.
 REDIRECTS = {
+    "/brownstone-intercom/": "/apartment-building-intercom/",
+    "/home-intercom/": "/apartment-building-intercom/",
+    "/guides/renters-broken-buzzer/": "/guides/tenant-intercom-complaints/",
     "/about-us/": "/about/",
     "/access-controls/": "/access-control/",
     "/cctv/": "/security-cameras/",
@@ -209,7 +212,7 @@ def head(ctx):
     out.append(f'<link rel="icon" href="{ctx.asset("favicon.svg")}" type="image/svg+xml">')
     out.append(f'<link rel="icon" href="{ctx.asset("favicon-32.png")}" sizes="32x32" type="image/png">')
     out.append(f'<link rel="apple-touch-icon" href="{ctx.asset("apple-touch-icon.png")}">')
-    out.append('<meta name="theme-color" content="#0E2A22">')
+    out.append('<meta name="theme-color" content="#0B0E13">')
     if p.get("noindex") and ctx.mode == "site":
         out.append('<meta name="robots" content="noindex">')
     if ctx.mode == "site" and GTM_ID:
@@ -255,16 +258,22 @@ def reviews():
 def quote(ctx):
     return f"""<section class="quote band-green" id="quote"><div class="wrap">
 <div class="col stack">
-<h2>Send a photo. Get an answer.</h2>
-<p style="font-size:1.15rem;max-width:30em">A picture of the panel or the apartment station usually tells us the system, the likely fault and a price range before anyone drives out.</p>
+<h2>Tell us about your buildings.</h2>
+<p style="font-size:1.15rem;max-width:30em">One building with a dead riser or forty buildings to bring under one vendor: send the basics and we'll come back with next steps, usually the same business day.</p>
 <p class="tel">{ctx.expand('{{tel}}')}</p>
 <p class="tel">{ctx.expand('{{tel2}}')}</p>
+<p><a href="mailto:jacobintercom@gmail.com" style="color:#fff">jacobintercom@gmail.com</a></p>
 </div>
 <form class="card" data-quote novalidate>
-<label for="q-name">Your name<input id="q-name" name="name" type="text" autocomplete="name"></label>
-<label for="q-phone">Phone<input id="q-phone" name="phone" type="tel" autocomplete="tel"></label>
-<label for="q-problem">What's happening?<select id="q-problem" name="problem"><option>Buzzer not ringing</option><option>Door won't unlock</option><option>No sound or static</option><option>No video</option><option>Panel damaged</option><option>I need a new system</option><option>Something else</option></select></label>
-<label for="q-photo">Photo of the panel (optional)<input id="q-photo" name="photo" type="file" accept="image/*"></label>
+<div class="form-2"><label for="q-name">Name<input id="q-name" name="name" type="text" autocomplete="name"></label>
+<label for="q-company">Company<input id="q-company" name="company" type="text" autocomplete="organization"></label></div>
+<div class="form-2"><label for="q-role">Your role<select id="q-role" name="role"><option>Property manager</option><option>Building manager or super</option><option>Management company owner</option><option>Co-op or condo board</option><option>Building owner</option><option>Other</option></select></label>
+<label for="q-need">What do you need?<select id="q-need" name="need"><option>A repair</option><option>A service agreement</option><option>A system replacement or upgrade</option><option>A survey of several buildings</option><option>Vendor documents (COI, W-9)</option></select></label></div>
+<div class="form-2"><label for="q-phone">Phone<input id="q-phone" name="phone" type="tel" autocomplete="tel"></label>
+<label for="q-email">Email<input id="q-email" name="email" type="email" autocomplete="email"></label></div>
+<div class="form-2"><label for="q-buildings">Number of buildings<input id="q-buildings" name="buildings" type="number" min="1" inputmode="numeric"></label>
+<label for="q-units">Total apartments<input id="q-units" name="units" type="number" min="1" inputmode="numeric"></label></div>
+<label for="q-notes">Addresses and what's going on<textarea id="q-notes" name="notes" rows="3"></textarea></label>
 <button class="btn btn-dark" type="submit">Send to Jacob Intercom</button>
 <p class="form-msg" role="status" hidden></p>
 </form>
@@ -274,13 +283,13 @@ def quote(ctx):
 def footer(ctx):
     return f"""<footer class="site-footer"><div class="wrap">
 <div><a class="logo" href="{ctx.url('')}">Jacob Intercom</a><p>209 Avenue F, Brooklyn, NY 11218</p><p>Licence <span class="todo">[LICENCE NO.]</span>. Fully insured.</p><p>35 years in business.</p></div>
-<div><strong>Call or text</strong><p>{ctx.expand('{{tel}}')}</p><p>{ctx.expand('{{tel2}}')}</p><p><a href="mailto:jacobintercom@gmail.com">jacobintercom@gmail.com</a></p></div>
-<div><strong>Repair</strong><p>{ctx.link('intercom-repair/', 'Intercom repair')}</p><p>{ctx.link('intercom-repair/door-buzzer/', 'Door buzzer repair')}</p><p>{ctx.link('intercom-repair/emergency/', 'Emergency repair')}</p><p>{ctx.link('lee-dan-intercom-systems/', 'Lee-Dan systems')}</p></div>
+<div><strong>Call or email</strong><p>{ctx.expand('{{tel}}')}</p><p>{ctx.expand('{{tel2}}')}</p><p><a href="mailto:jacobintercom@gmail.com">jacobintercom@gmail.com</a></p></div>
+<div><strong>Services</strong><p>{ctx.link('intercom-repair/', 'Intercom repair')}</p><p>{ctx.link('intercom-maintenance-contract/', 'Service agreements')}</p><p>{ctx.link('intercom-replacement/', 'Building upgrades')}</p><p>{ctx.link('property-managers/', 'Portfolio programs')}</p><p>{ctx.link('lee-dan-intercom-systems/', 'Lee-Dan systems')}</p></div>
 <div><strong>Service areas</strong><p>{ctx.link('service-areas/', 'All service areas')}</p><p>{ctx.link('intercom-installation-brooklyn/', 'Brooklyn')}, {ctx.link('intercom-installation-manhattan/', 'Manhattan')}, {ctx.link('intercom-installation-queens/', 'Queens')}</p><p>{ctx.link('intercom-installation-bronx/', 'The Bronx')}, {ctx.link('intercom-installation-staten-island/', 'Staten Island')}</p></div>
 <div><strong>Find us on</strong>{"".join(f'<p><a href="{u}" rel="noopener">{n}</a></p>' if u else f'<p>{n} <mark class="todo">[{n.upper()} URL]</mark></p>' for n, u in PROFILES)}</div>
-<div><strong>Company</strong><p>{ctx.link('about/', 'About')}</p><p>{ctx.link('privacy/', 'Privacy')}</p><p>{ctx.link('reviews/', 'Reviews')}</p><p>{ctx.link('guides/', 'Guides')}</p><p>{ctx.link('faq/', 'FAQ')}</p></div>
+<div><strong>Company</strong><p>{ctx.link('about/', 'About')}</p><p>{ctx.link('projects/', 'Projects')}</p><p>{ctx.link('vendor-onboarding/', 'Vendor onboarding')}</p><p>{ctx.link('superintendents/', 'For superintendents')}</p><p>{ctx.link('guides/', 'Guides')}</p><p>{ctx.link('reviews/', 'Reviews')}</p><p>{ctx.link('privacy/', 'Privacy')}</p></div>
 </div></footer>
-<div class="callbar"><a class="btn btn-brass" href="tel:{PHONE_TEL}">Call {PHONE}</a><a class="btn btn-ghost" href="sms:{PHONE_TEL}">Text a photo</a></div>
+<div class="callbar"><a class="btn btn-brass" href="tel:{PHONE_TEL}">Call {PHONE}</a><a class="btn btn-ghost" href="#quote">Request a survey</a></div>
 <script src="{ctx.asset('site.js')}"></script>"""
 
 
@@ -305,7 +314,7 @@ def article(ctx):
 <h1>{p['h1']}</h1>
 <p class="lead">{ctx.expand(p['lead'])}</p>
 <ul class="facts">{facts}</ul>
-<div class="btn-row"><a class="btn btn-brass" href="tel:{PHONE_TEL}">Call {PHONE}</a><a class="btn btn-ghost" href="#quote">Text us a photo of your panel</a></div>
+<div class="btn-row"><a class="btn btn-brass" href="tel:{PHONE_TEL}">Call {PHONE}</a><a class="btn btn-ghost" href="#quote">Request a building survey</a></div>
 </div></section>
 <div class="article"><div class="wrap">
 <article class="prose{' prose-wide' if p.get('wide') else ''}">{fig}{ctx.expand(p['body'])}{faqs}</article>
@@ -313,7 +322,7 @@ def article(ctx):
 <p class="big">{aside.get('head', 'Talk to someone who fixes these')}</p>
 <p>{ctx.expand(aside.get('text', 'Most repairs run $100 to $300. We find the fault and give you the price before any work starts.'))}</p>
 <a class="btn btn-dark" href="tel:{PHONE_TEL}">Call {PHONE}</a>
-<a class="btn btn-outline" href="#quote">Send a photo</a>
+<a class="btn btn-outline" href="#quote">Send us the details</a>
 <p style="font-size:.92rem;color:var(--muted)">Monday to Thursday 9 to 5, Friday 8 to 4.</p>
 {related}
 </aside>

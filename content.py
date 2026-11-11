@@ -15,13 +15,13 @@ def symptom(path, nav, title, desc, h1, lead, notice, causes, checks, fix, cost,
     cause_html = "".join(f"<li><strong>{n}.</strong> {t}</li>" for n, t in causes)
     check_html = "".join(f"<li>{c}</li>" for c in checks)
     body = f"""
-<h2>What you'll notice</h2>
+<h2>What gets reported</h2>
 {notice}
 <h2>The usual causes</h2>
 <ul>{cause_html}</ul>
-<h2>What you can safely check yourself</h2>
+<h2>What the super can check first</h2>
 <ul>{check_html}</ul>
-<p>Don't open the lobby panel or the amplifier cabinet yourself. The wiring is low voltage, but the power supply that feeds it is not, and a crossed wire can take out every apartment on the line.</p>
+<p>Building staff shouldn't open the lobby panel or the amplifier cabinet. The wiring is low voltage, but the power supply that feeds it is not, and a crossed wire can take out every apartment on the line.</p>
 <h2>How we fix it</h2>
 {fix}
 <h2>What it costs</h2>
@@ -30,7 +30,7 @@ def symptom(path, nav, title, desc, h1, lead, notice, causes, checks, fix, cost,
 {replace}
 """
     page(path=path, nav=nav, title=title, desc=desc, h1=h1, lead=lead,
-         facts=["<b>35 years</b> repairing New York intercoms", "Most repairs <b>$100 to $300</b>", "Price given <b>before</b> work starts"],
+         facts=["<b>35 years</b> servicing New York buildings", "Buildings of <b>10 to 200+</b> units", "Price given <b>before</b> work starts"],
          body=body, faqs=faqs, related=related)
 
 
@@ -39,98 +39,102 @@ def symptom(path, nav, title, desc, h1, lead, notice, causes, checks, fix, cost,
 HOME = """
 <section class="hero" id="top"><div class="wrap row" style="gap:48px;align-items:flex-start">
 <div class="col stack" style="gap:22px;flex-basis:420px">
-<h1>New York's intercoms, repaired and installed for 35 years.</h1>
-<p class="lead">Buzzers, door releases, video entry and the Lee-Dan systems other companies won't touch. All five boroughs. Most repairs run $100 to $300.</p>
-<div class="btn-row"><a class="btn btn-brass" href="tel:+17182522730">Call 718-252-2730</a><a class="btn btn-ghost" href="#quote">Text us a photo of your panel</a></div>
-<p class="fine">Rated 4.7 from 23 Google reviews. Licensed and insured, [LICENCE NO.].</p>
+<h1>The intercom contractor for New York's managed buildings.</h1>
+<p class="lead">Repairs, service agreements and whole-building system replacements for property management companies, building managers and supers. Buildings of 10 to 200+ apartments, across all five boroughs, for 35 years.</p>
+<div class="btn-row"><a class="btn btn-brass" href="{{u:contact/}}#quote">Request a building survey</a><a class="btn btn-ghost" href="tel:+17182522730">Call 718-252-2730</a></div>
+<p class="fine">Certificate of insurance on request. Licence [LICENCE NO.]. Rated 4.7 from 23 Google reviews.</p>
 </div>
 <div class="panel col" data-panel style="flex-basis:460px">
-<div class="panel-head"><h2>What's wrong? Press a button.</h2><div class="grille" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+<div class="panel-head"><h2>Calling from the building? Press what it's doing.</h2><div class="grille" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
 <div class="panel-buttons">
-<button type="button" aria-pressed="true" data-id="ring" data-title="Buzzer won't ring in the apartment" data-cause="Usually a failed apartment station, a broken wire in the riser, or a tired amplifier. If several apartments are dead, it is almost always the amplifier or the power supply." data-price="Most repairs: $100 to $300." data-linktext="How we fix dead buzzers" data-href="{{u:intercom-repair/door-buzzer/}}">Buzzer won't ring</button>
-<button type="button" aria-pressed="false" data-id="door" data-title="It buzzes, but the door stays locked" data-cause="The electric strike in the door frame is worn or misaligned, or the release relay or transformer has failed. The intercom itself is often fine." data-price="Most repairs: $100 to $300." data-linktext="Door release repair" data-href="{{u:intercom-repair/door-release/}}">Door won't unlock</button>
-<button type="button" aria-pressed="false" data-id="audio" data-title="No sound, static, or only one side can hear" data-cause="A corroded speaker or microphone in the lobby panel, crossed wires, or a failing amplifier. Outdoor panels take the most weather." data-price="Most repairs: $100 to $300." data-linktext="Audio faults explained" data-href="{{u:intercom-repair/no-audio/}}">No sound or static</button>
-<button type="button" aria-pressed="false" data-id="video" data-title="The screen is blank or frozen" data-cause="A failed camera module, a weak power supply, or on newer systems a network problem. We test each before replacing anything." data-price="Price depends on the system. Call for a range." data-linktext="Video intercom repair" data-href="{{u:intercom-repair/video/}}">No video</button>
-<button type="button" aria-pressed="false" data-id="panel" data-title="The entry panel is broken or vandalised" data-cause="Buttons, name strips and faceplates can usually be replaced on the existing wiring without touching the apartments." data-price="Price depends on the panel. Send us a photo." data-linktext="Entry panel repair" data-href="{{u:intercom-repair/entry-panel/}}">Panel damaged</button>
-<button type="button" aria-pressed="false" data-id="new" data-title="Time for a new system" data-cause="We look at the building, test the existing wire, and give you options in writing, from a like-for-like swap to video on your phone." data-price="Written quote after a site visit." data-linktext="All intercom repairs" data-href="{{u:intercom-repair/}}">I need a new system</button>
+<button type="button" aria-pressed="true" data-id="ring" data-title="Apartments aren't ringing" data-cause="One unit: the apartment station or its wire. A vertical line of units: the riser. Every unit: the amplifier or power supply. Tell us which pattern you see and we'll bring the right parts." data-price="Usually fixed in one visit. Price agreed before work starts." data-linktext="Buzzer repair for buildings" data-href="{{u:intercom-repair/door-buzzer/}}">Units not ringing</button>
+<button type="button" aria-pressed="false" data-id="door" data-title="It buzzes, but the entrance stays locked" data-cause="The electric strike is worn or misaligned, or its transformer or release relay has failed. The intercom itself is usually fine. A door that won't lock is treated as urgent." data-price="Strike and power faults are usually one visit." data-linktext="Door release repair" data-href="{{u:intercom-repair/door-release/}}">Door won't release</button>
+<button type="button" aria-pressed="false" data-id="audio" data-title="No audio, static or one-way sound" data-cause="A corroded speaker or microphone in the lobby panel, crossed riser wires, or a failing amplifier. If tenants hear other apartments, two lines are touching." data-price="Panel parts replaced on site in most cases." data-linktext="Audio faults explained" data-href="{{u:intercom-repair/no-audio/}}">No audio or static</button>
+<button type="button" aria-pressed="false" data-id="video" data-title="Video or app calls are down" data-cause="A failed camera module, a weak power supply, or on IP and cloud systems a network or account problem. We check the settings and the network before replacing hardware." data-price="Network faults are often fixed remotely or in one short visit." data-linktext="Video intercom repair" data-href="{{u:intercom-repair/video/}}">Video or app down</button>
+<button type="button" aria-pressed="false" data-id="panel" data-title="The entry panel is broken or vandalised" data-cause="Buttons, faceplates and directories are replaced on the existing wiring. Exposed wiring at the entrance can be used to trip the door, so it gets made safe on the first visit." data-price="Send a photo for a same-day range." data-linktext="Entry panel repair" data-href="{{u:intercom-repair/entry-panel/}}">Panel damaged</button>
+<button type="button" aria-pressed="false" data-id="new" data-title="Time to replace the system" data-cause="We survey the building, test every riser, and give you a written proposal with options, from a new panel on the old wire to a full video conversion, phased so tenants are never without a way in." data-price="Written proposal after a site survey." data-linktext="Building upgrades and replacements" data-href="{{u:intercom-replacement/}}">Replace the system</button>
 </div>
 <div class="panel-out" aria-live="polite">
-<h3 data-out="title">Buzzer won't ring in the apartment</h3>
-<p data-out="cause">Usually a failed apartment station, a broken wire in the riser, or a tired amplifier. If several apartments are dead, it is almost always the amplifier or the power supply.</p>
-<p class="price" data-out="price">Most repairs: $100 to $300.</p>
-<div class="btn-row" style="align-items:center"><a class="btn btn-dark" href="tel:+17182522730">Call about this</a><a data-out="link" href="{{u:intercom-repair/door-buzzer/}}" style="font-weight:600">How we fix dead buzzers</a></div>
+<h3 data-out="title">Apartments aren't ringing</h3>
+<p data-out="cause">One unit: the apartment station or its wire. A vertical line of units: the riser. Every unit: the amplifier or power supply. Tell us which pattern you see and we'll bring the right parts.</p>
+<p class="price" data-out="price">Usually fixed in one visit. Price agreed before work starts.</p>
+<div class="btn-row" style="align-items:center"><a class="btn btn-dark" href="tel:+17182522730">Call about this building</a><a data-out="link" href="{{u:intercom-repair/door-buzzer/}}" style="font-weight:600">Buzzer repair for buildings</a></div>
 </div>
 </div>
 </div></section>
 
-<section class="strip" aria-label="Why Jacob Intercom"><div class="wrap"><span>35 years in business</span><span>4.7 stars from 23 Google reviews</span><span>Licensed and insured</span><span>All five boroughs, plus Long Island, Westchester and New Jersey</span></div></section>
+<section class="strip" aria-label="Jacob Intercom at a glance"><div class="wrap"><span>35 years in business</span><span>Buildings of 10 to 200+ apartments</span><span>[NUMBER] buildings under service</span><span>NYC, Long Island, Westchester and NJ</span></div></section>
 
 <section class="section"><div class="wrap">
-<h2>Whatever is on the wall, we work on it.</h2>
-<div class="row">
-<div class="col col-rule stack">
-<h3>Repair</h3>
-<p>One apartment or the whole building. We find the fault before we quote, and we fix what can be fixed instead of selling you a new system.</p>
-<ul class="linklist">
-<li>[[intercom-repair/door-buzzer/|Buzzer not ringing]]</li>
-<li>[[intercom-repair/door-release/|Door release and electric strike]]</li>
-<li>[[intercom-repair/no-audio/|No sound, static or one-way audio]]</li>
-<li>[[intercom-repair/video/|Video not working]]</li>
-<li>[[intercom-repair/entry-panel/|Damaged entry panel]]</li>
-<li>[[intercom-repair/emergency/|Emergency repair]]</li>
-</ul>
-</div>
-<div class="col col-rule stack">
-<h3>Installation and replacement</h3>
-<p>New systems for brownstones, walk-ups, co-ops, condos and offices. Where the old wire is good, we reuse it and save you the cost of opening walls.</p>
-<ul class="linklist">
-<li>[[intercom-installation/video/|Video intercoms]]</li>
-<li>[[intercom-installation/wireless/|Wireless and smartphone entry]]</li>
-<li>[[intercom-installation/telephone-entry/|Audio and telephone entry]]</li>
-<li>[[intercom-replacement/|Replacing an old buzzer system]]</li>
-<li>[[access-control/|Access control and key fobs]]</li>
-</ul>
-</div>
-<div class="col" style="flex-basis:300px">{{img:1}}</div>
+<h2>Who we work for</h2>
+<p class="intro">Tenants don't hire an intercom company. The people who run the building do, and that's who we're set up for.</p>
+<div class="who">
+<div class="col-rule stack"><h3>Property management companies</h3><p>One vendor across the portfolio, one point of contact, and paperwork that's ready before your accounts team asks for it.</p><p>[[property-managers/|Portfolio programs]]</p></div>
+<div class="col-rule stack"><h3>Building managers and supers</h3><p>Call with what the building is doing. We schedule apartment access with you and leave the equipment labelled for next time.</p><p>[[superintendents/|For superintendents]]</p></div>
+<div class="col-rule stack"><h3>Co-op and condo boards</h3><p>Written options a board can vote on, a survey of the existing wiring, and a changeover plan residents are told about in advance.</p><p>[[co-op-condo-intercom/|Co-ops and condos]]</p></div>
+<div class="col-rule stack"><h3>Owners and real estate firms</h3><p>For firms with their own maintenance crews, we take the intercom and entry work your staff shouldn't have to learn.</p><p>[[apartment-building-intercom/|Apartment buildings]]</p></div>
 </div>
 </div></section>
 
-<section class="section band-dark"><div class="wrap row" style="align-items:center;gap:48px">
+<section class="section band-tint"><div class="wrap">
+<h2>Three ways to work with us</h2>
+<div class="who three">
+<div class="tile stack"><h3>Service calls</h3><p>On-call repair for any building you manage: dead risers, failed amplifiers, door releases, vandalised panels. You get the price before work starts and a written job report after.</p><ul class="linklist"><li>[[intercom-repair/|Intercom repair]]</li><li>[[intercom-repair/emergency/|Urgent and after-hours calls]]</li></ul></div>
+<div class="tile stack"><h3>Service agreements</h3><p>Scheduled inspection of every building, priority response, fixed rates across the portfolio, and one invoice. Most whole-building failures give warning; an inspection catches them.</p><ul class="linklist"><li>[[intercom-maintenance-contract/|Service agreements]]</li><li>[[pricing/|How we price]]</li></ul></div>
+<div class="tile stack"><h3>System replacements</h3><p>Whole-building conversions, from Lee-Dan and other legacy audio systems to video and smartphone entry. Surveyed, phased and installed with the building occupied.</p><ul class="linklist"><li>[[intercom-replacement/|Building upgrades]]</li><li>[[intercom-installation/video/|Video intercom systems]]</li></ul></div>
+</div>
+</div></section>
+
+<section class="section band-dark"><div class="wrap row" style="gap:48px;align-items:flex-start">
+<div class="col stack" style="flex-basis:380px;gap:18px">
+<h2>Forty buildings. One intercom vendor.</h2>
+<p style="font-size:1.12rem;max-width:32em">When a management company takes on a new portfolio, the intercoms are usually a mix: a few modern video systems, a lot of tired audio, and some buildings nobody has looked at in years. We survey the lot, tell you what each building has and how long it has left, and give you a plan you can budget for.</p>
+<div><a class="btn btn-brass" href="{{u:property-managers/}}">How portfolio programs work</a></div>
+</div>
+<ol class="steps col" style="flex-basis:460px">
+<li><strong>Portfolio survey.</strong> Every building visited: entry panels, amplifier, power, door hardware and a test of each riser.</li>
+<li><strong>Condition report.</strong> One page per building: the system, its age, what's failing, and a repair-or-replace recommendation.</li>
+<li><strong>Replacement plan.</strong> Buildings ranked by risk, with a budget for each, so capital spending can be spread over the year.</li>
+<li><strong>Installation.</strong> Building by building, with notice to residents and the old system kept live until the new one works.</li>
+<li><strong>Ongoing service.</strong> The whole portfolio under one agreement, with one invoice and a record of every system.</li>
+</ol>
+</div></section>
+
+<section class="section"><div class="wrap row" style="align-items:center;gap:48px">
 <div class="col" style="flex-basis:300px;max-width:420px">{{img:25}}</div>
 <div class="col stack" style="flex-basis:480px;gap:18px">
-<h2>Got a Lee-Dan? We still fix them.</h2>
-<p style="font-size:1.12rem;max-width:32em">Thousands of New York buildings still run on Lee-Dan intercoms. Most companies will only quote you a replacement. We repair them, source the parts, and tell you plainly when replacing really is the better money.</p>
+<h2>Buildings still on Lee-Dan</h2>
+<p style="font-size:1.12rem;max-width:32em">Thousands of New York buildings still run Lee-Dan audio systems. Most contractors will only quote a replacement. We keep them running, stock the parts, and when conversion is the better money, we plan it around the wire that's already in the walls.</p>
 <ul class="linklist grid2">
-<li>[[lee-dan-intercom-systems/|Lee-Dan repair and service]]</li>
-<li>[[lee-dan-intercom-systems/ir-203/|IR-203 apartment stations]]</li>
-<li>[[lee-dan-intercom-systems/ir-204/|IR-204 four-wire systems]]</li>
-<li>[[lee-dan-intercom-systems/ir-205/|IR-205 five-wire systems]]</li>
+<li>[[lee-dan-intercom-systems/|Lee-Dan service and repair]]</li>
+<li>[[lee-dan-intercom-systems/replacement/|Converting a Lee-Dan building]]</li>
 <li>[[lee-dan-intercom-systems/pk-543-amplifier/|PK-543 amplifiers]]</li>
-<li>[[lee-dan-intercom-systems/troubleshooting/|Troubleshooting guide]]</li>
+<li>[[lee-dan-intercom-systems/troubleshooting/|Troubleshooting for supers]]</li>
 </ul>
 </div>
 </div></section>
 
-<section class="section"><div class="wrap">
-<h2 style="margin-bottom:8px">Recent jobs</h2>
-<p style="color:var(--muted);margin-bottom:32px">Sample entries shown for layout. Each will be replaced with one of Jacob's real jobs and its photos.</p>
+<section class="section band-tint"><div class="wrap">
+<h2 style="margin-bottom:8px">Projects</h2>
+<p style="color:var(--muted);margin-bottom:32px">Sample entries shown for layout. Each will be replaced with one of Jacob's real projects and its photos.</p>
 <div class="jobs">
-<article><div class="slot">Real job photo</div><p class="sample">Sample</p><h3>[BUILDING TYPE], [NEIGHBORHOOD]: dead buzzers on two floors</h3><p style="color:var(--muted);margin-top:8px">What was wrong, what we found, what we replaced, and how long it took. Three or four sentences in Jacob's words.</p></article>
-<article><div class="slot">Real job photo</div><p class="sample">Sample</p><h3>[CO-OP], [NEIGHBORHOOD]: Lee-Dan system kept running</h3><p style="color:var(--muted);margin-top:8px">The board had a replacement quote. What we repaired instead, and what it saved.</p></article>
-<article><div class="slot">Real job photo</div><p class="sample">Sample</p><h3>[WALK-UP], [NEIGHBORHOOD]: buzzer upgraded to video</h3><p style="color:var(--muted);margin-top:8px">New video entry on the existing wire, and how the tenants were shown to use it.</p></article>
+<article><div class="slot">Project photo</div><p class="sample">Sample</p><h3>[112] units, [FLATBUSH]: Lee-Dan to video</h3><p style="color:var(--muted);margin-top:8px">Six-storey elevator building. Existing risers tested and reused, new video panel and smartphone entry, completed in [3] weeks with the old system live throughout.</p></article>
+<article><div class="slot">Project photo</div><p class="sample">Sample</p><h3>[14]-building portfolio, [QUEENS]: survey and service agreement</h3><p style="color:var(--muted);margin-top:8px">A management company's new portfolio. Every building surveyed, four replacements planned over the year, the rest brought under one agreement.</p></article>
+<article><div class="slot">Project photo</div><p class="sample">Sample</p><h3>[68] units, [WASHINGTON HEIGHTS]: amplifier and panel</h3><p style="color:var(--muted);margin-top:8px">Whole building down after a basement flood. New amplifier and power supply the same day, vandal-resistant panel fitted the following week.</p></article>
 </div>
+<p style="margin-top:28px">[[projects/|All projects]]</p>
 </div></section>
 
-<section class="section tight" style="padding-top:0"><div class="wrap row" style="gap:48px">
+<section class="section"><div class="wrap row" style="gap:48px">
 <div class="col stack">
-<h2 style="font-size:clamp(1.6rem,3vw,2.3rem)">For managing agents, supers and boards</h2>
-<p style="color:var(--muted)">One call for every building you look after. We send the insurance certificate before we arrive, quote in writing, and keep a record of what is installed where.</p>
-<ul><li>Certificate of insurance on request</li><li>Yearly maintenance contracts, [CONTRACT PRICE]</li><li>One invoice across multiple buildings</li></ul>
-<div><a class="btn btn-dark" href="#quote">Request a building quote</a></div>
+<h2 style="font-size:clamp(1.6rem,3vw,2.3rem)">Vendor paperwork, ready before you ask</h2>
+<p style="color:var(--muted)">Getting a contractor approved shouldn't take three weeks of chasing. Everything your accounts and compliance teams need is ready on request.</p>
+<ul><li>Certificate of insurance naming the owner and managing agent</li><li>W-9 and licence, [LICENCE NO.]</li><li>Invoicing per building or per portfolio, terms [NET 30]</li><li>A written job report with photos after every visit</li></ul>
+<div><a class="btn btn-dark" href="{{u:vendor-onboarding/}}">Vendor onboarding</a></div>
 </div>
 <div class="col stack">
-<h2 style="font-size:clamp(1.6rem,3vw,2.3rem)">Brands we service</h2>
-<p style="color:var(--muted)">Fifteen makes, old and new. Each is getting its own page with models, common faults and what repairs cost.</p>
+<h2 style="font-size:clamp(1.6rem,3vw,2.3rem)">Every major system, old and new</h2>
+<p style="color:var(--muted)">Fifteen makes, so a mixed portfolio needs one vendor, not five.</p>
 <ul class="linklist" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 20px">
 <li>[[lee-dan-intercom-systems/|Lee-Dan]]</li><li>[[brands/aiphone/|Aiphone]]</li><li>[[brands/butterflymx/|ButterflyMX]]</li>
 <li>[[brands/comelit/|Comelit]]</li><li>[[brands/akuvox/|Akuvox]]</li><li>[[brands/tektone/|Tektone]]</li>
@@ -142,21 +146,21 @@ HOME = """
 </div></section>
 """
 
-page(path="", nav="Home", title="Intercom Repair & Installation NYC | Jacob Intercom",
-     desc="Intercom repair and installation across New York for 35 years. Buzzers, door releases, video entry and Lee-Dan systems. Most repairs $100 to $300. Call 718-252-2730.",
-     h1="New York's intercoms, repaired and installed for 35 years.", html=HOME)
+page(path="", nav="Home", title="Intercom Contractor for NYC Property Managers & Apartment Buildings | Jacob Intercom",
+     desc="Intercom repair, service agreements and whole-building system replacements for New York property managers, management companies and supers. Buildings of 10 to 200+ units. 35 years.",
+     h1="The intercom contractor for New York's managed buildings.", html=HOME)
 
 # ───────────────────────────── Repair hub ─────────────────────────────
 
 page(path="intercom-repair/", nav="Intercom repair",
      title="Intercom Repair NYC: Buzzers, Door Release, Audio & Video | Jacob Intercom",
-     desc="Intercom repair in New York for apartment buildings, brownstones and offices. We find the fault and price it before work starts. Most repairs $100 to $300.",
+     desc="Intercom repair for New York apartment buildings, co-ops and managed portfolios. One unit, one riser or the whole building, diagnosed and priced before work starts.",
      h1="Intercom repair in New York City",
-     lead="One dead apartment or a silent building: we find what failed, tell you the price, and fix it. Most repairs take one visit and cost $100 to $300.",
-     facts=["<b>35 years</b> repairing New York intercoms", "Most repairs <b>$100 to $300</b>", "<b>15 brands</b>, including Lee-Dan", "Price given <b>before</b> work starts"],
+     lead="One dead apartment, a dead riser or a silent building: we find what failed, agree the price with you, and fix it. Most repairs take one visit.",
+     facts=["<b>35 years</b> servicing New York buildings", "Buildings of <b>10 to 200+</b> units", "<b>15 brands</b>, including Lee-Dan", "Price given <b>before</b> work starts"],
      body="""
 <h2>Start with what it's doing</h2>
-<p>Almost every intercom call we get is one of six problems. Pick yours for the likely causes, what you can check yourself, and what the repair usually costs.</p>
+<p>Almost every intercom call we get is one of six problems. Pick yours for the likely causes, what building staff can check first, and what the repair usually costs.</p>
 <div class="tablebox"><table>
 <thead><tr><th scope="col">The problem</th><th scope="col">Where the fault usually is</th><th scope="col">Typical price</th></tr></thead>
 <tbody>
@@ -177,11 +181,11 @@ page(path="intercom-repair/", nav="Intercom repair",
 <li><strong>Everyone has it.</strong> The amplifier, the power supply or the entry panel has failed. The rest of the system is usually fine.</li>
 <li><strong>Talking works but the door won't open.</strong> The intercom is fine. The door hardware has failed.</li>
 </ul>
-<p>Knowing which of these you have before you call saves a visit. Ask a neighbour above or below you whether theirs works.</p>
+<p>Knowing which of these you have before you call saves a visit. The super can usually tell in a few minutes by checking units above and below the one that reported it.</p>
 
 <h2>What happens when you call</h2>
 <ol>
-<li><strong>You tell us what it's doing.</strong> A photo of the entry panel and of the apartment station tells us the make and usually the age.</li>
+<li><strong>You or the super tell us what it's doing.</strong> A photo of the entry panel and of the apartment station tells us the make and usually the age.</li>
 <li><strong>We test before we touch.</strong> We check power at the amplifier, then the panel, then the line to the affected apartments, so we replace the part that failed and nothing else.</li>
 <li><strong>You get the price.</strong> We tell you what it is and what it costs before any work starts.</li>
 <li><strong>We repair it.</strong> Most single faults are fixed on the first visit. If a part has to be ordered, we say how long.</li>
@@ -201,58 +205,58 @@ page(path="intercom-repair/", nav="Intercom repair",
 """,
      faqs=[("How much does intercom repair cost in NYC?", "Most single-fault repairs cost $100 to $300. Repairs needing discontinued parts, long wiring runs or a new entry panel cost more. We give you the price before starting."),
            ("Can you fix an intercom another company installed?", "Yes. We repair systems from 15 manufacturers regardless of who installed them."),
-           ("Do I call you, or does my landlord?", "In a rental the building owner is normally responsible for the intercom, so tell your landlord or super first. Owners, supers and managing agents can call us directly at {{tel}}."),
-           ("Can you repair just one apartment?", "Yes. If only your apartment is affected, the repair is usually the station on your wall or the wire to it, and it's the quickest job we do."),
+           ("Do you work directly with tenants?", "No. We work for owners, managing agents, boards and building staff. Tenants should report faults to the super or management office, who can call us at {{tel}}."),
+           ("Can you repair just one apartment?", "Yes. If only one unit is affected, the repair is usually that unit's station or the wire to it, and it's the quickest job we do."),
            ("How fast can you come?", "We're open Monday to Thursday 9 to 5 and Friday 8 to 4. Call {{tel}} for the next opening. After hours: [AFTER-HOURS LINE].")],
-     related=[("intercom-repair/emergency/", "Emergency intercom repair"), ("lee-dan-intercom-systems/", "Lee-Dan systems"), ("pricing/", "Pricing"), ("contact/", "Contact us")])
+     related=[("intercom-repair/emergency/", "Emergency intercom repair"), ("intercom-maintenance-contract/", "Service agreements"), ("superintendents/", "For superintendents"), ("contact/", "Contact us")])
 
 # ───────────────────────────── Symptom pages ─────────────────────────────
 
 symptom(
     "intercom-repair/door-buzzer/", "Door buzzer repair",
     "Door Buzzer Repair NYC: Buzzer Not Ringing | Jacob Intercom",
-    "Apartment buzzer not ringing? The usual causes, what to check yourself, and what repair costs in New York. Most buzzer repairs $100 to $300.",
+    "Apartment buzzers not ringing in your building? The usual causes by pattern, what the super can check, and what repair costs in New York.",
     "Door buzzer repair",
-    "Visitors press your button and nothing happens upstairs. Here is why that happens and what it takes to fix.",
-    """<p>Someone presses your button at the front door and your apartment stays silent. Deliveries leave. Guests call your phone from the sidewalk. Sometimes the buzzer is faint, or rings only now and then.</p>
-<p>The first thing to find out is whether it's only you. If the apartments above and below you have the same problem, the fault is in the wiring you share. If the whole building is silent, it is at the amplifier or the entry panel.</p>""",
+    "Visitors press a button at the door and nothing rings upstairs. Here's how to tell where the fault is and what it takes to fix.",
+    """<p>A tenant reports that visitors press their button and nothing rings. Deliveries are being missed. Sometimes the buzzer is faint, or rings only now and then.</p>
+<p>The first thing to find out is how far it reaches. If the apartments above and below have the same problem, the fault is in the riser they share. If the whole building is silent, it's at the amplifier or the entry panel. If it's one unit, it's that station or its wire.</p>""",
     [("The apartment station has failed", "The buzzer or speaker inside the unit on your wall wears out. This is the most common cause when only one apartment is affected."),
      ("A wire is broken or loose", "Renovations, a new kitchen, or a painter pulling the station off the wall can break a connection. A break in the riser takes out every apartment on that line."),
      ("The button at the door is worn", "Entry panel buttons take weather and thousands of presses. A dead button means the signal never leaves the lobby."),
      ("The amplifier or power supply is failing", "If every apartment is quiet or faint, the unit that powers the system has usually failed."),
      ("The station was switched off or turned down", "Some stations have a volume wheel or a mute switch on the side or underneath.")],
-    ["Look for a volume wheel or switch on your apartment station and turn it up.",
-     "Check that the handset is seated properly on its hook, if you have one. A handset left off the hook can stop the buzzer.",
-     "Ask a neighbour on your line and one on another line whether theirs rings.",
-     "Have someone press your button while you listen at the station for a click or hum. Any sound means the signal is arriving and the station itself is the problem."],
-    """<p>We test from the door inward: the button, the panel, the power at the amplifier, then the line to your apartment. That tells us which part failed.</p>
+    ["Check the unit's station for a volume wheel or mute switch that's been turned down.",
+     "Check the handset is seated on its hook. A handset left off the hook can stop the buzzer.",
+     "Test a unit on the same line, one floor up or down, and a unit on a different line.",
+     "Press the button at the door while someone listens at the station for a click or hum. Any sound means the signal is arriving and the station itself has failed."],
+    """<p>We test from the door inward: the button, the panel, the power at the amplifier, then the line to the affected units. That tells us which part failed.</p>
 <p>A failed station is replaced with a matching or compatible unit, usually in under an hour. A broken wire is traced and repaired at the break. A worn button is replaced in the panel. A failed amplifier or power supply is repaired or replaced, which brings the whole building back at once.</p>""",
     """<p>Most buzzer repairs cost <strong>$100 to $300</strong>. A single apartment station is at the low end. Tracing a break inside a wall, or replacing an amplifier, costs more: [WIRING AND AMPLIFIER RANGE]. You get the price before we start.</p>""",
     """<p>A dead buzzer in one apartment is always a repair. If stations are failing one after another across the building, the system is at the end of its life and it is cheaper to plan a replacement than to keep paying for visits. We will tell you which situation you are in.</p>""",
-    [("Why does my buzzer work sometimes and not others?", "An intermittent buzzer usually means a loose connection or a worn button at the door. It tends to get worse, and it's easier to find while it's still happening."),
-     ("My buzzer rings but I can't hear the visitor. Is that the same fault?", "No. That is an audio fault. See [[intercom-repair/no-audio/|no sound, static or one-way audio]]."),
-     ("Can I replace the apartment station myself?", "The replacement has to match the system's wiring, and older stations are wired differently from the ones sold online. A wrong unit can short the line for your neighbours."),
-     ("Who pays, me or my landlord?", "In a rental, the owner is normally responsible for keeping the intercom working. Report it to your landlord or super in writing.")],
+    [("Why does a buzzer work sometimes and not others?", "An intermittent buzzer usually means a loose connection or a worn button at the door. It tends to get worse, and it's easier to find while it's still happening."),
+     ("The buzzer rings but the tenant can't hear the visitor. Is that the same fault?", "No. That is an audio fault. See [[intercom-repair/no-audio/|no sound, static or one-way audio]]."),
+     ("Can our maintenance staff replace an apartment station?", "Only with an exact match for the system's wiring. Older stations are wired differently from the ones sold online, and a wrong unit can short the whole line."),
+     ("Several units on one line went dead at once. What does that mean?", "The riser they share is broken or shorted between floors, often after work in a wall or ceiling. It's traced and repaired at the break.")],
     [("intercom-repair/", "All intercom repairs"), ("intercom-repair/door-release/", "Door won't unlock"), ("intercom-repair/no-audio/", "No sound or static"), ("intercom-repair/not-working/", "Nothing works at all")])
 
 symptom(
     "intercom-repair/door-release/", "Door release repair",
     "Door Release & Electric Strike Repair NYC | Jacob Intercom",
-    "Buzzer sounds but the door won't unlock? Electric strike and door release repair in New York. Causes, checks and costs. Most repairs $100 to $300.",
+    "Buzzer sounds but the door won't unlock? Electric strike and door release repair in New York. Causes, checks and costs.",
     "Door release and electric strike repair",
-    "You press the door button, maybe even hear the buzz, and the front door stays locked. The intercom is usually fine. The fault is at the door.",
-    """<p>You can hear and talk to your visitor, but pressing the door button doesn't let them in. Sometimes the door buzzes and still won't push open. Sometimes it opens only if the visitor leans on it at the right moment. The opposite fault matters too: a door that no longer locks after it has been buzzed is a security problem for the whole building.</p>""",
+    "Tenants press the door button, the visitor may even hear the buzz, and the entrance stays locked. The intercom is usually fine. The fault is at the door.",
+    """<p>Tenants can hear and talk to their visitor, but pressing the door button doesn't let them in. Sometimes the door buzzes and still won't push open. Sometimes it opens only if the visitor leans on it at the right moment. The opposite fault matters too: a door that no longer locks after it has been buzzed is a security problem for the whole building.</p>""",
     [("The electric strike is worn or misaligned", "The strike is the powered latch plate in the door frame. Doors sag and frames shift, and a strike that is a few millimetres out will buzz without releasing."),
      ("The strike has burned out", "Strikes held open too long, or fed the wrong voltage, fail completely. There is no buzz at the door at all."),
      ("The transformer or release relay has failed", "The strike has its own power feed. If that fails, every apartment loses door release at once."),
-     ("The door button in one apartment has failed", "If your neighbours can open the door and you can't, the fault is in your station."),
+     ("The door button in one apartment has failed", "If other apartments can open the door and one can't, the fault is in that unit's station."),
      ("The door closer or the latch is the real problem", "A door that doesn't close fully never latches, and a stiff latch won't retract. Neither is an intercom fault, but both get reported as one.")],
-    ["Have someone stand at the door while you press the button. Ask whether they hear a buzz or click at the frame.",
+    ["Have someone stand at the door while a tenant presses the button. Listen for a buzz or click at the frame.",
      "If it buzzes, have them push the door firmly while it's buzzing. If that works, the strike is misaligned.",
-     "Ask a neighbour to try their door button. If theirs works, the fault is in your apartment station.",
+     "Try the door button from a second apartment. If that works, the fault is in the first unit's station.",
      "Watch the door close on its own. If it stops short of latching, the closer needs adjusting."],
     """<p>We check for power at the strike while the button is pressed, which separates an electrical fault from a mechanical one in a few minutes.</p>
-<p>A misaligned strike is adjusted or refitted. A burned-out strike is replaced with one matched to the door, the frame and the system voltage. A failed transformer or relay is replaced at the amplifier. If the door closer or lock is the cause, we tell you, and we can fit door hardware where it is part of the entry system.</p>""",
+<p>A misaligned strike is adjusted or refitted. A burned-out strike is replaced with one matched to the door, the frame and the system voltage. A failed transformer or relay is replaced at the amplifier. If the door closer or lock is the cause, we say so, and we can fit door hardware where it is part of the entry system.</p>""",
     """<p>Most door release repairs cost <strong>$100 to $300</strong>. A new electric strike costs more, depending on the door and frame: [STRIKE PRICE]. You get the price before we start.</p>""",
     """<p>Door release faults are almost always repairs. The strike and its power supply are separate from the intercom, so a failed strike is never a reason to replace the system.</p>""",
     [("The door buzzes but doesn't open. Is the intercom broken?", "Usually not. A buzz means power is reaching the strike. The strike is misaligned or worn, or the latch is binding."),
@@ -264,52 +268,52 @@ symptom(
 symptom(
     "intercom-repair/no-audio/", "No sound or static",
     "Intercom No Sound, Static or One-Way Audio: Repair NYC | Jacob Intercom",
-    "Can't hear your visitor, or they can't hear you? Intercom audio repair in New York: the causes of silence, static and one-way sound, and what it costs to fix.",
+    "Tenants can't hear visitors, or visitors can't hear them? Intercom audio repair for New York buildings: the causes of silence, static and one-way sound.",
     "No sound, static or one-way audio",
     "The buzzer rings, but the conversation doesn't work. One side can't hear, both are drowned in static, or there's a loud hum.",
-    """<p>Audio faults come in a few forms: you can hear the visitor but they can't hear you, or the other way round; both sides get crackle or a loud hum; the sound is so faint it's useless; or you hear your neighbours' visitors as well as your own.</p>
+    """<p>Audio faults come in a few forms: the tenant can hear the visitor but not the other way round; both sides get crackle or a loud hum; the sound is too faint to use; or tenants hear other apartments' visitors as well as their own.</p>
 <p>Which form you have points to where the fault is, so it helps to note it before you call.</p>""",
     [("The speaker or microphone in the entry panel has corroded", "The panel sits outdoors or in a damp vestibule. When visitors can't be heard by anyone in the building, this is the usual cause."),
-     ("Your apartment station's speaker or microphone has failed", "If only your apartment has the problem, the fault is in the unit on your wall or its handset cord."),
+     ("One apartment station's speaker or microphone has failed", "If only one unit has the problem, the fault is in that station or its handset cord."),
      ("Wires are crossed or shorted", "Hearing other apartments' conversations, or a hum that starts when a button is pressed, means two wires are touching somewhere."),
      ("The amplifier is failing", "Faint sound across the whole building, or sound that fades in and out, points to the amplifier."),
      ("Something is interfering", "A loud steady hum can come from a failing power supply or from intercom wire run alongside power cable.")],
-    ["Note which direction fails: you can't hear them, they can't hear you, or both.",
-     "If you have a handset, check the coiled cord is pushed fully in at both ends.",
-     "Turn up the volume control on your station if it has one.",
-     "Ask a neighbour whether visitors are clear on theirs. If nobody can hear visitors, the fault is at the entry panel."],
+    ["Note which direction fails: the tenant can't hear the visitor, the visitor can't hear the tenant, or both.",
+     "On handset stations, check the coiled cord is pushed fully in at both ends.",
+     "Check the station's volume control, if it has one.",
+     "Call two or three other units from the door. If nobody can hear visitors, the fault is at the entry panel."],
     """<p>We test the entry panel's speaker and microphone first, because one failed part there affects every apartment. Then we check the amplifier output and the line to the affected stations.</p>
 <p>Panel speakers and microphones are replaced inside the existing panel. A failed station or handset is replaced. Crossed wires are traced and separated. A weak amplifier is repaired or replaced.</p>""",
     """<p>Most audio repairs cost <strong>$100 to $300</strong>. Tracing crossed wires through a building can take longer and cost more: [WIRING REPAIR RANGE]. You get the price before we start.</p>""",
     """<p>A corroded panel speaker or a dead handset is a repair. If the panel is corroded throughout, replacing the panel on the existing wiring is often better value than replacing its parts one at a time.</p>""",
-    [("Why can I hear other apartments on my intercom?", "Two lines are touching, usually where wires share a conduit or at a station that was wired wrongly. It's a privacy problem as well as a nuisance, so it's worth fixing promptly."),
+    [("Why can tenants hear other apartments on the intercom?", "Two lines are touching, usually where wires share a conduit or at a station that was wired wrongly. It's a privacy problem as well as a nuisance, so it's worth fixing promptly."),
      ("The intercom hums all the time. Is that dangerous?", "It isn't dangerous, but a constant hum usually means the power supply is failing, and the system may stop altogether."),
-     ("Visitors say I sound far away. What causes that?", "A weak microphone in your station, or a failing amplifier if your neighbours get the same complaint."),
+     ("Visitors say a tenant sounds far away. What causes that?", "A weak microphone in that station, or a failing amplifier if other units get the same complaint."),
      ("Does rain affect the intercom?", "Yes. Water in an outdoor panel causes crackle and silence that come and go with the weather. The fix is to replace the damaged parts and reseal the panel.")],
     [("intercom-repair/", "All intercom repairs"), ("intercom-repair/door-buzzer/", "Buzzer not ringing"), ("intercom-repair/entry-panel/", "Damaged entry panel"), ("intercom-repair/video/", "Video not working")])
 
 symptom(
     "intercom-repair/video/", "Video intercom repair",
     "Video Intercom Repair NYC: Blank or Frozen Screen | Jacob Intercom",
-    "Video intercom screen blank, frozen or dark? Repair in New York for wired and IP video intercoms and smartphone entry systems. Causes, checks and costs.",
+    "Building video intercom blank, frozen or not calling phones? Repair in New York for wired, IP and cloud entry systems. Causes, checks and costs.",
     "Video intercom repair",
     "The sound works but the picture doesn't, or the screen is dark, frozen or too poor to recognise anyone.",
     """<p>Video faults look like this: a black or blue screen when someone calls; a picture that freezes or breaks up; an image too dark to see a face at night; or, on systems that ring your phone, calls that arrive late or not at all.</p>
 <p>Wired video systems and network-based ones fail in different ways, so the first thing we establish is which you have.</p>""",
     [("The camera in the entry panel has failed", "If no apartment gets a picture, the camera module is the first suspect. Cameras facing the sun or the weather age fastest."),
      ("The power supply is weak", "Video needs more power than audio. A tired power supply will run the sound and drop the picture."),
-     ("The monitor in the apartment has failed", "If only your screen is blank, the fault is in your monitor or its connection."),
+     ("The monitor in the apartment has failed", "If only one unit's screen is blank, the fault is in that monitor or its connection."),
      ("The network is down, on IP and smartphone systems", "These systems depend on the building's internet connection, a network switch and often a cloud service. A fault in any of them stops the video."),
      ("The night lighting has failed", "Panels light the visitor with small LEDs. When they fail, the picture is fine by day and black at night.")],
-    ["Check whether the picture fails for every apartment or only yours.",
+    ["Check whether the picture fails for every apartment or only one.",
      "Note whether it fails only after dark.",
-     "On a smartphone system, check the app is updated, notifications are allowed, and your phone has a signal.",
-     "If the building has its own internet router for the intercom, check whether its lights are on. Don't reset it without asking the building manager."],
+     "On a smartphone system, check the resident's app is updated and notifications are allowed, and check the building's admin portal for the panel's status.",
+     "If the intercom has its own internet router, check whether its lights are on before resetting anything."],
     """<p>On wired systems we test the camera, the power supply and the video line in turn. On network systems we check the panel's connection, the switch and the service account before touching hardware, because many faults are in the settings and not the equipment.</p>
 <p>Cameras and monitors are replaced with matching parts. Power supplies are replaced. Network faults are corrected at the switch or router, and app and account problems are fixed with the building's administrator.</p>""",
     """<p>Video repairs vary more than audio ones, because the parts range from a small camera module to a full touchscreen panel: [VIDEO REPAIR RANGE]. Faults in settings or the network are often fixed in a single short visit. You get the price before we start.</p>""",
     """<p>Replace the part when the system is current and supported. If the manufacturer no longer supplies parts or software updates, repairs become temporary, and a planned replacement costs less over a few years. Much of the existing wiring can usually be reused.</p>""",
-    [("The video works but calls don't reach my phone. Can you fix that?", "Usually, yes. It's most often a setting in the app, the phone's notification permissions, or the building's account with the service."),
+    [("Video works but calls don't reach residents' phones. Can you fix that?", "Usually, yes. It's most often a setting in the app, the phone's notification permissions, or the building's account with the service."),
      ("Can you add video to an audio-only intercom?", "Often, and sometimes on the wire that's already there. See [[intercom-installation/video/|video intercom installation]]."),
      ("Which video systems do you repair?", "Aiphone, Comelit, Akuvox, ButterflyMX, DoorBird, 2N, Siedle, Elvox and others. See [[brands/|the brands we service]]."),
      ("The picture is fine in the day and black at night. Why?", "The panel's night lighting has failed, or the camera has lost its low-light sensitivity. Either can be replaced.")],
@@ -330,7 +334,7 @@ symptom(
     ["Photograph the panel straight on and from the side, and any maker's name or model number on it.",
      "Count the buttons and note which ones don't work.",
      "Check whether the panel is flush in the wall or mounted on the surface.",
-     "If wires are exposed, tell the super or managing agent the same day."],
+     "If wires are exposed, treat it as urgent: they can be used to trip the door."],
     """<p>We open the panel and test the wiring behind it. In most cases the wiring is sound and only what you can see needs replacing.</p>
 <p>Single buttons are replaced in the panel. A worn or broken face is replaced with a new faceplate. When the whole panel is beyond repair, we fit a new one sized to cover the old opening, connect it to the existing wires, and relabel every apartment.</p>""",
     """<p>Replacing a few buttons is a small job. A new panel is priced by the number of apartments, the finish, and whether it is audio or video: [PANEL RANGE]. Send a photo and we can usually give a range the same day.</p>""",
@@ -354,10 +358,10 @@ symptom(
      ("A breaker has tripped or the unit was unplugged", "Work in the basement, a tripped breaker or a moved plug can switch the system off."),
      ("The main wiring has been cut", "Construction, a new boiler, or a cable installer working in the same space can cut the intercom's trunk wiring."),
      ("Water has reached the equipment", "A leak or a flooded basement will take out an amplifier quickly.")],
-    ["Confirm it is the whole building: ask two neighbours on different floors.",
-     "Ask the super whether any work was done in the basement, meter room or lobby recently.",
-     "Have the super check the breaker panel for a tripped breaker and reset it once. If it trips again, leave it off.",
-     "Find the intercom amplifier if you can, usually a metal box near the electric meters, and see whether it is plugged in. Don't open it."],
+    ["Confirm it is the whole building: test units on two different floors and lines.",
+     "Check whether any work was done in the basement, meter room or lobby recently.",
+     "Check the breaker panel for a tripped breaker and reset it once. If it trips again, leave it off.",
+     "Find the intercom amplifier, usually a metal box near the electric meters, and see whether it's plugged in. Don't open it."],
     """<p>We go straight to the power supply and amplifier and measure what is coming out. If there's no power, we replace the transformer or supply. If there's power but no signal, we repair or replace the amplifier. If the equipment is healthy, we trace the trunk wiring for a cut or a short.</p>
 <p>Once the system is live again we test at the door and in a sample of apartments on every line.</p>""",
     """<p>A tripped breaker or a loose plug costs a service call. A new power supply or amplifier costs more, depending on the make: [AMPLIFIER RANGE]. Even so, it is the best-value repair there is, because it restores every apartment at once. You get the price before we start.</p>""",
@@ -404,7 +408,7 @@ page(path="intercom-repair/emergency/", nav="Emergency repair",
 """,
      faqs=[("Do you offer 24-hour service?", "[AFTER-HOURS LINE AND TERMS]"),
            ("The door is stuck open. Can I fix it myself for now?", "If the door has a key lock or deadbolt, use that. Don't force the strike or cut wires, which can turn a simple repair into a larger one."),
-           ("We manage several buildings. Can we get priority service?", "Yes, through a maintenance contract. See [[intercom-maintenance-contract/|maintenance contracts]] or call {{tel}}.")],
+           ("We manage several buildings. Can we get priority service?", "Yes, through a service agreement. See [[intercom-maintenance-contract/|service agreements]] or call {{tel}}.")],
      related=[("intercom-repair/", "All intercom repairs"), ("intercom-repair/door-release/", "Door release repair"), ("intercom-repair/not-working/", "Intercom not working"), ("contact/", "Contact us")])
 
 # ───────────────────────────── Lee-Dan hub ─────────────────────────────
@@ -413,13 +417,13 @@ page(path="lee-dan-intercom-systems/", nav="Lee-Dan",
      title="Lee-Dan Intercom Repair, Parts & Service NYC | Jacob Intercom",
      desc="Lee-Dan intercom repair in New York: IR-203, IR-204 and IR-205 apartment stations, PK-543 amplifiers and lobby panels. Repair, parts and upgrades on existing wiring.",
      h1="Lee-Dan intercom repair and service",
-     lead="Lee-Dan systems are in buildings all over New York, and most of them can be repaired. We fix them, find the parts, and tell you plainly when replacing is the better money.",
+     lead="Lee-Dan systems still run thousands of New York apartment buildings, and most can be kept running. We repair them, stock the parts, and plan the conversion when replacing is the better money.",
      facts=["<b>IR-203, IR-204, IR-205</b> stations", "<b>PK-543</b> amplifiers", "Lobby panels and parts", "<b>35 years</b> in business"],
      aside={"head": "Got a Lee-Dan that's stopped working?", "text": "Send a photo of the apartment station and the lobby panel. We can usually tell you the model and the likely fault from the picture."},
      body="""
 <div class="note"><p><strong>For Jacob to confirm before launch:</strong> the technical details on this page are drawn from published Lee-Dan product information. Fault patterns, parts availability and prices need his review. Dealer status: [AUTHORISED DEALER OR NOT].</p></div>
 <h2>Why so many New York buildings have one</h2>
-<p>Lee-Dan Communications is a Long Island manufacturer that has supplied apartment intercoms to the New York market for decades. Its systems were fitted in walk-ups, pre-war elevator buildings, co-ops and small multi-family houses across the five boroughs, and a great many are still in daily use.</p>
+<p>Lee-Dan Communications is a Long Island manufacturer that has supplied apartment intercoms to the New York market for decades. Its systems were fitted in walk-ups, pre-war elevator buildings and co-ops across the five boroughs, and a great many are still in daily use.</p>
 <p>The design is simple and the parts are sturdy, which is why they last. It is also why a Lee-Dan that has stopped working is usually worth repairing.</p>
 <h2>How to tell if yours is a Lee-Dan</h2>
 <ul>
@@ -463,50 +467,12 @@ page(path="lee-dan-intercom-systems/", nav="Lee-Dan",
 """,
      faqs=[("Does anyone still repair Lee-Dan intercoms in NYC?", "Yes. We repair Lee-Dan apartment stations, amplifiers and lobby panels across all five boroughs."),
            ("Are Lee-Dan parts still available?", "Yes. Lee-Dan stations, amplifiers and panel parts are still sold by the manufacturer and its distributors."),
-           ("Can I replace a Lee-Dan apartment station myself?", "Only with the exact wire-count match. An IR-203, IR-204 and IR-205 look similar and are wired differently, and the wrong unit can disable the line for your neighbours."),
+           ("Can building staff replace a Lee-Dan apartment station?", "Only with the exact wire-count match. An IR-203, IR-204 and IR-205 look similar and are wired differently, and the wrong unit can disable the whole line."),
            ("Can a Lee-Dan system be upgraded to video?", "Often, and sometimes on the existing wiring. It depends on how many wires run to each apartment and their condition, which we test on site."),
            ("How much does a Lee-Dan repair cost?", "Most single-fault repairs cost $100 to $300. Amplifiers and lobby panels cost more. We give you the price before starting.")],
      related=[("intercom-repair/", "All intercom repairs"), ("intercom-repair/not-working/", "Intercom not working"), ("brands/", "Other brands we service"), ("contact/", "Contact us")])
 
 # ───────────────────────────── Contact ─────────────────────────────
-
-page(path="contact/", nav="Contact",
-     title="Contact Jacob Intercom: Call, Text or Send a Photo",
-     desc="Call 718-252-2730 or 212-837-2147, or send a photo of your intercom panel for a price range. 209 Avenue F, Brooklyn. Serving all five boroughs.",
-     h1="Contact Jacob Intercom",
-     lead="The quickest way to a price is a photo of the entry panel and the apartment station. Or call, and a person will answer during office hours.",
-     facts=["<b>718-252-2730</b>", "<b>212-837-2147</b>", "Mon to Thu 9 to 5, Fri 8 to 4"], no_reviews=True,
-     aside={"head": "Is it urgent?", "text": "If the front door won't lock or the whole building is down, see [[intercom-repair/emergency/|emergency repair]] and call {{tel}}."},
-     body="""
-<h2>Call or text</h2>
-<p><strong>{{tel}}</strong></p>
-<p><strong>{{tel2}}</strong></p>
-<p>Email: <a href="mailto:jacobintercom@gmail.com">jacobintercom@gmail.com</a></p>
-<p>Text a photo to: [NUMBER THAT ACCEPTS TEXTS]</p>
-<h2>Hours</h2>
-<div class="tablebox"><table>
-<thead><tr><th scope="col">Day</th><th scope="col">Hours</th></tr></thead>
-<tbody>
-<tr><th scope="row">Monday to Thursday</th><td>9:00 am to 5:00 pm</td></tr>
-<tr><th scope="row">Friday</th><td>8:00 am to 4:00 pm</td></tr>
-<tr><th scope="row">Saturday and Sunday</th><td>Closed</td></tr>
-<tr><th scope="row">After hours</th><td>[AFTER-HOURS LINE]</td></tr>
-</tbody></table></div>
-<h2>Where we are</h2>
-<p>Jacob Intercom<br>209 Avenue F<br>Brooklyn, NY 11218</p>
-<p>We travel to you. Our technicians cover Brooklyn, Manhattan, Queens, the Bronx and Staten Island, and take jobs on Long Island, in Westchester and in New Jersey.</p>
-<h2>What to send us</h2>
-<p>These four things let us give you a price range before anyone drives out:</p>
-<ol>
-<li>A photo of the entry panel at the front door.</li>
-<li>A photo of the station inside an apartment.</li>
-<li>What it's doing, and whether it affects one apartment or all of them.</li>
-<li>The building's address and how many apartments it has.</li>
-</ol>
-<h2>Property managers and boards</h2>
-<p>We send a certificate of insurance before the first visit and quote in writing. For several buildings, ask about one invoice across the portfolio and a yearly maintenance contract. See [[property-managers/|property managers]].</p>
-""",
-     related=[("intercom-repair/", "Intercom repair"), ("lee-dan-intercom-systems/", "Lee-Dan systems"), ("intercom-repair/emergency/", "Emergency repair")])
 
 # ───────────────────────────── Lee-Dan section ─────────────────────────────
 
@@ -520,7 +486,7 @@ REVIEW = '<div class="note"><p><strong>For Jacob to review before launch.</stron
 
 def ld(slug, nav, title, desc, h1, lead, body, faqs, facts=None):
     page(path=LD + slug + "/", nav=nav, title=title, desc=desc, h1=h1, lead=lead,
-         facts=facts or ["<b>Lee-Dan</b> specialists", "Most repairs <b>$100 to $300</b>", "<b>35 years</b> in business"],
+         facts=facts or ["<b>Lee-Dan</b> specialists", "Buildings of <b>10 to 200+</b> units", "<b>35 years</b> in business"],
          aside=LD_ASIDE, body=REVIEW + body, faqs=faqs, related=LD_RELATED)
 
 
@@ -557,11 +523,11 @@ def station(slug, model, wires, commons, where, extra):
 <h2>What it costs</h2>
 <p>Replacing one apartment station usually falls at the low end of our <strong>$100 to $300</strong> repair range. Several stations in one visit cost less each: [PER-STATION PRICE]. You get the price before we start.</p>
 """,
-       [(f"Can I swap an {model} for a different Lee-Dan model?", "Only if the building's wiring supports it. The three models use different numbers of wires, so they are not interchangeable on the same line."),
+       [(f"Can we swap an {model} for a different Lee-Dan model?", "Only if the building's wiring supports it. The three models use different numbers of wires, so they are not interchangeable on the same line."),
         (f"Is the {model} still made?", f"Yes. The current version is the {model}E, sold by Lee-Dan and its distributors."),
-        ("Can I fit one myself?", "The wires must go back on the same terminals they came off. If they are mixed up, your station won't work and your neighbours' may stop too. If you do it yourself, photograph the wiring before disconnecting anything."),
-        ("Mine works, but the plastic has yellowed and cracked. Can it be replaced?", "Yes. A new station on the same wires takes a few minutes per apartment.")],
-       facts=[f"<b>{wires}-wire</b> apartment station", "Talk, Listen and Door buttons", "Most repairs <b>$100 to $300</b>"])
+        ("Can our super fit one?", "The wires must go back on the same terminals they came off. If they are mixed up, that station won't work and others on the line may stop too. If building staff do it, photograph the wiring before disconnecting anything."),
+        ("Ours work, but the plastic has yellowed and cracked. Can they be replaced?", "Yes. A new station on the same wires takes a few minutes per apartment.")],
+       facts=[f"<b>{wires}-wire</b> apartment station", "Talk, Listen and Door buttons", "Stocked for <b>whole-building</b> swaps"])
 
 
 station("ir-203", "IR-203", 3, "two", "It is the one fitted when an old bell-and-buzzer system was upgraded to voice without running new wire.",
@@ -669,7 +635,7 @@ ld("wiring", "Wiring guide",
 <p>This is why the first question we ask is how many apartments are affected. The answer usually tells us which kind of wire has failed before we arrive.</p>
 <h2>Why the wire count matters when replacing a station</h2>
 <p>The three station models look alike and are built for different wire counts. A four-wire station on a three-wire line has a terminal with nothing to connect to, and it will not work. Putting a wire on the wrong terminal can short a common wire and take out the whole line.</p>
-<p>If you are replacing a station yourself, photograph the wires on their terminals before you remove anything, and fit the same model that came off.</p>
+<p>If building staff are replacing a station, photograph the wires on their terminals before you remove anything, and fit the same model that came off.</p>
 <h2>Why it matters for upgrades</h2>
 <p>Wire that is already in the walls is the most valuable part of an old system. Newer video intercoms, including Lee-Dan's own 2Easy range, run on two wires. A building wired for a three, four or five-wire Lee-Dan often has enough good conductors to carry one, which means video without opening walls. We test the existing wire before quoting. See [[lee-dan-intercom-systems/replacement/|replacement and upgrades]] and [[lee-dan-intercom-systems/2easy/|Lee-Dan 2Easy]].</p>
 <h2>Diagrams</h2>
@@ -729,7 +695,7 @@ ld("troubleshooting", "Troubleshooting",
 
 ld("repair", "Lee-Dan repair",
    "Lee-Dan Intercom Repair NYC | Jacob Intercom",
-   "Lee-Dan intercom repair across New York's five boroughs. Apartment stations, PK-543 amplifiers, lobby panels and wiring. Most repairs $100 to $300.",
+   "Lee-Dan intercom repair across New York's five boroughs. Apartment stations, PK-543 amplifiers, lobby panels and wiring.",
    "Lee-Dan intercom repair",
    "If you have been told nobody fixes Lee-Dan any more, that isn't true. We repair them every week.",
    """
@@ -809,7 +775,7 @@ ld("parts", "Lee-Dan parts",
    "Lee-Dan Intercom Parts: Stations, Amplifiers & Panels | Jacob Intercom",
    "Lee-Dan intercom parts: IR-203E, IR-204E and IR-205E stations, the PK-543A amplifier, transformers and lobby panel components. What each part is and what it does.",
    "Lee-Dan parts",
-   "Lee-Dan parts are still sold. Here is what each one is, what it replaces, and when it's worth fitting yourself.",
+   "Lee-Dan parts are still sold. Here is what each one is, what it replaces, and when building staff can fit it.",
    """
 <h2>The parts in a Lee-Dan system</h2>
 <div class="tablebox"><table>
@@ -828,7 +794,7 @@ ld("parts", "Lee-Dan parts",
 <p>The parts themselves are not expensive. In November 2026, distributors listed the IR-204E station at about $30 and the PK-543A amplifier at about $125. Most of the cost of a repair is finding the fault and fitting the part correctly.</p>
 <h2>Parts we keep</h2>
 <p>[PARTS JACOB STOCKS, AND TYPICAL LEAD TIME FOR THE REST]</p>
-<h2>Fitting parts yourself</h2>
+<h2>Fitting parts in-house</h2>
 <p>A like-for-like apartment station is within reach of a careful owner: photograph the wires, move them one at a time to the same terminals on the new unit, and test. Make sure the model matches the one that came off.</p>
 <p>Leave the amplifier, the transformer and the lobby panel to a technician. A mistake there affects the whole building, and the transformer is connected to mains power.</p>
 <h2>We supply and fit</h2>
@@ -856,7 +822,7 @@ ld("2easy", "Lee-Dan 2Easy",
 </ul>
 <h2>Why it suits older New York buildings</h2>
 <p>A building with a three, four or five-wire Lee-Dan audio system already has more wire in the walls than 2Easy needs. If that wire tests well, the video system can run on it, and no walls are opened. See the [[lee-dan-intercom-systems/wiring/|wiring guide]].</p>
-<p>It also suits brownstones and small buildings, where a kit for two, three or four apartments covers the whole house.</p>
+<p>It also suits smaller walk-ups, where a kit sized to the building covers every apartment on two wires.</p>
 <h2>How an installation goes</h2>
 <ol>
 <li>We test the existing wire to every apartment.</li>
@@ -888,7 +854,7 @@ def inst(slug, nav, title, desc, h1, lead, body, faqs):
 
 
 inst("", "Intercom installation",
-     "Intercom Installation NYC: Apartment Buildings, Brownstones & Offices | Jacob Intercom",
+     "Intercom Installation NYC: Apartment Buildings, Co-ops & Condos | Jacob Intercom",
      "Intercom installation across New York for 35 years. Audio, video, wireless and smartphone entry. We test the existing wire first so you don't pay to open walls you don't need to.",
      "Intercom installation in New York City",
      "A new intercom is mostly a wiring decision. We test what is already in the walls first, because reusing it is the difference between a two-day job and a two-week one.",
@@ -915,7 +881,6 @@ inst("", "Intercom installation",
 <h2>By building type</h2>
 <ul>
 <li>[[apartment-building-intercom/|Apartment buildings]]</li>
-<li>[[brownstone-intercom/|Brownstones and two to four family houses]]</li>
 <li>[[co-op-condo-intercom/|Co-ops and condos]]</li>
 <li>[[commercial-intercom/|Offices and stores]]</li>
 </ul>
@@ -933,7 +898,7 @@ inst("", "Intercom installation",
 
 inst("video", "Video intercoms",
      "Video Intercom Installation NYC | Jacob Intercom",
-     "Video intercom installation for New York apartment buildings, brownstones and offices. Wall monitors or phone answering, often on existing wiring.",
+     "Video intercom installation for New York apartment buildings, co-ops and commercial buildings. Wall monitors or phone answering, often on existing wiring.",
      "Video intercom installation",
      "Seeing who is at the door changes how a building feels. In many older buildings it can be added on the wire that is already there.",
      """
@@ -1053,7 +1018,7 @@ inst("telephone-entry", "Telephone entry systems",
 
 inst("audio", "Audio intercoms",
      "Audio Intercom System Installation NYC | Jacob Intercom",
-     "Audio intercom installation in New York: simple talk, listen and door systems for apartment buildings and brownstones. Reliable, inexpensive and easy to maintain.",
+     "Audio intercom installation in New York: simple talk, listen and door systems for apartment buildings. Reliable, inexpensive and easy to maintain.",
      "Audio intercom systems",
      "Talk, listen, door. An audio intercom does one job, costs the least to install, and can run for decades.",
      """
@@ -1078,166 +1043,13 @@ inst("audio", "Audio intercoms",
       ("Can we add video later?", "Often, on the same wiring. Tell us at the start and we'll choose equipment with that in mind."),
       ("Which audio systems do you install?", "[[lee-dan-intercom-systems/|Lee-Dan]], [[brands/aiphone/|Aiphone]], [[brands/tektone/|TekTone]] and others.")])
 
-page(path="intercom-replacement/", nav="Replacement and upgrades",
-     title="Intercom Replacement & Upgrade NYC | Jacob Intercom",
-     desc="Replacing an old intercom in New York: when it's time, what the options are, and how reusing the existing wiring keeps the cost down.",
-     h1="Intercom replacement and upgrades",
-     lead="Most old intercoms can be repaired. When yours can't, or the building wants more from it, here is how to replace it without paying for more than you need.",
-     facts=INST_FACTS, aside=INST_ASIDE, related=INST_RELATED,
-     body="""
-<h2>Is it time?</h2>
-<p>Replace when one of these is true:</p>
-<ul>
-<li>You have paid for several repairs in a year and different parts keep failing.</li>
-<li>Parts for the system are no longer made and no compatible substitute exists.</li>
-<li>The wiring is failing in many places.</li>
-<li>The building wants video, phone answering or delivery codes.</li>
-</ul>
-<p>One failed part is not a reason to replace. If you have been quoted a new system for a single fault, get a second opinion.</p>
-<h2>The four levels of replacement</h2>
-<div class="tablebox"><table>
-<thead><tr><th scope="col">Level</th><th scope="col">What is replaced</th><th scope="col">Disruption</th></tr></thead>
-<tbody>
-<tr><th scope="row">Entry panel only</th><td>The panel at the door</td><td>A few hours. No apartment access.</td></tr>
-<tr><th scope="row">Like-for-like renewal</th><td>Panel, amplifier and stations, same type, same wires</td><td>A short visit to each apartment</td></tr>
-<tr><th scope="row">Upgrade on existing wire</th><td>A newer system, often video, on the old wiring</td><td>A short visit to each apartment</td></tr>
-<tr><th scope="row">New system with new wiring</th><td>Everything, including cable</td><td>The most work. Sometimes walls are opened.</td></tr>
-</tbody></table></div>
-<p>We always price the lower levels first. Most buildings that think they need the fourth turn out to need the second or third.</p>
-<h2>Testing the wire</h2>
-<p>Before quoting, we test the wire to every apartment. That tells us how many conductors are intact and which lines, if any, need new cable. It is the single biggest factor in the price, and it is why a quote given without a site visit is a guess.</p>
-<h2>Keeping the building running</h2>
-<p>We plan the changeover so the old system works until the new one is ready. Where that isn't possible, we tell residents exactly when the door will need to be answered in person.</p>
-<h2>What it costs</h2>
-<p>[REPLACEMENT PRICE RANGE BY LEVEL AND BUILDING SIZE]. See [[pricing/|pricing]].</p>
-""",
-     faqs=[("Should we repair or replace?", "Repair when one part has failed and the rest is sound. Replace when faults keep moving around the system or parts are no longer available."),
-           ("Can we replace only the panel at the door?", "Yes, if the apartment stations work. It is the least expensive way to renew an entrance."),
-           ("Do you remove the old equipment?", "Yes, and we cover or patch the openings old stations leave behind where the new ones are a different size.")])
-
 # ───────────────────────────── Pricing, property managers, about ─────────────────────────────
-
-page(path="pricing/", nav="Pricing",
-     title="Intercom Repair & Installation Prices in NYC | Jacob Intercom",
-     desc="What intercom repair and installation cost in New York. Most repairs $100 to $300. Prices by problem and by building size, given before work starts.",
-     h1="Pricing",
-     lead="You get the price before any work starts. Here is what jobs usually cost, so you know what to expect before you call.",
-     facts=["Most repairs <b>$100 to $300</b>", "Price given <b>before</b> work starts", "Written quotes for installations"],
-     body="""
-<div class="note"><p><strong>For Jacob to complete before launch.</strong> Only the $100 to $300 repair range comes from his current site. Every highlighted figure below is waiting on his real numbers. A full table like this is something no competitor publishes.</p></div>
-<h2>Repairs</h2>
-<div class="tablebox"><table>
-<thead><tr><th scope="col">Job</th><th scope="col">Typical price</th></tr></thead>
-<tbody>
-<tr><th scope="row">Service call and diagnosis</th><td>[DIAGNOSIS FEE, AND WHETHER IT IS CREDITED TO THE REPAIR]</td></tr>
-<tr><th scope="row">[[intercom-repair/door-buzzer/|Apartment station replaced]]</th><td>$100 to $300</td></tr>
-<tr><th scope="row">[[intercom-repair/door-release/|Door release adjusted or repaired]]</th><td>$100 to $300</td></tr>
-<tr><th scope="row">[[intercom-repair/no-audio/|Panel speaker or microphone replaced]]</th><td>$100 to $300</td></tr>
-<tr><th scope="row">New electric strike, fitted</th><td>[STRIKE PRICE]</td></tr>
-<tr><th scope="row">Amplifier or power supply replaced</th><td>[AMPLIFIER RANGE]</td></tr>
-<tr><th scope="row">Wiring fault traced and repaired</th><td>[WIRING REPAIR RANGE]</td></tr>
-<tr><th scope="row">[[intercom-repair/entry-panel/|New entry panel on existing wiring]]</th><td>[PANEL RANGE]</td></tr>
-<tr><th scope="row">[[intercom-repair/video/|Video intercom repair]]</th><td>[VIDEO REPAIR RANGE]</td></tr>
-<tr><th scope="row">After-hours call</th><td>[AFTER-HOURS RATE]</td></tr>
-</tbody></table></div>
-<h2>Installations</h2>
-<div class="tablebox"><table>
-<thead><tr><th scope="col">Building</th><th scope="col">Audio</th><th scope="col">Video</th></tr></thead>
-<tbody>
-<tr><th scope="row">Brownstone, 2 to 4 apartments</th><td>[PRICE]</td><td>[PRICE]</td></tr>
-<tr><th scope="row">Small building, 5 to 12 apartments</th><td>[PRICE]</td><td>[PRICE]</td></tr>
-<tr><th scope="row">Medium building, 13 to 30 apartments</th><td>[PRICE]</td><td>[PRICE]</td></tr>
-<tr><th scope="row">Large building, over 30 apartments</th><td>Quoted</td><td>Quoted</td></tr>
-</tbody></table></div>
-<p>Installation prices assume the existing wiring can be reused. New cable adds to the cost, and we tell you by how much after testing.</p>
-<h2>What changes the price</h2>
-<ul>
-<li><strong>How many apartments are affected.</strong> One station is quick. A fault on a shared wire takes longer to find.</li>
-<li><strong>The age and make of the system.</strong> Parts for discontinued systems cost more and can take time to source.</li>
-<li><strong>Access.</strong> Wire inside finished walls costs more to reach than wire in a basement.</li>
-<li><strong>The door.</strong> A worn strike or closer is often part of the problem and part of the price.</li>
-</ul>
-<h2>Maintenance contracts</h2>
-<p>For owners and managing agents, a yearly contract covers inspection and priority service: [CONTRACT PRICE]. See [[intercom-maintenance-contract/|maintenance contracts]].</p>
-<h2>How we quote</h2>
-<p>For repairs, we find the fault and tell you the price on site, before starting. For installations and replacements, you get a written quote after a site visit. The price we quote is the price you pay unless the job changes, and if it does we stop and tell you first.</p>
-""",
-     faqs=[("Is there a charge to come out and look?", "[DIAGNOSIS FEE, AND WHETHER IT IS CREDITED TO THE REPAIR]"),
-           ("Do you give prices over the phone?", "We can usually give a range from a photo and a description. The firm price comes once we've tested the system."),
-           ("Do you charge more for older systems?", "Labour is the same. Parts for discontinued systems can cost more."),
-           ("How do I pay?", "[PAYMENT METHODS AND TERMS]")],
-     related=[("intercom-repair/", "Intercom repair"), (INST, "Intercom installation"), ("intercom-maintenance-contract/", "Maintenance contracts"), ("contact/", "Contact us")])
-
-page(path="property-managers/", nav="Property managers",
-     title="Intercom Service for NYC Property Managers, Supers & Boards | Jacob Intercom",
-     desc="Intercom repair, installation and maintenance for New York managing agents, supers and co-op and condo boards. Insurance certificate, written quotes, one invoice.",
-     h1="For managing agents, supers and boards",
-     lead="You need a contractor who shows up, sends the paperwork without being chased, and doesn't sell a new system when a part will do.",
-     facts=["Certificate of insurance <b>on request</b>", "Written quotes", "One invoice across buildings"],
-     aside={"head": "Looking after several buildings?", "text": "Send us the addresses and what each has. We'll tell you what we can cover and what a maintenance contract would cost."},
-     body="""
-<h2>What you get</h2>
-<ul>
-<li><strong>Insurance paperwork first.</strong> We send a certificate of insurance naming the building and managing agent before the first visit. Licence: [LICENCE NO.]. Coverage: [INSURANCE LIMITS].</li>
-<li><strong>Written quotes</strong> a board can vote on, with options where there are options.</li>
-<li><strong>One point of contact</strong> and one invoice across every building you manage.</li>
-<li><strong>A record of each building:</strong> the make and model of the system, where the amplifier is, what has been replaced and when.</li>
-<li><strong>Repair first.</strong> We tell you when a part will do and when it won't.</li>
-</ul>
-<h2>For supers</h2>
-<p>Call or text us what the system is doing and how many apartments are affected. A photo of the panel and of the amplifier gets you a faster answer. We work around your schedule for apartment access, and we leave the equipment labelled so the next fault is easier to describe. See the [[intercom-repair/|repair guide by symptom]].</p>
-<h2>For co-op and condo boards</h2>
-<p>Replacing an intercom is a capital decision. We test the existing wiring, set out two or three options with costs, and explain the difference in plain terms at a board meeting if that helps. Residents are given notice, shown how the new system works, and not left without a way to answer the door. See [[intercom-replacement/|replacement and upgrades]].</p>
-<h2>For owners</h2>
-<p>A working intercom is part of keeping a building habitable and secure, and tenants notice quickly when it isn't. We keep older systems running for as long as that is the sensible choice, and tell you in advance when it is time to budget for a replacement. [LEGAL REQUIREMENTS: TO BE CHECKED BEFORE PUBLISHING]</p>
-<h2>Maintenance contracts</h2>
-<p>A yearly contract covers a scheduled inspection of every building and priority response when something fails. See [[intercom-maintenance-contract/|maintenance contracts]].</p>
-<h2>Buildings we look after</h2>
-<p>[CLIENTS OR BUILDING TYPES JACOB CAN NAME, WITH PERMISSION]</p>
-""",
-     faqs=[("Can you send a certificate of insurance before the job?", "Yes, naming the building owner and managing agent as required."),
-           ("Do you work with building staff schedules for apartment access?", "Yes. We agree access with the super and give residents notice."),
-           ("Can you attend a board meeting to explain the options?", "[YES OR NO, AND ANY CHARGE]"),
-           ("Do you offer payment terms for managing agents?", "[PAYMENT TERMS FOR ACCOUNTS]")],
-     related=[("intercom-maintenance-contract/", "Maintenance contracts"), ("intercom-replacement/", "Replacement and upgrades"), ("pricing/", "Pricing"), ("contact/", "Contact us")])
-
-page(path="intercom-maintenance-contract/", nav="Maintenance contracts",
-     title="Intercom Maintenance Contracts NYC | Jacob Intercom",
-     desc="Yearly intercom maintenance contracts for New York buildings: scheduled inspection, priority service and a record of every system.",
-     h1="Intercom maintenance contracts",
-     lead="Most intercom failures give warning. A yearly inspection finds the weak transformer and the corroded panel before the building goes quiet.",
-     facts=["Yearly <b>inspection</b>", "<b>Priority</b> response", "One invoice across buildings"],
-     aside={"head": "Want a contract price?", "text": "Tell us how many buildings, how many apartments in each, and what systems they have. We'll send a price."},
-     body="""
-<div class="note"><p><strong>For Jacob to decide before launch.</strong> This page describes a contract he does not offer online today. The terms below are a proposal for him to adjust, price or drop.</p></div>
-<h2>What a contract covers</h2>
-<ul>
-<li><strong>A scheduled inspection</strong> of each building: [INSPECTIONS PER YEAR].</li>
-<li><strong>Testing</strong> of the entry panel, amplifier, power supply, door release and a sample of apartments on every line.</li>
-<li><strong>Cleaning and resealing</strong> of the entry panel.</li>
-<li><strong>Directory updates</strong> for new residents.</li>
-<li><strong>Priority response</strong> when something fails: [RESPONSE COMMITMENT].</li>
-<li><strong>A written report</strong> after each inspection, with anything that is likely to fail soon.</li>
-</ul>
-<h2>What it doesn't cover</h2>
-<p>[PARTS, VANDALISM, AFTER-HOURS CALLS: INCLUDED OR EXTRA]</p>
-<h2>Why it pays</h2>
-<p>Two emergency calls in a year usually cost more than a contract. The inspection also catches the failures that take out a whole building, a weak transformer or a panel taking in water, while they are still inexpensive to fix.</p>
-<h2>What it costs</h2>
-<p>[CONTRACT PRICE BY BUILDING SIZE]. Several buildings under one contract are priced together.</p>
-<h2>Who it suits</h2>
-<p>Managing agents with several buildings, co-op and condo boards that want predictable costs, and owners of buildings with older systems. See [[property-managers/|property managers]].</p>
-""",
-     faqs=[("Are parts included?", "[PARTS INCLUDED OR EXTRA]"),
-           ("Can we cancel?", "[CANCELLATION TERMS]"),
-           ("Do you take over systems another company installed?", "Yes. We inspect first and tell you what condition the system is in.")],
-     related=[("property-managers/", "Property managers"), ("pricing/", "Pricing"), ("intercom-repair/emergency/", "Emergency repair"), ("contact/", "Contact us")])
 
 page(path="about/", nav="About",
      title="About Jacob Intercom: 35 Years of Intercom Work in New York",
      desc="Jacob Intercom has repaired and installed intercoms across New York for 35 years, from a base at 209 Avenue F in Brooklyn.",
      h1="About Jacob Intercom",
-     lead="Thirty-five years of repairing and installing intercoms in New York, from Avenue F in Brooklyn.",
+     lead="Thirty-five years as the intercom contractor for New York apartment buildings, from Avenue F in Brooklyn.",
      facts=["<b>35 years</b> in business", "Based in <b>Brooklyn</b>", "Licensed and insured"],
      body="""
 <div class="note"><p><strong>For Jacob to write or approve.</strong> This page should be in his words. The structure and the confirmed facts are in place. The rest is marked for him.</p></div>
@@ -1245,7 +1057,7 @@ page(path="about/", nav="About",
 <h2>How we started</h2>
 <p>[JACOB: HOW AND WHEN HE STARTED, AND WHAT THE WORK WAS LIKE THEN]</p>
 <h2>What we do</h2>
-<p>We repair and install intercoms, and the door hardware, access control and cameras that go with them. Most of our work is in apartment buildings, brownstones, co-ops and condos, with offices and stores alongside.</p>
+<p>We repair and install intercoms, and the door hardware, access control and cameras that go with them. Our clients are the people who run New York's apartment buildings: property management companies, building managers and supers, co-op and condo boards, and owners with their own maintenance staff. Most buildings we look after have between 10 and 200 apartments.</p>
 <p>A large part of it is keeping older systems running. New York has thousands of intercoms that were fitted decades ago and still have years in them, and we would sooner repair one than replace it. We are known for [[lee-dan-intercom-systems/|Lee-Dan systems]] in particular.</p>
 <h2>How we work</h2>
 <ul>
@@ -1257,7 +1069,7 @@ page(path="about/", nav="About",
 <h2>The team</h2>
 <p>[NAMES AND ROLES, WITH PERMISSION]. One of our Google reviewers wrote: &ldquo;Marina is the person to go to!&rdquo;</p>
 <h2>Licences and insurance</h2>
-<p>Licence: [LICENCE NO. AND TYPE]. Insurance: [INSURER AND LIMITS]. A certificate of insurance is available to managing agents and boards on request.</p>
+<p>Licence: [LICENCE NO. AND TYPE]. Insurance: [INSURER AND LIMITS]. A certificate of insurance is available to managing agents and boards on request. See [[vendor-onboarding/|vendor onboarding]].</p>
 <h2>Where we work</h2>
 <p>Our office is at 209 Avenue F, Brooklyn, NY 11218. We cover Brooklyn, Manhattan, Queens, the Bronx and Staten Island, and take jobs on Long Island, in Westchester and in New Jersey.</p>
 """,
@@ -1316,41 +1128,6 @@ btype("apartment-building-intercom/", "Apartment buildings",
       [("Who is responsible for a building intercom?", "The building owner, through the super or managing agent. Residents should report faults to them in writing."),
        ("Can a building have different systems for different entrances?", "It is possible but harder to maintain. We recommend one system with a panel at each door."),
        ("How long does a building intercom last?", "Wired systems commonly run for decades with parts replaced along the way. Network systems are usually replaced sooner, when software support ends.")])
-
-btype("brownstone-intercom/", "Brownstones and 2 to 4 family",
-      "Brownstone & Two-Family Intercom Systems NYC | Jacob Intercom",
-      "Intercoms for New York brownstones, townhouses and two to four family houses: repair, replacement and video, without damaging original detail.",
-      "Brownstone and two to four family intercoms",
-      "A brownstone intercom is a small system with particular problems: original doors, decorative ironwork, plaster walls and owners who live upstairs.",
-      """
-<h2>What is different about a brownstone</h2>
-<ul>
-<li><strong>Two front doors.</strong> Many have an outer door under the stoop or at the top of it, and an inner vestibule door. The intercom may need to release one or both.</li>
-<li><strong>Original doors and frames.</strong> Fitting a strike to a hundred-year-old door needs care so the wood and hardware aren't damaged.</li>
-<li><strong>Plaster walls.</strong> Running new cable is slow and messy, so reusing the old wire matters more here than anywhere.</li>
-<li><strong>Few apartments.</strong> Two to four units means a small, inexpensive system, often a kit.</li>
-<li><strong>Landmark districts.</strong> A panel visible from the street may need to suit the facade.</li>
-</ul>
-<h2>Common setups</h2>
-<div class="tablebox"><table>
-<thead><tr><th scope="col">Setup</th><th scope="col">When it fits</th></tr></thead>
-<tbody>
-<tr><th scope="row">Audio panel and stations</th><td>Simple, inexpensive, no monthly fee</td></tr>
-<tr><th scope="row">Two-wire video kit</th><td>Video on the existing wire. Kits come sized for two, three or four apartments.</td></tr>
-<tr><th scope="row">Video doorbell-style panel with phone app</th><td>Owner-occupied houses where residents want to answer from anywhere</td></tr>
-</tbody></table></div>
-<p>Lee-Dan's [[lee-dan-intercom-systems/2easy/|2Easy kits]] and [[brands/aiphone/|Aiphone]]'s small multi-tenant kits are both common choices.</p>
-<h2>The door</h2>
-<p>Old doors sag, and a strike that worked when it was fitted can drift out of line. If yours buzzes without opening, see [[intercom-repair/door-release/|door release repair]]. For heavy original doors, a magnetic lock or a surface strike sometimes suits better than cutting the frame.</p>
-<h2>Repair</h2>
-<p>Most brownstone repairs are a single station, a worn button, or the strike. They are usually done in one visit, at the low end of our $100 to $300 range.</p>
-<h2>What a new system costs</h2>
-<p>[BROWNSTONE INSTALL RANGE, AUDIO AND VIDEO]</p>
-<p>[JACOB: A BROWNSTONE JOB TO FEATURE, WITH PHOTOS]</p>
-""",
-      [("Can you fit an intercom without damaging the original door?", "Yes. We choose a strike or lock that suits the door, and fit it to the frame with as little cutting as possible."),
-       ("Do we need permission in a landmark district?", "Work visible from the street on a landmarked building may need approval. Check with the Landmarks Preservation Commission before replacing a street-facing panel."),
-       ("Can one apartment have video and the others audio?", "On some systems, yes. It is usually simpler to put the whole house on one system.")])
 
 btype("co-op-condo-intercom/", "Co-ops and condos",
       "Co-op & Condo Intercom Systems NYC: Repair, Replacement & Board Quotes | Jacob Intercom",
@@ -1714,10 +1491,10 @@ short_brand("m-and-s", "M&S",
 def borough(path, name, title, stock, hoods, note):
     hood_list = ", ".join(hoods)
     page(path=path, nav=name[0].upper() + name[1:], title=title,
-         desc=f"Intercom repair and installation in {name}. Buzzers, door releases, video entry and Lee-Dan systems. Most repairs $100 to $300. Call 718-252-2730.",
+         desc=f"Intercom repair and installation in {name}. Buzzers, door releases, video entry and Lee-Dan systems. Call 718-252-2730.",
          h1=f"Intercom repair and installation in {name}",
-         lead=f"We repair and install intercoms in every kind of building in {name}. Most repairs run $100 to $300, priced before we start.",
-         facts=["<b>35 years</b> in New York", "Most repairs <b>$100 to $300</b>", "<b>4.7 stars</b> from 23 Google reviews"],
+         lead=f"We repair and install intercoms in every kind of building in {name}. Priced before work starts.",
+         facts=["<b>35 years</b> in New York", "Buildings of <b>10 to 200+</b> units", "<b>4.7 stars</b> from 23 Google reviews"],
          body=f"""
 <h2>{name} buildings and their intercoms</h2>
 {stock}
@@ -1744,17 +1521,17 @@ def borough(path, name, title, stock, hoods, note):
 
 borough("intercom-installation-brooklyn/", "Brooklyn", "Intercom Repair & Installation Brooklyn NY | Jacob Intercom",
         """<p>Brooklyn is our home borough: the office is on Avenue F in Kensington. Its housing runs from brownstones and limestone rowhouses in Park Slope, Bed-Stuy and Crown Heights, to pre-war walk-ups and elevator buildings along Ocean Parkway, Eastern Parkway and in Flatbush, to co-ops in Brooklyn Heights and new towers downtown and in Williamsburg.</p>
-<p>That means every kind of intercom: [[brownstone-intercom/|two to four family systems]] with outer and vestibule doors, [[lee-dan-intercom-systems/|Lee-Dan]] and TekTone audio in walk-ups, two-wire video in upgraded co-ops, and phone-based systems in new buildings.</p>""",
+<p>That means every kind of intercom: [[lee-dan-intercom-systems/|Lee-Dan]] and TekTone audio in walk-ups, two-wire video in upgraded co-ops, and phone-based systems in new buildings.</p>""",
         ["Kensington", "Flatbush", "Midwood", "Borough Park", "Bay Ridge", "Sheepshead Bay", "Park Slope", "Bed-Stuy", "Crown Heights", "Williamsburg", "Brooklyn Heights", "Bushwick"],
         "<p>Our Google listing ranks first for intercom repair around our office, and we reach most of south and central Brooklyn quickly.</p>")
 borough("intercom-installation-manhattan/", "Manhattan", "Intercom Repair & Installation Manhattan NY | Jacob Intercom",
         """<p>Manhattan has the city's densest mix of intercom systems: tenement walk-ups on the Lower East Side and in Harlem, pre-war co-ops on the Upper West and Upper East Sides, converted lofts downtown, townhouses in the Village, and doorman buildings where the intercom calls the front desk.</p>
-<p>Older audio systems are still common in walk-ups. [[co-op-condo-intercom/|Co-ops]] are often weighing an upgrade to video or phone answering, and townhouses tend toward high-end panels such as [[brands/siedle/|Siedle]].</p>""",
+<p>Older audio systems are still common in walk-ups. [[co-op-condo-intercom/|Co-ops]] are often weighing an upgrade to video or phone answering,, and larger managed buildings are moving to cloud entry for remote directory management.</p>""",
         ["Upper West Side", "Upper East Side", "Harlem", "Washington Heights", "Midtown", "Chelsea", "Greenwich Village", "East Village", "Lower East Side", "Tribeca", "Financial District"],
         "<p>Manhattan calls can also reach us on 212-837-2147.</p>")
 borough("intercom-installation-queens/", "Queens", "Intercom Repair & Installation Queens NY | Jacob Intercom",
         """<p>Queens has a wide range of building types: the garden apartment co-ops of Jackson Heights, six-storey brick apartment houses in Forest Hills, Rego Park and Kew Gardens, two-family attached houses across Astoria, Woodside and Ridgewood, and new towers in Long Island City.</p>
-<p>Many Queens co-ops have several entrances around a courtyard, each needing its own panel. Attached two-family houses usually need a [[brownstone-intercom/|small system]] for two apartments.</p>""",
+<p>Many Queens co-ops have several entrances around a courtyard, each needing its own panel.</p>""",
         ["Astoria", "Long Island City", "Jackson Heights", "Elmhurst", "Forest Hills", "Rego Park", "Kew Gardens", "Flushing", "Bayside", "Sunnyside", "Woodside", "Ridgewood", "Jamaica"],
         "")
 borough("intercom-installation-bronx/", "the Bronx", "Intercom Repair & Installation Bronx NY | Jacob Intercom",
@@ -1764,7 +1541,7 @@ borough("intercom-installation-bronx/", "the Bronx", "Intercom Repair & Installa
         "<p>Bronx calls can also reach us on 212-837-2147.</p>")
 borough("intercom-installation-staten-island/", "Staten Island", "Intercom Repair & Installation Staten Island NY | Jacob Intercom",
         """<p>Staten Island is mostly one and two-family houses, with apartment buildings and co-ops along the North Shore and near the ferry, and garden apartment complexes elsewhere.</p>
-<p>That means more [[brownstone-intercom/|two-family systems]], [[brands/nutone/|whole-house intercoms]] in older homes, and video door stations with phone apps in newer ones.</p>""",
+<p>Our work there is in the apartment buildings, co-ops and garden complexes.</p>""",
         ["St. George", "Stapleton", "Tompkinsville", "New Brighton", "West Brighton", "Port Richmond", "Great Kills", "Tottenville", "New Dorp"],
         "")
 
@@ -1981,7 +1758,7 @@ product("dt-607entry-panels/", "DT-607 entry panels",
 <h2>What it is</h2>
 <p>The DT-607 is a video entry panel in Lee-Dan's [[lee-dan-intercom-systems/2easy/|2Easy]] range. It has a camera, a speaker and microphone, and call buttons, and connects to apartment monitors over two wires.</p>
 <h2>Where it fits</h2>
-<p>Brownstones, two to four family houses and small walk-ups, especially those upgrading from an old audio intercom on the existing wire. See [[brownstone-intercom/|brownstone intercoms]].</p>
+<p>Smaller walk-ups, especially those upgrading from an old audio intercom on the existing wire.</p>
 <h2>Paired with</h2>
 <p>Apartment monitors such as the [[dx-471-monitor/|DX-471]] touchscreen, and the 2Easy power supply.</p>
 <h2>What installation involves</h2>
@@ -2002,7 +1779,7 @@ product("dvt-104/", "DVT-104 video door phone",
 <h2>What it is</h2>
 <p>The DVT-104 is a Lee-Dan video door phone: a door station with a camera and call button, used with an indoor monitor so residents can see and talk to visitors and release the door.</p>
 <h2>Where it fits</h2>
-<p>Single-family houses, townhouses and small buildings that want simple video entry. See [[home-intercom/|home intercoms]] and [[brownstone-intercom/|brownstone intercoms]].</p>
+<p>Small buildings and secondary entrances that need simple video entry.</p>
 <h2>What installation involves</h2>
 <p>Fitting the door station, the indoor monitor and the wiring between them, and connecting the door release. Where an older door station is being replaced, we test whether the existing wire can be reused.</p>
 <h2>What it costs</h2>
@@ -2047,11 +1824,11 @@ GUIDES = [
     ("intercom-repair-cost-nyc", "What intercom repair costs in NYC"),
     ("intercom-installation-cost-nyc", "What intercom installation costs in NYC"),
     ("repair-or-replace-intercom", "Repair or replace your intercom?"),
-    ("nyc-landlord-intercom-requirements", "NYC intercom law for landlords"),
+    ("nyc-landlord-intercom-requirements", "NYC intercom requirements for owners"),
     ("how-apartment-intercoms-work", "How an apartment intercom works"),
     ("intercom-wiring-explained", "Intercom wiring explained"),
     ("apartment-intercom-troubleshooting", "Apartment intercom troubleshooting"),
-    ("renters-broken-buzzer", "Your buzzer is broken: a renter's guide"),
+    ("tenant-intercom-complaints", "When a tenant reports a broken intercom"),
     ("best-intercom-systems-nyc-buildings", "Choosing an intercom for a NYC building"),
     ("wired-vs-wireless-intercom", "Wired or wireless intercom?"),
     ("upgrade-buzzer-to-video", "Upgrading a buzzer system to video"),
@@ -2059,7 +1836,7 @@ GUIDES = [
 ]
 
 page(path=G, nav="Guides",
-     title="Intercom Guides for NYC Buildings, Owners & Renters | Jacob Intercom",
+     title="Intercom Guides for NYC Property Managers, Supers & Boards | Jacob Intercom",
      desc="Plain guides to intercom costs, repairs, wiring, upgrades and NYC intercom law, written by technicians with 35 years of New York jobs.",
      h1="Intercom guides",
      lead="What we explain to customers every week, written down. Costs, how systems work, what to check, and what the law says.",
@@ -2175,9 +1952,9 @@ guide("repair-or-replace-intercom", "Repair or replace",
       [("My intercom is 30 years old. Should I replace it?", "Age alone isn't a reason. Many 30-year-old systems still work well with occasional parts. Replace when it keeps failing or can't do what the building needs.")])
 
 guide("nyc-landlord-intercom-requirements", "NYC intercom law",
-      "NYC Intercom Law: What Landlords Must Provide (Multiple Dwelling Law 50-a) | Jacob Intercom",
-      "What New York law requires of landlords for building intercoms and self-locking entrance doors under Multiple Dwelling Law 50-a, and what tenants can do.",
-      "NYC intercom law for landlords",
+      "NYC Intercom Requirements for Owners & Landlords (Multiple Dwelling Law 50-a) | Jacob Intercom",
+      "What New York law requires of building owners and landlords for intercoms and self-locking entrance doors under Multiple Dwelling Law 50-a, and how managers stay compliant.",
+      "NYC intercom requirements for owners",
       "In many New York apartment buildings, a working intercom and a self-locking front door are a legal requirement, not an amenity.",
       """
 <div class="note"><p>This is a plain-English summary for general information, not legal advice. Read the law itself or speak to a lawyer about your building. [JACOB OR A LAWYER TO REVIEW BEFORE PUBLISHING]</p></div>
@@ -2198,9 +1975,9 @@ guide("nyc-landlord-intercom-requirements", "NYC intercom law",
 <p>An owner who fails to install or maintain the required equipment, or anyone who deliberately damages, jams or removes it, commits a misdemeanor under the Multiple Dwelling Law.</p>
 <h2>For tenants</h2>
 <ul>
-<li>Report a broken intercom or door to the landlord or super in writing and keep a copy.</li>
+<li>Log every intercom complaint and the date it was fixed; it's your record if HPD inspects.</li>
 <li>If it isn't fixed, you can report it to the city through 311, which passes housing complaints to HPD.</li>
-<li>See [[guides/renters-broken-buzzer/|our renter's guide]].</li>
+<li>See [[guides/tenant-intercom-complaints/|handling tenant complaints]].</li>
 </ul>
 <h2>For owners</h2>
 <p>Keeping the intercom and door working is part of keeping the building legal and habitable. A yearly inspection catches most failures before tenants report them. See [[intercom-maintenance-contract/|maintenance contracts]] and [[property-managers/|property managers]].</p>
@@ -2281,7 +2058,7 @@ guide("intercom-wiring-explained", "Intercom wiring",
 
 guide("apartment-intercom-troubleshooting", "Troubleshooting by symptom",
       "Apartment Intercom Troubleshooting by Symptom | Jacob Intercom",
-      "Apartment intercom not working? Match the symptom to the likely cause, see what you can check yourself, and when to call a technician.",
+      "Apartment intercom not working? Match the symptom to the likely cause, see what building staff can check, and when to call a technician.",
       "Apartment intercom troubleshooting",
       "Find what your intercom is doing in the table, then follow the link for the causes, the checks and the fix.",
       """
@@ -2318,37 +2095,38 @@ guide("apartment-intercom-troubleshooting", "Troubleshooting by symptom",
 <p>Opening the entry panel, the amplifier or the transformer, and swapping wires between terminals.</p>
 """)
 
-guide("renters-broken-buzzer", "Renter's guide",
-      "Apartment Buzzer Not Working? A Renter's Guide for NYC | Jacob Intercom",
-      "Your apartment buzzer or intercom stopped working. What to check, how to report it, what the landlord must do in New York, and how to get by meanwhile.",
-      "Your buzzer is broken: a renter's guide",
-      "Deliveries are leaving, guests are calling from the sidewalk, and the super says it's on the list. Here's what to do.",
+guide("tenant-intercom-complaints", "Tenant intercom complaints",
+      "Handling Tenant Intercom Complaints: A Guide for NYC Property Managers | Jacob Intercom",
+      "When a tenant reports a broken buzzer: how property managers and supers triage intercom complaints, what to tell the tenant, what the law expects, and how to avoid HPD violations.",
+      "When a tenant reports a broken intercom",
+      "A guide for property managers and supers: how to triage the complaint, what to tell the tenant, and how to close it out before it becomes an HPD violation.",
       """
-<h2>1. Check it's not something simple</h2>
+<h2>1. Triage the call in two minutes</h2>
+<p>Three questions tell you almost everything:</p>
 <ul>
-<li>Look for a volume wheel or switch on your station and turn it up.</li>
-<li>Check the handset is sitting properly on its hook.</li>
-<li>Ask a neighbour whether theirs works. If it's the whole building, tell the super; it's probably the main power or amplifier.</li>
+<li><strong>What doesn't work:</strong> the ring, the voice, the door release or the video?</li>
+<li><strong>Since when,</strong> and did anything happen first: a storm, a power cut, work in the apartment?</li>
+<li><strong>Is it only them?</strong> Have the super test the units directly above and below, and one on another line.</li>
 </ul>
-<h2>2. Report it in writing</h2>
-<p>Text or email your landlord or managing agent, and keep a copy. Say what doesn't work (ring, voice, door, video), since when, and whether neighbours are affected. A written report is your record if it isn't fixed.</p>
-<h2>3. Know what the landlord has to do</h2>
-<p>In many New York buildings, the owner is legally required to keep the intercom and self-locking front door working. See [[guides/nyc-landlord-intercom-requirements/|NYC intercom law]].</p>
-<h2>4. If it isn't fixed</h2>
-<p>You can report it to the city through 311, which passes housing complaints to the Department of Housing Preservation and Development. Keep your written report and dates.</p>
-<h2>5. Getting by meanwhile</h2>
+<p>One unit means that station or its wire. A vertical line means the riser. The whole building means the amplifier, power supply or panel, and that's urgent. See [[superintendents/|the guide for supers]].</p>
+<h2>2. Log it in writing</h2>
+<p>Record the date, the unit, what was reported and what was done, in your work order system. If the complaint reaches 311, a written record of a prompt response matters.</p>
+<h2>3. Know what the law expects</h2>
+<p>In many New York multiple dwellings, the owner must keep the intercom and self-locking entrance door in working order. See [[guides/nyc-landlord-intercom-requirements/|NYC intercom requirements for owners]]. Tenants can report an unrepaired intercom to 311, which refers it to HPD for inspection.</p>
+<h2>4. What to tell the tenant</h2>
 <ul>
-<li>Add your phone number to delivery instructions and ask couriers to call.</li>
-<li>Have packages held at a pickup point or locker.</li>
-<li>Don't prop the front door open. It makes the building less safe for everyone.</li>
+<li>That it's logged, and when someone will look at it.</li>
+<li>To give couriers their phone number in the meantime.</li>
+<li>Not to replace or rewire their station themselves: a wrong unit can short the whole line.</li>
+<li>Not to prop the front door open.</li>
 </ul>
-<h2>Should I fix it myself?</h2>
-<p>The intercom is part of the building, and the owner is responsible for it. Replacing a station yourself can also affect neighbours if it's wired wrongly. Report it instead.</p>
-<p class="soon">Landlords, supers and managing agents can call us directly at {{tel}}.</p>
+<h2>5. Close it out</h2>
+<p>After the repair, confirm with the tenant that it works and record it. If the same building keeps generating intercom complaints, the system is telling you something: see [[guides/repair-or-replace-intercom/|repair or replace]] and [[intercom-maintenance-contract/|service agreements]].</p>
+<p class="soon">Managers and supers can call us directly at {{tel}}.</p>
 """,
-      [("Can I withhold rent over a broken intercom?", "That is a legal question with real risks. Speak to a tenant lawyer or a tenant organisation first."),
-       ("Can I hire someone to fix it and deduct the cost?", "Ask a lawyer before doing this. Most renters are better off reporting it and keeping records.")],
-      facts=["For <b>renters</b>", "What to check and how to report it", "What the law says"])
+      [("Should we let tenants call the intercom contractor directly?", "Most managers don't. Route reports through the super or the office so the work is approved and logged. We schedule apartment access through building staff."),
+       ("How quickly should an intercom complaint be fixed?", "Whole-building outages and doors that won't lock should be treated as urgent. Single-unit faults are normally booked for the next available visit. [JACOB TO CONFIRM TYPICAL TURNAROUND]")],
+      facts=["For <b>managers and supers</b>", "Triage, log, fix, close out", "Avoiding HPD violations"])
 
 guide("best-intercom-systems-nyc-buildings", "Choosing a system",
       "Choosing an Intercom for a NYC Apartment Building (2026) | Jacob Intercom",
@@ -2472,7 +2250,7 @@ FAQS = [
     ("Which brands do you service?", "Fifteen, including Aiphone, ButterflyMX, Comelit and Akuvox. See [[brands/|brands]]."),
     ("Can you repair a system another company installed?", "Yes."),
     ("Can you fix just one apartment?", "Yes. It is usually the quickest repair."),
-    ("Who is responsible for a building intercom?", "The building owner. Renters should report faults to the landlord or super. See [[guides/renters-broken-buzzer/|renter's guide]]."),
+    ("Who is responsible for a building intercom?", "The building owner, normally through the managing agent and super. See [[guides/tenant-intercom-complaints/|handling tenant complaints]]."),
     ("Is an intercom required by law in NYC?", "In many buildings with eight or more apartments, yes. See [[guides/nyc-landlord-intercom-requirements/|NYC intercom law]]."),
     ("Can you add video without rewiring?", "Often. See [[guides/upgrade-buzzer-to-video/|upgrading to video]]."),
     ("Do you install phone-answering intercoms?", "Yes. See [[intercom-installation/ip-smartphone/|IP and smartphone intercoms]]."),
@@ -2512,60 +2290,15 @@ page(path="reviews/", nav="Reviews",
           + "<h2>Leave a review</h2><p>If we've worked on your intercom, a Google review helps other buildings find us. <a href=\"https://search.google.com/local/writereview?placeid=ChIJF42LFM5EwokRQm_U8A3fk7M\" rel=\"noopener\">Leave a Google review</a></p>",
      related=[("intercom-repair/", "Intercom repair"), ("about/", "About us"), ("contact/", "Contact us")])
 
-page(path="projects/", nav="Projects",
-     title="Intercom Projects in New York | Jacob Intercom",
-     desc="Intercom repairs, replacements and upgrades Jacob Intercom has carried out in New York buildings, with the problem, the fix and photos.",
-     h1="Projects",
-     lead="Real jobs, written up: the building, what was wrong, what we did, and what it cost.",
-     facts=["Building, problem, fix", "Photos from the job", "Shared with the owner's permission"],
-     body="""
-<div class="note"><p><strong>Waiting on Jacob.</strong> No competitor publishes case studies, so this page is one of the strongest on the site once it has real jobs. Each needs: building type and neighbourhood, the problem, what was done, the system, roughly what it cost, two or three photos, and permission to publish.</p></div>
-<h2>How each project will read</h2>
-<p class="sample">Sample layout</p>
-<h3>[BUILDING TYPE], [NEIGHBORHOOD]</h3>
-<p><strong>The problem:</strong> [WHAT RESIDENTS REPORTED]</p>
-<p><strong>What we found:</strong> [THE FAULT]</p>
-<p><strong>What we did:</strong> [THE REPAIR OR INSTALLATION]</p>
-<p><strong>System:</strong> [MAKE AND MODEL]</p>
-<div class="slot">Real photos from the job</div>
-<h2>Jobs to come</h2>
-<ul><li>A Lee-Dan system repaired instead of replaced</li><li>A buzzer system upgraded to video on existing wire</li><li>A co-op entrance with a new panel and fobs</li><li>A brownstone with a new strike on an original door</li></ul>
-""",
-     related=[("reviews/", "Reviews"), ("intercom-repair/", "Intercom repair"), (INST, "Installation"), ("contact/", "Contact us")])
-
 # ───────────────────────────── Home intercoms and wider areas ─────────────────────────────
-
-page(path="home-intercom/", nav="Home intercoms",
-     title="Home Intercom Repair & Installation NYC and Long Island | Jacob Intercom",
-     desc="Home intercom repair and installation: old whole-house intercoms repaired or replaced, and video door stations with phone apps for houses and townhouses.",
-     h1="Home intercoms",
-     lead="From a 1970s whole-house system in the kitchen to a video door station that rings your phone.",
-     facts=["Whole-house intercoms <b>repaired</b>", "Video door stations installed", "Houses and townhouses"],
-     aside=INST_ASIDE,
-     body="""
-<h2>Old whole-house intercoms</h2>
-<p>Many houses have a master station in the kitchen and room stations throughout, often [[brands/nutone/|NuTone]] or [[brands/m-and-s/|M&amp;S]]. Most of these are no longer made. We repair them where parts allow, and replace them where they don't.</p>
-<h2>Video door stations</h2>
-<p>The most common upgrade: a camera door station at the front door, answered on a phone app or an indoor monitor, with the door or gate released remotely. [[brands/doorbird/|DoorBird]] and [[brands/aiphone/|Aiphone]] are typical choices.</p>
-<h2>Reusing the old wiring</h2>
-<p>The wire to the old front door speaker can often power a new door station. We test it before quoting.</p>
-<h2>Two-family houses</h2>
-<p>A house with two apartments needs a small two-button system. See [[brownstone-intercom/|two to four family intercoms]].</p>
-<h2>What it costs</h2>
-<p>[HOME INTERCOM REPAIR AND INSTALL RANGES]</p>
-""",
-     faqs=[("Can you remove an old intercom and patch the walls?", "We remove the stations and cover the openings with blank plates. Plastering and painting is a separate trade."),
-           ("Does a video door station work with Ring or Nest?", "Some do. Tell us what you already use and we'll suggest a compatible option.")],
-     related=[("brands/nutone/", "NuTone"), ("brands/doorbird/", "DoorBird"), ("brownstone-intercom/", "Two to four family"), ("contact/", "Contact us")])
-
 
 def wider(slug, name, places, note):
     page(path=f"service-areas/{slug}/", nav=name,
          title=f"Intercom Repair & Installation {name} | Jacob Intercom",
-         desc=f"Intercom repair and installation in {name}: apartment buildings, co-ops, houses and offices. 35 years of experience. Call 718-252-2730.",
+         desc=f"Intercom repair, service agreements and system replacements for apartment buildings and co-ops in {name}. 35 years of experience. Call 718-252-2730.",
          h1=f"Intercom repair and installation in {name}",
-         lead=f"We take intercom jobs across {name}, from apartment buildings and co-ops to houses and offices.",
-         facts=["<b>35 years</b> of intercom work", "Repair and installation", "Most repairs <b>$100 to $300</b>"],
+         lead=f"We take on apartment buildings, co-ops and managed portfolios across {name}.",
+         facts=["<b>35 years</b> of intercom work", "Repair and installation", "Buildings of <b>10 to 200+</b> units"],
          body=f"""
 <h2>Where we work in {name}</h2>
 <p>{places}</p>
@@ -2574,7 +2307,7 @@ def wider(slug, name, places, note):
 <ul>
 <li>[[intercom-repair/|Intercom repair]] for every major brand, including [[lee-dan-intercom-systems/|Lee-Dan]].</li>
 <li>[[intercom-installation/|New systems]] and [[intercom-replacement/|replacements]].</li>
-<li>[[home-intercom/|Home intercoms]] and video door stations.</li>
+<li>[[intercom-maintenance-contract/|Service agreements]] for buildings and portfolios.</li>
 <li>[[access-control/|Access control]] and [[security-cameras/|cameras]].</li>
 </ul>
 <h2>Recent jobs in {name}</h2>
@@ -2587,9 +2320,9 @@ def wider(slug, name, places, note):
 
 
 wider("long-island", "Long Island", "Nassau County and western Suffolk: [TOWNS JACOB HAS WORKED IN].",
-      "<p>Long Island has many garden apartment complexes, co-ops and two-family houses, and a lot of Lee-Dan equipment, which is made on Long Island.</p>")
+      "<p>Long Island has many garden apartment complexes and co-ops, and a lot of Lee-Dan equipment, which is made on Long Island.</p>")
 wider("westchester", "Westchester", "Yonkers, Mount Vernon, New Rochelle, White Plains and nearby: [TOWNS JACOB HAS WORKED IN].",
-      "<p>Westchester's apartment buildings and co-ops are concentrated in the southern cities, with houses and townhouses elsewhere.</p>")
+      "<p>Westchester's apartment buildings and co-ops are concentrated in the southern cities.</p>")
 wider("new-jersey", "New Jersey", "Jersey City, Hoboken and nearby: [TOWNS JACOB HAS WORKED IN].",
       "<p>[CONFIRM ANY NEW JERSEY LICENSING NEEDED FOR THIS WORK]</p>")
 
@@ -2628,10 +2361,10 @@ def hood(slug, name, bpath, bname, stock, systems, extra=""):
     HOODS.append((slug, name, bname))
     page(path=f"service-areas/{slug}/", nav=name,
          title=f"Intercom Repair {name}, {bname} | Jacob Intercom",
-         desc=f"Intercom repair and installation in {name}, {bname}. Buzzers, door releases, video entry and Lee-Dan systems. Most repairs $100 to $300.",
-         h1=f"Intercom repair in {name}",
-         lead=f"Intercom repair, replacement and installation for buildings in {name}. Most repairs run $100 to $300, priced before we start.",
-         facts=["<b>35 years</b> in New York", "Most repairs <b>$100 to $300</b>", "<b>4.7 stars</b> from 23 Google reviews"],
+         desc=f"Intercom repair and installation in {name}, {bname}. Buzzers, door releases, video entry and Lee-Dan systems.",
+         h1=f"Intercom service for {name} buildings",
+         lead=f"Intercom repair, service agreements and system replacements for the apartment buildings and co-ops we look after in {name}.",
+         facts=["<b>35 years</b> in New York", "Buildings of <b>10 to 200+</b> units", "<b>4.7 stars</b> from 23 Google reviews"],
          body=f"""
 <h2>{name}'s buildings</h2>
 <p>{stock}</p>
@@ -2642,7 +2375,8 @@ def hood(slug, name, bpath, bname, stock, systems, extra=""):
 <ul>
 <li>[[intercom-repair/|Intercom repair]]: [[intercom-repair/door-buzzer/|dead buzzers]], [[intercom-repair/door-release/|doors that won't unlock]], [[intercom-repair/no-audio/|static]], [[intercom-repair/video/|blank video]].</li>
 <li>[[lee-dan-intercom-systems/|Lee-Dan]] and [[brands/|14 other brands]].</li>
-<li>[[intercom-replacement/|Replacements and upgrades]] on existing wiring.</li>
+<li>[[intercom-replacement/|Whole-building replacements]] on existing risers.</li>
+<li>[[intercom-maintenance-contract/|Service agreements]] for single buildings and portfolios.</li>
 <li>[[access-control/|Fobs]] and [[security-cameras/|cameras]] at the entrance.</li>
 </ul>
 <h2>A recent job in {name}</h2>
@@ -2665,13 +2399,13 @@ hood("kensington-flatbush", "Kensington and Flatbush", BK, "Brooklyn",
      "<p>Our Google listing ranks first for intercom repair around our office, and we are usually closest to these jobs.</p>")
 hood("park-slope", "Park Slope", BK, "Brooklyn",
      "Brownstone and limestone rowhouses fill the side streets, most divided into two to four apartments, with pre-war apartment buildings on Prospect Park West and the avenues.",
-     "Small button panels with two to four apartments, often with an outer stoop door and an inner vestibule door. Owners frequently want video on the existing wire and a panel that suits a landmarked facade. See [[brownstone-intercom/|brownstone intercoms]].")
+     "Walk-ups and pre-war elevator buildings on the avenues, many still on older audio, and a steady run of conversions to video on the existing risers.")
 hood("bay-ridge", "Bay Ridge", BK, "Brooklyn",
      "Pre-war co-ops and elevator buildings line Shore Road and the avenues, with two-family brick houses and limestone rowhouses on the side streets.",
-     "Co-op buildings with long riser runs and older audio systems ready for an upgrade, and two-family houses with small two-button systems.")
+     "Co-op buildings with long riser runs and older audio systems ready for an upgrade, and walk-ups on the avenues with tired audio systems.")
 hood("borough-park", "Borough Park", BK, "Brooklyn",
      "Two and three-family houses, many rebuilt or extended, alongside apartment buildings on the main avenues and new multi-family construction.",
-     "Small multi-family systems on the houses, video panels on newer buildings, and frequent requests for door stations that ring several apartments at once.")
+     "Video panels on the newer multi-family buildings and older audio systems in the walk-ups on the main avenues.")
 hood("sheepshead-bay", "Sheepshead Bay", BK, "Brooklyn",
      "Garden apartment complexes, six-storey co-ops near the bay, and attached and semi-detached houses, with many buildings near the water.",
      "Entry panels exposed to salt air that corrode faster than inland, multi-entrance garden complexes, and older audio systems in the co-ops.")
@@ -2680,13 +2414,13 @@ hood("williamsburg", "Williamsburg", BK, "Brooklyn",
      "Phone-based and IP systems in the new buildings, which depend on the building's network, and audio systems in the older walk-ups. See [[intercom-installation/ip-smartphone/|IP and smartphone intercoms]].")
 hood("bed-stuy", "Bed-Stuy", BK, "Brooklyn",
      "One of the city's largest collections of brownstones and rowhouses, most two to four families, with walk-up apartment buildings and newer infill on the avenues.",
-     "Two to four apartment systems on original doors, plenty of old audio stations, and owners adding video and phone answering to houses they've renovated.")
+     "Walk-up apartment buildings on the avenues with plenty of old audio stations, and newer multi-family buildings on cloud entry.")
 hood("bushwick", "Bushwick", BK, "Brooklyn",
      "Two and three-storey frame and brick rowhouses, walk-up tenements, and a lot of new and converted multi-family buildings.",
      "Small multi-family systems, a mix of very old and very new equipment, and new buildings with cloud-based panels.")
 hood("brooklyn-heights", "Brooklyn Heights", BK, "Brooklyn",
      "A landmark district of nineteenth-century rowhouses and townhouses, with pre-war co-ops and a few large apartment buildings near the Promenade.",
-     "High-end door stations on townhouses, co-ops weighing upgrades, and street-facing panels that need to suit a landmarked building. See [[co-op-condo-intercom/|co-op intercoms]].")
+     "Co-ops weighing upgrades, and street-facing panels that need to suit a landmarked building. See [[co-op-condo-intercom/|co-op intercoms]].")
 hood("upper-west-side", "Upper West Side", MN, "Manhattan",
      "Pre-war co-ops on West End Avenue, Riverside Drive and Central Park West, brownstones on the side streets, and walk-ups on the avenues.",
      "Large co-op systems with several entrances, older audio systems in walk-ups, and boards comparing video upgrades with phone-based systems.")
@@ -2695,7 +2429,7 @@ hood("upper-east-side", "Upper East Side", MN, "Manhattan",
      "Townhouse door stations, walk-up audio systems in Yorkville, and service-entrance intercoms in doorman buildings.")
 hood("harlem", "Harlem", MN, "Manhattan",
      "Brownstones and rowhouses, many restored, pre-war apartment buildings, and large multi-family buildings, including affordable housing developments.",
-     "Older audio systems in the pre-war buildings, two to four family systems on restored brownstones, and larger buildings needing systems that meet the city's intercom requirements. See [[guides/nyc-landlord-intercom-requirements/|NYC intercom law]].")
+     "Older audio systems in the pre-war buildings, and larger buildings needing systems that meet the city's intercom requirements. See [[guides/nyc-landlord-intercom-requirements/|NYC intercom law]].")
 hood("midtown", "Midtown", MN, "Manhattan",
      "Offices, mixed-use buildings with apartments over stores, and residential towers, with walk-ups in Hell's Kitchen and Murray Hill.",
      "Telephone entry and IP systems in offices, multi-tenant directories in mixed-use buildings, and audio systems in the walk-ups. See [[commercial-intercom/|office intercoms]].")
@@ -2704,7 +2438,7 @@ hood("east-village-les", "East Village and Lower East Side", MN, "Manhattan",
      "Tenement walk-ups with long-serving audio systems, often Lee-Dan or TekTone, worn entry panels on busy streets, and a lot of door strike repairs on heavy old doors.")
 hood("astoria", "Astoria", QN, "Queens",
      "Two-family brick houses and attached rowhouses on most blocks, with six-storey apartment buildings near Ditmars and the Astoria Boulevard corridor.",
-     "Two-button systems on the houses, older audio systems in the apartment buildings, and owners adding video door stations.")
+     "Older audio systems in the six-storey apartment buildings, many now due for conversion to video.")
 hood("long-island-city", "Long Island City", QN, "Queens",
      "New residential towers along the waterfront and in Court Square, alongside older rowhouses and converted industrial buildings.",
      "Network and phone-based systems in the towers, plus access control and cameras, and smaller systems in the older housing.")
@@ -2713,13 +2447,13 @@ hood("flushing", "Flushing", QN, "Queens",
      "Large co-op systems with directory panels, multi-entrance garden complexes, and home door stations.")
 hood("forest-hills", "Forest Hills", QN, "Queens",
      "Six-storey pre-war apartment houses and co-ops along Queens Boulevard and its side streets, and the Tudor houses of Forest Hills Gardens.",
-     "Pre-war co-ops with older audio systems and long risers, often good candidates for video on the existing wire, and private houses with door stations.")
+     "Pre-war co-ops with older audio systems and long risers, often good candidates for video on the existing wire.")
 hood("jackson-heights", "Jackson Heights", QN, "Queens",
      "A historic district of garden apartment co-ops built around private courtyards, with apartment buildings and attached houses around them.",
      "Courtyard co-ops with several entrances, each needing its own panel calling the same apartments, and street-facing panels in a historic district.")
 hood("riverdale", "Riverdale", BX, "the Bronx",
      "High-rise co-ops and apartment buildings along the Henry Hudson Parkway, with large private houses on the hills of Fieldston and Spuyten Duyvil.",
-     "Large co-op systems with doormen and service entrances, and home intercoms and gate stations on private houses.")
+     "Large co-op systems with doormen, service entrances and several panels per building.")
 
 # Link the neighbourhood pages from the service areas hub
 for p in PAGES:
@@ -2815,9 +2549,9 @@ INSTALL_CALC = """
 <h2>Installation cost estimator</h2>
 <div class="calc-row">
 <label for="ic-size">Building size
-<select id="ic-size"><option value="s">House or 2 to 4 apartments</option><option value="m">5 to 12 apartments</option><option value="l">13 to 30 apartments</option><option value="xl">Over 30 apartments</option></select></label>
+<select id="ic-size"><option value="s">10 to 30 apartments</option><option value="m">31 to 75 apartments</option><option value="l">76 to 150 apartments</option><option value="xl">Over 150 apartments</option></select></label>
 <label for="ic-type">System
-<select id="ic-type"><option value="audio">Audio</option><option value="video">Wired video</option><option value="phone">Phone-based video</option></select></label>
+<select id="ic-type"><option value="audio">Audio renewal</option><option value="video">Wired video</option><option value="phone">Cloud and smartphone entry</option></select></label>
 </div>
 <div class="calc-out" aria-live="polite"><p class="calc-range" data-out="range"></p><p data-out="note"></p></div>
 <p class="calc-fine">Assumes the existing wiring can be reused. A firm quote follows a site visit.</p>
@@ -2827,32 +2561,422 @@ INSTALL_CALC = """
 GUIDE_SHOT = {
     "intercom-repair-cost-nyc": 23, "intercom-installation-cost-nyc": 5, "repair-or-replace-intercom": 20,
     "nyc-landlord-intercom-requirements": 10, "how-apartment-intercoms-work": 2, "intercom-wiring-explained": 4,
-    "apartment-intercom-troubleshooting": 6, "renters-broken-buzzer": 21, "best-intercom-systems-nyc-buildings": 3,
+    "apartment-intercom-troubleshooting": 6, "tenant-intercom-complaints": 21, "best-intercom-systems-nyc-buildings": 3,
     "wired-vs-wireless-intercom": 7, "upgrade-buzzer-to-video": 24, "co-op-intercom-replacement": 22,
 }
 GUIDE_GROUPS = [
-    ("For renters and residents", [
-        ("renters-broken-buzzer", "What to check, how to report it, and what the law says your landlord must do."),
-        ("apartment-intercom-troubleshooting", "Match what your intercom is doing to the part that has failed."),
-        ("how-apartment-intercoms-work", "The four parts of every intercom, and what happens when a visitor calls."),
-        ("nyc-landlord-intercom-requirements", "What Multiple Dwelling Law 50-a requires, in plain English."),
-    ]),
-    ("For owners, supers and managers", [
+    ("Running the building", [
+        ("tenant-intercom-complaints", "Triage, log, fix and close out, before it becomes an HPD violation."),
+        ("apartment-intercom-troubleshooting", "Match what the system is doing to the part that has failed."),
+        ("nyc-landlord-intercom-requirements", "What Multiple Dwelling Law 50-a requires of owners, in plain English."),
         ("intercom-repair-cost-nyc", "Typical repair prices, what pushes them up, and an estimator."),
-        ("repair-or-replace-intercom", "Three questions that settle most decisions, and what to ask a contractor."),
-        ("intercom-wiring-explained", "Common and selective wires, and why the wire count matters."),
-        ("wired-vs-wireless-intercom", "When each makes sense, and when to mix them."),
     ]),
-    ("Planning a new system", [
-        ("intercom-installation-cost-nyc", "What sets the price, typical ranges, and the monthly fees to compare."),
-        ("best-intercom-systems-nyc-buildings", "Audio, two-wire video, phone-based and IP systems compared."),
+    ("Understanding the system", [
+        ("how-apartment-intercoms-work", "The four parts of every building intercom, and what happens when a visitor calls."),
+        ("intercom-wiring-explained", "Common and selective wires, risers, and why the wire count matters."),
+        ("wired-vs-wireless-intercom", "When each makes sense, and when to mix them."),
+        ("repair-or-replace-intercom", "Three questions that settle most decisions."),
+    ]),
+    ("Planning a replacement", [
+        ("intercom-installation-cost-nyc", "What sets the price per building, typical ranges, and the monthly fees to compare."),
+        ("best-intercom-systems-nyc-buildings", "Audio, two-wire video, IP and cloud systems compared for managed buildings."),
         ("upgrade-buzzer-to-video", "How most buildings get video without opening walls."),
         ("co-op-intercom-replacement", "A step-by-step plan for boards and managing agents."),
     ]),
 ]
 
+# ───────────────────────────── Pages for property managers (B2B) ─────────────────────────────
+
+MGR_RELATED = [("property-managers/", "Portfolio programs"), ("intercom-maintenance-contract/", "Service agreements"),
+               ("intercom-replacement/", "Building upgrades"), ("vendor-onboarding/", "Vendor onboarding")]
+SURVEY_ASIDE = {"head": "Planning for several buildings?", "text": "Send the addresses, the unit counts and what you know about each system. We'll propose a survey schedule and come back with a condition report for every building."}
+
+page(path="property-managers/", nav="Portfolio programs",
+     title="Intercom Vendor for NYC Property Management Companies | Jacob Intercom",
+     desc="One intercom vendor for your whole New York portfolio: building surveys, condition reports, phased replacement plans and one service agreement. Buildings of 10 to 200+ units.",
+     h1="One intercom vendor for the whole portfolio",
+     lead="For management companies running 5, 40 or 200 buildings: we survey every intercom you're responsible for, tell you what each one needs, and keep the lot running under one agreement and one invoice.",
+     facts=["<b>35 years</b> servicing New York buildings", "Buildings of <b>10 to 200+</b> units", "<b>One</b> contact, one invoice"],
+     aside=SURVEY_ASIDE, related=MGR_RELATED,
+     body="""
+<h2>The problem with five intercom vendors</h2>
+<p>Most portfolios are assembled over years, and the intercoms come with them. One building has a ButterflyMX someone installed in 2019. Three still run Lee-Dan audio from the 1980s. Another has an Aiphone video system nobody has the admin login for. Each was serviced by whoever the previous manager knew.</p>
+<p>The result is predictable. Nobody knows which buildings are close to failing. Every service call starts from zero because there's no record of what's installed. Invoices arrive from four companies in four formats. And when a whole building goes quiet on a Friday afternoon, the super is calling around to find someone who works on that make.</p>
+<p>A single vendor who knows every building fixes most of that. That is what a portfolio program is.</p>
+
+<h2>How a portfolio program works</h2>
+<ol>
+<li><strong>Portfolio survey.</strong> We visit every building on your list. At each one we photograph and identify the entry panels, find and test the amplifier and power supply, check the door strike and its power, and test a sample of apartments on every riser. Typical pace: [BUILDINGS SURVEYED PER DAY].</li>
+<li><strong>Condition report.</strong> You get one page per building: the system make and model, its approximate age, what's working, what's failing, and a plain recommendation. Repair and maintain, plan a panel replacement, or budget for a full conversion.</li>
+<li><strong>A ranked replacement plan.</strong> Buildings are ranked by risk: the ones likely to fail in the next year at the top, with an estimated budget for each. You can spread the capital spending across the year instead of paying emergency rates when a system dies.</li>
+<li><strong>Installation, building by building.</strong> Replacements are scheduled with your building staff. Residents get written notice, and the old system stays live until the new one is working.</li>
+<li><strong>Ongoing service.</strong> Every building goes under one [[intercom-maintenance-contract/|service agreement]], with scheduled inspections, priority response, fixed rates and one invoice.</li>
+</ol>
+
+<h2>What you get that you don't have now</h2>
+<ul>
+<li><strong>A system record for every address.</strong> Make, model, where the amplifier is, what's been replaced and when, and photos. Shared with your team, and updated after every visit.</li>
+<li><strong>Predictable costs.</strong> Fixed rates across the portfolio and a replacement budget you can plan around, instead of surprise quotes.</li>
+<li><strong>One phone number for every building.</strong> Your supers call one place, whatever the make.</li>
+<li><strong>Job reports your team can file.</strong> After every visit: what was wrong, what was done, parts used, photos, and anything to watch.</li>
+<li><strong>Paperwork without chasing.</strong> Certificates of insurance per building, W-9 and licence ready before the first visit. See [[vendor-onboarding/|vendor onboarding]].</li>
+</ul>
+
+<h2>Taking over a new portfolio</h2>
+<p>When a management company picks up new buildings, the intercoms are usually the last thing anyone inspects, and the first thing tenants complain about. A survey in the first month tells you what you've inherited before it becomes your problem, and gives you documented condition at handover if a system was neglected by the previous manager.</p>
+
+<h2>Mixed systems are normal</h2>
+<p>We work on fifteen makes, from [[lee-dan-intercom-systems/|Lee-Dan]], Tektone and Mircom audio to [[brands/aiphone/|Aiphone]], [[brands/comelit/|Comelit]], [[brands/akuvox/|Akuvox]], [[brands/2n/|2N]] and [[brands/butterflymx/|ButterflyMX]] video. You don't need to standardise the portfolio to have one vendor, though over time it usually makes sense, and we'll show you where.</p>
+
+<h2>Standardising, when it pays</h2>
+<p>Running two or three systems across a portfolio instead of ten means shared spare parts, one app for residents to learn, one admin portal for your office, and faster repairs. When buildings come up for replacement, we recommend platforms that fit the building size and your management style, not whatever we happen to stock. The choice between audio, wired video and cloud-based entry is set out in [[guides/best-intercom-systems-nyc-buildings/|our system comparison]].</p>
+
+<h2>Buildings we look after</h2>
+<p>[MANAGEMENT COMPANIES OR BUILDING COUNTS JACOB CAN NAME, WITH PERMISSION]</p>
+""",
+     faqs=[("How many buildings do you need to set up a portfolio program?", "There's no minimum. Most programs start at five or more buildings, but the survey and condition report are useful for any manager with more than one building."),
+           ("Is the portfolio survey charged?", "[SURVEY FEE, AND WHETHER IT IS CREDITED AGAINST WORK OR AN AGREEMENT]"),
+           ("Can you work with our existing vendors while we transition?", "Yes. We can take buildings over one at a time as existing contracts end."),
+           ("Do you handle buildings outside the five boroughs?", "Yes. We take work on Long Island, in Westchester and in New Jersey."),
+           ("Who do our supers call?", "One number, {{tel}}, for every building on the program. We keep the record for each address, so the call starts with us already knowing the system.")])
+
+page(path="intercom-maintenance-contract/", nav="Service agreements",
+     title="Intercom Service Agreements for NYC Buildings & Portfolios | Jacob Intercom",
+     desc="Intercom service agreements for New York apartment buildings: scheduled inspections, priority response, fixed rates across your portfolio and one invoice.",
+     h1="Intercom service agreements",
+     lead="Most whole-building intercom failures give months of warning: a transformer running hot, a lobby panel taking in water, an amplifier fading. An agreement means someone is looking.",
+     facts=["Scheduled <b>inspections</b>", "<b>Priority</b> response", "Fixed rates, <b>one invoice</b>"],
+     aside={"head": "Want an agreement price?", "text": "Tell us how many buildings, the apartments in each, and what systems they have. We'll send a price per building and for the portfolio."},
+     related=MGR_RELATED,
+     body="""
+<div class="note"><p><strong>For Jacob to confirm before launch.</strong> The structure below is a proposal. Inspection frequency, response times, inclusions and prices are his to set.</p></div>
+<h2>What an agreement covers</h2>
+<ul>
+<li><strong>Scheduled inspections</strong> of every building on the agreement: [INSPECTIONS PER YEAR].</li>
+<li><strong>A full test at each inspection:</strong> entry panels, amplifier output, power supply, door strike and its power, and a sample of apartments on every riser.</li>
+<li><strong>Preventive work:</strong> cleaning and resealing outdoor panels, tightening terminals, replacing worn buttons before they fail.</li>
+<li><strong>Directory updates</strong> as apartments turn over.</li>
+<li><strong>Priority response</strong> when something fails: [RESPONSE COMMITMENT, E.G. SAME DAY FOR WHOLE-BUILDING OUTAGES].</li>
+<li><strong>Fixed labour rates</strong> for repairs: [AGREEMENT LABOUR RATE].</li>
+<li><strong>A written inspection report</strong> per building, listing anything likely to fail in the next year with an estimate to fix it.</li>
+</ul>
+
+<h2>Agreement levels</h2>
+<div class="tablebox"><table>
+<thead><tr><th scope="col"></th><th scope="col">Essential</th><th scope="col">Priority</th><th scope="col">Portfolio</th></tr></thead>
+<tbody>
+<tr><th scope="row">Inspections per year</th><td>[1]</td><td>[2]</td><td>[2 TO 4]</td></tr>
+<tr><th scope="row">Response, whole-building outage</th><td>[NEXT BUSINESS DAY]</td><td>[SAME DAY]</td><td>[SAME DAY]</td></tr>
+<tr><th scope="row">Labour on repairs</th><td>[DISCOUNTED RATE]</td><td>[DISCOUNTED RATE]</td><td>[INCLUDED UP TO X HOURS]</td></tr>
+<tr><th scope="row">After-hours calls</th><td>[STANDARD RATE]</td><td>[REDUCED RATE]</td><td>[INCLUDED]</td></tr>
+<tr><th scope="row">Condition report and replacement plan</th><td>Yes</td><td>Yes</td><td>Yes, portfolio-wide</td></tr>
+<tr><th scope="row">Price</th><td>[PER BUILDING]</td><td>[PER BUILDING]</td><td>[PER UNIT, QUOTED]</td></tr>
+</tbody></table></div>
+
+<h2>Why it pays</h2>
+<p>A whole-building outage costs more than the repair. There's the emergency rate, the super's time letting residents' visitors in by hand, the propped-open front door, the complaints, and sometimes an HPD complaint on top. Two after-hours calls in a year usually cost more than an agreement.</p>
+<p>The inspection is where the money is saved. The faults that take out a whole building are visible early: a power supply reading low, corrosion on the panel's terminals, a strike drawing too much current. Found at an inspection they're a planned, daytime, single-visit repair.</p>
+
+<h2>What's not included</h2>
+<p>[PARTS, VANDALISM DAMAGE, SYSTEM REPLACEMENT: INCLUDED OR BILLED SEPARATELY]</p>
+
+<h2>Taking over a system someone else installed</h2>
+<p>We do this all the time. The first inspection doubles as a baseline: we document the system, fix anything urgent, and tell you honestly what condition it's in before the agreement starts.</p>
+
+<h2>One agreement across the portfolio</h2>
+<p>Buildings under the same management company can sit on one agreement, priced together, with one invoice and one renewal date. See [[property-managers/|portfolio programs]].</p>
+""",
+     faqs=[("Are parts included?", "[PARTS INCLUDED OR EXTRA]"),
+           ("What's the minimum term?", "[TERM AND CANCELLATION]"),
+           ("Can buildings be added during the year?", "Yes. New buildings are surveyed and added at the agreement rate."),
+           ("Do you cover door hardware and access control as well?", "Yes. Electric strikes, magnetic locks, key fob readers and the power supplies that run them can all be included."),
+           ("How do we report a fault?", "Your super or office calls {{tel}}. Agreement buildings go to the front of the schedule.")])
+
+page(path="intercom-replacement/", nav="Building upgrades",
+     title="Building Intercom Replacement & Upgrades NYC | Jacob Intercom",
+     desc="Whole-building intercom replacement in New York: Lee-Dan and legacy audio converted to video and smartphone entry, surveyed, phased and installed with the building occupied.",
+     h1="Building intercom upgrades and system replacement",
+     lead="Converting a 40- or 150-unit building to a new system without leaving tenants stuck at the door. Surveyed first, priced in writing, and installed in phases with the old system live until the new one works.",
+     facts=["Existing risers <b>tested and reused</b>", "Old system <b>live</b> during changeover", "Written proposal after survey"],
+     aside=SURVEY_ASIDE, related=MGR_RELATED,
+     body="""
+<h2>When a building is due</h2>
+<ul>
+<li>Repairs have been called several times in a year, and different parts keep failing.</li>
+<li>Parts for the system are discontinued and no compatible replacement exists.</li>
+<li>Riser wiring is failing on several lines.</li>
+<li>Ownership wants video, smartphone answering, delivery access or remote management from the office.</li>
+<li>The building is being repositioned and the entrance needs to match.</li>
+</ul>
+<p>One failed part isn't a reason to replace. If a contractor has quoted a full system for a single fault, get a second opinion.</p>
+
+<h2>The four levels of replacement</h2>
+<div class="tablebox"><table>
+<thead><tr><th scope="col">Level</th><th scope="col">What changes</th><th scope="col">Apartment access</th></tr></thead>
+<tbody>
+<tr><th scope="row">New entry panel</th><td>The panel at the door, on the existing system</td><td>None</td></tr>
+<tr><th scope="row">Like-for-like renewal</th><td>Panel, amplifier and stations, same type, same wire</td><td>A short visit per unit</td></tr>
+<tr><th scope="row">Conversion on existing wire</th><td>A new system, often video, on the building's risers</td><td>A short visit per unit</td></tr>
+<tr><th scope="row">Cloud or smartphone entry</th><td>Network panel at the door; residents answer on their phones</td><td>None, or optional in-unit screens</td></tr>
+</tbody></table></div>
+<p>We price the lower levels first. Most buildings that think they need new wiring don't.</p>
+
+<h2>How a replacement project runs</h2>
+<ol>
+<li><strong>Site survey.</strong> Every riser tested for conductor count and condition, entrances measured, power and network checked, door hardware inspected.</li>
+<li><strong>Written proposal.</strong> Two or three options with costs, a recommended system, and a schedule. Suitable for an owner's approval or a board vote.</li>
+<li><strong>Resident notice.</strong> We provide the notice text and the schedule, floor by floor.</li>
+<li><strong>Rough-in and panel.</strong> New equipment installed at the entrance and in the basement while the old system keeps working.</li>
+<li><strong>Floor-by-floor changeover.</strong> Apartments switched in groups, scheduled with the super, so no line is dead for more than [HOURS].</li>
+<li><strong>Testing and handover.</strong> Every unit tested, the directory programmed, staff trained, admin logins and a system record handed to management.</li>
+</ol>
+<p>Typical duration for a [60]-unit building: [WEEKS]. [JACOB TO CONFIRM]</p>
+
+<h2>Estimate a building</h2>
+""" + INSTALL_CALC.replace("<h2>Installation cost estimator</h2>", "") + """
+<h2>Testing the risers</h2>
+<p>The single biggest factor in the price is the wire already in the building. Before quoting, we test every riser for how many conductors are intact. Most pre-war and post-war buildings have enough good wire to carry a modern two-wire video system, which avoids opening walls in occupied apartments, the most expensive and disruptive part of any job.</p>
+
+<h2>Choosing a system</h2>
+<p>For buildings under 30 units, a wired audio or video system with no monthly fee is often the best value. For larger buildings and portfolios managed from an office, cloud-based systems such as [[brands/butterflymx/|ButterflyMX]], [[brands/akuvox/|Akuvox]] and [[brands/2n/|2N]] add remote directory management, delivery codes and entry logs, with a monthly fee. [[brands/aiphone/|Aiphone]] and [[brands/comelit/|Comelit]] sit between the two. We'll recommend what fits the building and how you manage it. See [[guides/best-intercom-systems-nyc-buildings/|the full comparison]].</p>
+
+<h2>Lee-Dan buildings</h2>
+<p>A large share of our replacements are conversions from Lee-Dan audio. The wiring in these buildings is usually reusable. See [[lee-dan-intercom-systems/replacement/|converting a Lee-Dan building]].</p>
+""",
+     faqs=[("Can tenants still get in during the changeover?", "Yes. The old system stays live until the new one is tested, and apartments are switched over in scheduled groups."),
+           ("Do we need new wiring?", "Usually not. We test every riser first. New cable is only quoted for lines that fail the test."),
+           ("Can you present the options to our board or ownership?", "Yes. The written proposal is set out for a vote, and we can attend a meeting to explain it. [ANY CHARGE]"),
+           ("Do you remove the old equipment?", "Yes, and we cover the openings old stations leave behind where the new ones are a different size."),
+           ("What warranty comes with a new system?", "[INSTALLATION WARRANTY AND MANUFACTURER WARRANTY TERMS]")])
+
+page(path="superintendents/", nav="For superintendents",
+     title="Intercom Help for NYC Building Superintendents | Jacob Intercom",
+     desc="For New York supers: how to describe an intercom fault so it's fixed in one visit, what to check first, and how we schedule apartment access around you.",
+     h1="For superintendents",
+     lead="You're the first call when the buzzer stops working. Here's how to get it fixed in one visit, and what we do to make your job easier.",
+     facts=["One number for every make", "Access scheduled <b>with you</b>", "Equipment labelled after every visit"],
+     aside={"head": "Building down right now?", "text": "Call {{tel}}. Tell us the address, the make if you know it, and whether it's one unit, one line or the whole building."},
+     related=[("intercom-repair/", "Repair by symptom"), ("lee-dan-intercom-systems/troubleshooting/", "Lee-Dan troubleshooting"), ("intercom-repair/emergency/", "Urgent calls"), ("contact/", "Contact us")],
+     body="""
+<h2>Before you call: find the pattern</h2>
+<p>The fastest repairs start with knowing how far the fault reaches. It tells us where to look and what parts to bring.</p>
+<div class="tablebox"><table>
+<thead><tr><th scope="col">What you see</th><th scope="col">Where the fault usually is</th></tr></thead>
+<tbody>
+<tr><th scope="row">One apartment</th><td>That unit's station, or the wire behind it</td></tr>
+<tr><th scope="row">A vertical line of apartments (all the 3s, say)</th><td>The riser that line shares</td></tr>
+<tr><th scope="row">Every apartment</th><td>Amplifier, power supply or the entry panel</td></tr>
+<tr><th scope="row">Talk works, door won't open</th><td>Electric strike or its transformer</td></tr>
+<tr><th scope="row">Fine by day, dead in rain</th><td>Water in the outdoor panel</td></tr>
+</tbody></table></div>
+
+<h2>Safe checks you can make</h2>
+<ul>
+<li>Check the breaker for the intercom circuit. Reset it once; if it trips again, leave it off and call.</li>
+<li>Find the amplifier (usually a metal box near the meters) and check it's plugged in and nothing's been moved during other work.</li>
+<li>Ask whether anyone has worked in the basement, meter room or lobby recently: cable installers, plumbers, a new boiler.</li>
+<li>Press a few buttons at the door and listen at the panel for a click or hum.</li>
+</ul>
+<p>Don't open the amplifier or the lobby panel. The intercom wiring is low voltage but the supply feeding it isn't, and a crossed wire can take out every apartment on the line.</p>
+
+<h2>What to tell us</h2>
+<ol>
+<li>The address and the number of apartments.</li>
+<li>The pattern: one unit, one line or the whole building.</li>
+<li>The make, if you can see it on the panel or a station. A photo of each works just as well.</li>
+<li>Anything that happened just before: a storm, a power cut, construction.</li>
+</ol>
+
+<h2>How we work with you</h2>
+<ul>
+<li><strong>Access on your schedule.</strong> We agree times with you before contacting residents.</li>
+<li><strong>Labelled equipment.</strong> After every visit, the amplifier, power supply and junction points are labelled so the next fault is quicker to describe and find.</li>
+<li><strong>A written job report</strong> to you and the management office, so you're not the one explaining what happened.</li>
+<li><strong>Every make.</strong> Lee-Dan, Tektone, Aiphone, ButterflyMX and the rest. One number, whatever's on the wall.</li>
+</ul>
+
+<h2>When a tenant reports a problem</h2>
+<p>Ask which apartment, whether neighbours above and below have the same issue, and whether it's the buzzer, the voice or the door. That's usually enough for us to diagnose it before we arrive. See [[guides/tenant-intercom-complaints/|handling tenant intercom complaints]].</p>
+""",
+     faqs=[("Do you work on Lee-Dan systems?", "Yes, and most other older audio systems. See [[lee-dan-intercom-systems/troubleshooting/|Lee-Dan troubleshooting]]."),
+           ("Can I order a replacement apartment station from you?", "Yes. Send a photo of the existing station so we match the wire count. [PARTS SALES TO SUPERS: YES OR NO]"),
+           ("Who approves the work, me or management?", "Whoever your company has set as the approver. On agreement buildings, repairs under [AMOUNT] are pre-approved.")])
+
+page(path="vendor-onboarding/", nav="Vendor onboarding",
+     title="Vendor Onboarding: COI, W-9 & Licence | Jacob Intercom",
+     desc="Approving Jacob Intercom as a vendor: certificates of insurance, W-9, licence, invoicing terms and job reporting for New York management companies.",
+     h1="Vendor onboarding",
+     lead="Everything your accounts payable and compliance teams need to approve us, ready before the first job.",
+     facts=["COI <b>per building</b>", "W-9 and licence on request", "Invoicing <b>per building or portfolio</b>"],
+     aside={"head": "Need our documents?", "text": "Email jacobintercom@gmail.com with the building addresses and the names to appear as additional insured. We'll send the certificate and W-9 the same day. [CONFIRM TURNAROUND]"},
+     related=MGR_RELATED, no_reviews=True,
+     body="""
+<h2>Documents we provide</h2>
+<div class="tablebox"><table>
+<thead><tr><th scope="col">Document</th><th scope="col">Details</th></tr></thead>
+<tbody>
+<tr><th scope="row">Certificate of insurance</th><td>Naming the owner, managing agent and building as additional insured. General liability [LIMITS]. Workers' compensation and disability [CARRIER]. Umbrella [LIMIT].</td></tr>
+<tr><th scope="row">W-9</th><td>[LEGAL BUSINESS NAME AND ENTITY TYPE]</td></tr>
+<tr><th scope="row">Licence</th><td>[LICENCE TYPE AND NUMBER]</td></tr>
+<tr><th scope="row">Vendor forms</th><td>We complete your vendor packet, compliance portal registration and any building-specific requirements.</td></tr>
+<tr><th scope="row">Lien waivers</th><td>[ON REQUEST FOR INSTALLATION PROJECTS]</td></tr>
+</tbody></table></div>
+
+<h2>Compliance portals</h2>
+<p>[PLATFORMS JACOB IS REGISTERED ON, E.G. VENDOR COMPLIANCE OR PROCUREMENT PORTALS USED BY NYC MANAGEMENT COMPANIES]</p>
+
+<h2>Invoicing and payment</h2>
+<ul>
+<li>Invoices per building, per job, or consolidated monthly across a portfolio.</li>
+<li>Purchase order or work order numbers carried on every invoice.</li>
+<li>Payment terms: [NET 30 OR OTHER].</li>
+<li>Payment methods: [CHECK, ACH, CARD, AP PLATFORMS].</li>
+</ul>
+
+<h2>Job reporting</h2>
+<p>After every visit, the management office receives a short written report: the building, the fault, what was found, what was done, parts used, before and after photos, and anything that needs attention later. On replacement projects you also get the system record, admin logins and warranty documents at handover.</p>
+
+<h2>Safety and site conduct</h2>
+<ul>
+<li>Technicians carry identification and check in with the super or front desk.</li>
+<li>Residents are given notice before any in-unit work, using the text you approve.</li>
+<li>Work areas are left clean, and old equipment is removed and disposed of.</li>
+<li>[SAFETY TRAINING OR CERTIFICATIONS, IF ANY]</li>
+</ul>
+""",
+     faqs=[("How quickly can you send a COI?", "[SAME DAY OR NEXT BUSINESS DAY]"),
+           ("Can you add us as additional insured on a per-building basis?", "Yes. Send the exact names as they should appear."),
+           ("Do you accept purchase orders?", "Yes. We carry your PO or work order number on every invoice.")])
+
+page(path="projects/", nav="Projects",
+     title="Intercom Projects in New York Apartment Buildings | Jacob Intercom",
+     desc="Intercom replacements, conversions and portfolio programs Jacob Intercom has delivered in New York apartment buildings: building size, scope, schedule and outcome.",
+     h1="Projects",
+     lead="Building size, what was wrong, what we did, how long it took. Written up for managers deciding whether we can handle their buildings.",
+     facts=["Buildings of <b>10 to 200+</b> units", "Scope, schedule, outcome", "Published with permission"],
+     related=MGR_RELATED,
+     body="""
+<div class="note"><p><strong>Waiting on Jacob.</strong> The entries below are samples to show the layout. Each real project needs: building size and neighbourhood, the client type (management company, co-op board, owner), the problem, the scope, the system, the schedule, two or three photos, and permission to publish.</p></div>
+
+<h2>Whole-building conversions</h2>
+<div class="project">
+<p class="sample">Sample</p>
+<h3>[112] units, [FLATBUSH, BROOKLYN]: Lee-Dan to two-wire video</h3>
+<dl class="specs"><div><dt>Client</dt><dd>[Management company]</dd></div><div><dt>Building</dt><dd>[Six-storey pre-war elevator building]</dd></div><div><dt>System</dt><dd>[Old: Lee-Dan audio. New: two-wire video with smartphone app]</dd></div><div><dt>Schedule</dt><dd>[3 weeks]</dd></div></dl>
+<p>[Repeated amplifier failures and two dead risers. Every riser tested, all but one reused. New panel and amplifier installed alongside the old system, apartments switched over floor by floor, tenants given written instructions.]</p>
+<div class="slot">Project photos</div>
+</div>
+
+<h2>Portfolio programs</h2>
+<div class="project">
+<p class="sample">Sample</p>
+<h3>[14] buildings, [QUEENS AND THE BRONX]: survey and service agreement</h3>
+<dl class="specs"><div><dt>Client</dt><dd>[Management company, new portfolio]</dd></div><div><dt>Buildings</dt><dd>[14 buildings, 1,100 units]</dd></div><div><dt>Systems found</dt><dd>[Lee-Dan, Tektone, Aiphone, ButterflyMX]</dd></div><div><dt>Outcome</dt><dd>[4 replacements planned, 10 on agreement]</dd></div></dl>
+<p>[Condition report delivered for every building within the first month. Highest-risk buildings replaced first, the remainder brought under one agreement and one invoice.]</p>
+<div class="slot">Project photos</div>
+</div>
+
+<h2>Emergency and major repairs</h2>
+<div class="project">
+<p class="sample">Sample</p>
+<h3>[68] units, [WASHINGTON HEIGHTS]: building down after a flood</h3>
+<dl class="specs"><div><dt>Client</dt><dd>[Owner with in-house maintenance]</dd></div><div><dt>Problem</dt><dd>[Basement flood took out amplifier and power supply]</dd></div><div><dt>Response</dt><dd>[Same day]</dd></div><div><dt>Follow-up</dt><dd>[Vandal-resistant panel, equipment raised off the floor]</dd></div></dl>
+<p>[Building restored the same afternoon. Equipment relocated above flood level the following week.]</p>
+<div class="slot">Project photos</div>
+</div>
+""")
+
+page(path="pricing/", nav="How we price",
+     title="Intercom Pricing for NYC Buildings: Repairs, Agreements & Replacements | Jacob Intercom",
+     desc="How Jacob Intercom prices work for New York property managers: repairs priced before work starts, agreements per building, and replacements quoted per unit after a survey.",
+     h1="How we price",
+     lead="No open-ended invoices. Repairs are priced before work starts, agreements are a fixed rate per building, and replacements are quoted in writing after a survey.",
+     facts=["Price agreed <b>before</b> work starts", "Fixed agreement rates", "Written proposals for replacements"],
+     related=MGR_RELATED,
+     body="""
+<div class="note"><p><strong>For Jacob to complete before launch.</strong> Every highlighted figure is waiting on his numbers.</p></div>
+<h2>Repairs</h2>
+<p>We diagnose, tell you the price, and only then start. On agreement buildings, repairs below [AMOUNT] are pre-approved so the super isn't waiting on the office.</p>
+<div class="tablebox"><table>
+<thead><tr><th scope="col">Job</th><th scope="col">Typical price</th></tr></thead>
+<tbody>
+<tr><th scope="row">Service call and diagnosis</th><td>[DIAGNOSIS FEE, AND WHETHER IT IS CREDITED]</td></tr>
+<tr><th scope="row">[[intercom-repair/door-buzzer/|Apartment station replaced]]</th><td>$100 to $300</td></tr>
+<tr><th scope="row">[[intercom-repair/door-release/|Door release repaired]]</th><td>$100 to $300</td></tr>
+<tr><th scope="row">[[intercom-repair/no-audio/|Panel speaker or microphone]]</th><td>$100 to $300</td></tr>
+<tr><th scope="row">New electric strike, fitted</th><td>[STRIKE PRICE]</td></tr>
+<tr><th scope="row">Amplifier or power supply</th><td>[AMPLIFIER RANGE]</td></tr>
+<tr><th scope="row">Riser fault traced and repaired</th><td>[WIRING REPAIR RANGE]</td></tr>
+<tr><th scope="row">[[intercom-repair/entry-panel/|New entry panel on existing wire]]</th><td>[PANEL RANGE BY BUTTON COUNT]</td></tr>
+<tr><th scope="row">After-hours call</th><td>[AFTER-HOURS RATE]</td></tr>
+</tbody></table></div>
+
+<h2>Service agreements</h2>
+<p>Priced per building, by size and system, with a portfolio rate for management companies: [AGREEMENT PRICE GUIDE]. See [[intercom-maintenance-contract/|service agreements]].</p>
+
+<h2>System replacements</h2>
+<p>Quoted per building after a survey, because the price depends mostly on how much existing wire can be reused. As a guide:</p>
+<div class="tablebox"><table>
+<thead><tr><th scope="col">Building</th><th scope="col">Audio renewal</th><th scope="col">Wired video</th><th scope="col">Cloud / smartphone</th></tr></thead>
+<tbody>
+<tr><th scope="row">10 to 30 units</th><td>[PRICE]</td><td>[PRICE]</td><td>[PRICE + MONTHLY]</td></tr>
+<tr><th scope="row">31 to 75 units</th><td>[PRICE]</td><td>[PRICE]</td><td>[PRICE + MONTHLY]</td></tr>
+<tr><th scope="row">76 to 150 units</th><td>[PRICE]</td><td>[PRICE]</td><td>[PRICE + MONTHLY]</td></tr>
+<tr><th scope="row">Over 150 units</th><td>Quoted</td><td>Quoted</td><td>Quoted</td></tr>
+</tbody></table></div>
+
+<h2>Portfolio surveys</h2>
+<p>[SURVEY FEE PER BUILDING, AND WHETHER IT IS CREDITED AGAINST AN AGREEMENT OR REPLACEMENT]</p>
+
+<h2>What changes the price</h2>
+<ul>
+<li><strong>Riser condition.</strong> Reusable wire keeps a replacement inexpensive. New cable in occupied apartments is the biggest cost there is.</li>
+<li><strong>Number of entrances.</strong> Each needs a panel, and side or rear entrances often need their own strike and power.</li>
+<li><strong>The system.</strong> Cloud-based systems carry a monthly fee per building.</li>
+<li><strong>Access.</strong> Basement equipment rooms are quick; amplifiers in finished spaces or locked meter rooms take longer.</li>
+</ul>
+""",
+     faqs=[("Do you give prices over the phone?", "For repairs, usually a range from a description and a photo. For replacements, only after a survey, because the wire decides the price."),
+           ("Do you charge more for older systems?", "Labour is the same. Parts for discontinued systems can cost more."),
+           ("What are your payment terms?", "[PAYMENT TERMS FOR MANAGEMENT ACCOUNTS]")])
+
+page(path="contact/", nav="Contact",
+     title="Request a Building Survey or Service Call | Jacob Intercom",
+     desc="Contact Jacob Intercom about a building or a portfolio: service calls, service agreements, system replacements and vendor documents. 718-252-2730. 209 Avenue F, Brooklyn.",
+     h1="Request a building survey or service call",
+     lead="Tell us the buildings and what you need. For a single repair, calling is quickest. For agreements, replacements and portfolios, the form below gets the right details to us first.",
+     facts=["<b>718-252-2730</b>", "<b>212-837-2147</b>", "Mon to Thu 9 to 5, Fri 8 to 4"], no_reviews=True,
+     aside={"head": "Building down right now?", "text": "If the entrance won't lock or the whole building is silent, call {{tel}}. See [[intercom-repair/emergency/|urgent calls]]."},
+     related=MGR_RELATED,
+     body="""
+<h2>Phone and email</h2>
+<p><strong>{{tel}}</strong></p>
+<p><strong>{{tel2}}</strong></p>
+<p>Email: <a href="mailto:jacobintercom@gmail.com">jacobintercom@gmail.com</a></p>
+<h2>Hours</h2>
+<div class="tablebox"><table>
+<thead><tr><th scope="col">Day</th><th scope="col">Hours</th></tr></thead>
+<tbody>
+<tr><th scope="row">Monday to Thursday</th><td>9:00 am to 5:00 pm</td></tr>
+<tr><th scope="row">Friday</th><td>8:00 am to 4:00 pm</td></tr>
+<tr><th scope="row">Saturday and Sunday</th><td>Closed</td></tr>
+<tr><th scope="row">After hours</th><td>[AFTER-HOURS LINE, AND WHETHER AGREEMENT CLIENTS GET PRIORITY]</td></tr>
+</tbody></table></div>
+<h2>What helps us quote</h2>
+<ol>
+<li>Building addresses and the number of apartments in each.</li>
+<li>What's installed, if you know: a photo of the entry panel and of one apartment station is enough.</li>
+<li>What you need: a repair, an agreement, a replacement or a survey.</li>
+<li>Who approves the work, and any vendor requirements we should meet first.</li>
+</ol>
+<h2>Office</h2>
+<p>Jacob Intercom<br>209 Avenue F<br>Brooklyn, NY 11218</p>
+<p>We cover Brooklyn, Manhattan, Queens, the Bronx and Staten Island, and take work on Long Island, in Westchester and in New Jersey.</p>
+""")
+
+
 _titles = dict(GUIDES)
-_hub = ['<p>Written by intercom technicians with 35 years of New York jobs. Pick the one that matches your situation.</p>']
+_hub = ['<p>Written for property managers, supers and boards by intercom technicians with 35 years of New York buildings behind them.</p>']
 for head, items in GUIDE_GROUPS:
     cards = "".join(
         f'<a class="card" href="{{{{u:{G}{slug}/}}}}">{{{{img:{GUIDE_SHOT[slug]}}}}}<span class="card-t">{_titles[slug]}</span><span class="card-d">{summary}</span></a>'
