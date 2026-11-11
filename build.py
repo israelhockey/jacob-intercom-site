@@ -10,6 +10,8 @@ sys.path.insert(0, HERE)
 from content import PAGES  # noqa: E402
 
 BASE = "https://jacobintercom.com"
+# Path the site is served from. "/" on jacobintercom.com; "/jacob-intercom-site/" on GitHub Pages before the domain is attached.
+SITE_BASE = os.environ.get("SITE_BASE", "/")
 PHONE, PHONE_TEL = "718-252-2730", "+17182522730"
 PHONE2, PHONE2_TEL = "212-837-2147", "+12128372147"
 GTM_ID = "GTM-M2T83X8J"  # his existing Tag Manager container, carried over from the old site
@@ -77,11 +79,11 @@ class Ctx:
 
     def url(self, path):
         if self.mode == "site":
-            return "/" + path
+            return SITE_BASE + path
         return "../" * self.depth + path + "index.html"
 
     def asset(self, name):
-        return ("/assets/" if self.mode == "site" else "../" * self.depth + "assets/") + name
+        return (SITE_BASE + "assets/" if self.mode == "site" else "../" * self.depth + "assets/") + name
 
     def img(self, n, eager=False):
         load = 'fetchpriority="high"' if eager else 'loading="lazy"'
@@ -349,6 +351,21 @@ if __name__ == "__main__":
     main()
 
 
+def build_forwarding_pages(root):
+    """One small page at each old WordPress address that forwards to its new page."""
+    for src, dst in REDIRECTS.items():
+        d = os.path.join(root, src.strip("/"))
+        if os.path.exists(os.path.join(d, "index.html")):
+            continue
+        os.makedirs(d, exist_ok=True)
+        target = SITE_BASE + dst.lstrip("/")
+        open(os.path.join(d, "index.html"), "w").write(
+            '<!doctype html><html lang="en"><head><meta charset="utf-8">'
+            f'<title>Moved</title><link rel="canonical" href="{BASE}{dst}">'
+            f'<meta http-equiv="refresh" content="0; url={target}"><meta name="robots" content="noindex">'
+            f'</head><body><p>This page has moved to <a href="{target}">{BASE}{dst}</a>.</p></body></html>')
+
+
 def build_staging():
     """A copy of the production site for client review on a temporary host: hidden from search engines, no analytics."""
     import glob
@@ -365,4 +382,5 @@ def build_staging():
 
 
 if __name__ == "__main__":
+    build_forwarding_pages(os.path.join(HERE, "out", "site"))
     build_staging()
