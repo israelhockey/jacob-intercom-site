@@ -12,6 +12,8 @@ from content import PAGES  # noqa: E402
 BASE = "https://jacobintercom.com"
 # Path the site is served from. "/" on jacobintercom.com; "/jacob-intercom-site/" on GitHub Pages before the domain is attached.
 SITE_BASE = os.environ.get("SITE_BASE", "/")
+# Where the built site is actually served; link previews need full URLs on that host.
+PUBLIC_URL = os.environ.get("PUBLIC_URL", BASE).rstrip("/")
 PHONE, PHONE_TEL = "718-252-2730", "+17182522730"
 PHONE2, PHONE2_TEL = "212-837-2147", "+12128372147"
 GTM_ID = "GTM-M2T83X8J"  # his existing Tag Manager container, carried over from the old site
@@ -187,13 +189,27 @@ def head(ctx):
     shot = p.get("shot") or PAGE_SHOT.get(p["path"], 1)
     if ctx.mode == "site":
         out.append(f'<link rel="canonical" href="{BASE}/{p["path"]}">')
-        out.append(f'<meta property="og:title" content="{html.escape(p["title"], quote=True)}">')
-        out.append(f'<meta property="og:image" content="{BASE}/assets/{shot_file(shot)}">')
+        t, d = html.escape(p["title"], quote=True), html.escape(p["desc"], quote=True)
+        share = f"{PUBLIC_URL}/assets/share.jpg"
+        out += [f'<meta property="og:type" content="website">',
+                f'<meta property="og:site_name" content="Jacob Intercom">',
+                f'<meta property="og:url" content="{PUBLIC_URL}/{p["path"]}">',
+                f'<meta property="og:title" content="{t}">',
+                f'<meta property="og:description" content="{d}">',
+                f'<meta property="og:image" content="{share}">',
+                '<meta property="og:image:width" content="1200">',
+                '<meta property="og:image:height" content="630">',
+                '<meta property="og:image:alt" content="Jacob Intercom: New York intercom repair and installation for 35 years">',
+                '<meta name="twitter:card" content="summary_large_image">',
+                f'<meta name="twitter:image" content="{share}">']
     else:
         out.append('<meta name="robots" content="noindex">')
         out.append('<meta name="claude:viewport-fit-sides" content="cover">')
     out += [f'<link rel="stylesheet" href="{FONTS}">', f'<link rel="stylesheet" href="{ctx.asset("site.css")}">']
     out.append(f'<link rel="icon" href="{ctx.asset("favicon.svg")}" type="image/svg+xml">')
+    out.append(f'<link rel="icon" href="{ctx.asset("favicon-32.png")}" sizes="32x32" type="image/png">')
+    out.append(f'<link rel="apple-touch-icon" href="{ctx.asset("apple-touch-icon.png")}">')
+    out.append('<meta name="theme-color" content="#0E2A22">')
     if p.get("noindex") and ctx.mode == "site":
         out.append('<meta name="robots" content="noindex">')
     if ctx.mode == "site" and GTM_ID:

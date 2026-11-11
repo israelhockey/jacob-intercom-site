@@ -25,7 +25,7 @@ jobs:
       # Review phase: GitHub Pages sub-folder, hidden from search engines (out/staging).
       # At launch: set SITE_BASE to "/", publish out/site, and add the CNAME file for jacobintercom.com.
       - name: Build
-        run: SITE_BASE=/jacob-intercom-site/ python3 build.py
+        run: SITE_BASE=/jacob-intercom-site/ PUBLIC_URL=https://israelhockey.github.io/jacob-intercom-site python3 build.py
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out/staging
