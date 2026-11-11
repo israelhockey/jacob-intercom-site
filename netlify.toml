@@ -1,0 +1,9 @@
+# Netlify builds the site from source on every push.
+# Review phase: publishes the hidden-from-Google copy.
+# At launch: change publish to "out/site" (indexed, tracking on).
+[build]
+  command = "python3 build.py"
+  publish = "out/staging"
+
+[build.environment]
+  PYTHON_VERSION = "3.11"
