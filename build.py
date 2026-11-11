@@ -215,10 +215,11 @@ def head(ctx):
 
 def header(ctx):
     nav = "".join(ctx.link(path, text) for path, text in NAV)
-    return f"""<div class="topbar"><div class="wrap"><span>Open Monday to Thursday 9 to 5, Friday 8 to 4. After hours: <span class="todo">[AFTER-HOURS LINE]</span></span><span>209 Avenue F, Brooklyn, NY 11218</span></div></div>
+    return f"""<div class="topbar"><div class="wrap"><span><span class="long">Open Monday to Thursday 9 to 5, Friday 8 to 4.</span><span class="short">Mon to Thu 9 to 5, Fri 8 to 4.</span> After hours: <span class="todo">[AFTER-HOURS LINE]</span></span><span class="addr">209 Avenue F, Brooklyn, NY 11218</span></div></div>
 <header class="site-header"><div class="wrap">
 <a class="logo" href="{ctx.url('')}">Jacob Intercom</a>
-<nav class="nav" aria-label="Main">{nav}</nav>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="menu-bars" aria-hidden="true"></span>Menu</button>
+<nav class="nav" id="site-nav" aria-label="Main">{nav}</nav>
 <a class="btn btn-brass" href="tel:{PHONE_TEL}">Call {PHONE}</a>
 </div></header>"""
 

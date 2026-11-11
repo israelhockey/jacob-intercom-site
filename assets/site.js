@@ -6,6 +6,16 @@
   window.addEventListener('load', toTop);
   window.addEventListener('pageshow', toTop);
 
+  // Phone menu
+  var toggle = document.querySelector('.menu-toggle'), nav = document.getElementById('site-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function () {
+      var open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', open ? 'false' : 'true');
+      nav.classList.toggle('open', !open);
+    });
+  }
+
   // Buzzer panel troubleshooter (home page)
   var panel = document.querySelector('[data-panel]');
   if (panel) {

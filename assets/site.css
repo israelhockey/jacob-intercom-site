@@ -225,3 +225,42 @@ form.card input[type=file]{border-style:dashed}
 .portrait{margin:0;display:flex;flex-direction:column;gap:10px;max-width:340px}
 .portrait img{width:100%;height:auto;border-radius:10px;background:#d9d9d9}
 .portrait figcaption{color:var(--muted);font-size:.92rem}
+
+/* ── phone layout ── */
+.menu-toggle{display:none}
+.topbar .short{display:none}
+@media (max-width:720px){
+  .topbar .long,.topbar .addr{display:none}
+  .topbar .short{display:inline}
+  .topbar .wrap{justify-content:center;text-align:center}
+  .site-header .wrap{flex-wrap:wrap;gap:0;padding-block:10px}
+  .logo{flex:1 1 auto;padding:8px 0}
+  .menu-toggle{display:inline-flex;align-items:center;gap:10px;background:transparent;color:#fff;border:2px solid #3A5A4E;border-radius:6px;padding:10px 14px;font:600 1rem var(--body);cursor:pointer;min-height:44px}
+  .menu-bars,.menu-bars::before,.menu-bars::after{display:block;width:18px;height:2px;background:currentColor;border-radius:1px;position:relative}
+  .menu-bars::before,.menu-bars::after{content:"";position:absolute;left:0}
+  .menu-bars::before{top:-6px}.menu-bars::after{top:6px}
+  .menu-toggle[aria-expanded="true"] .menu-bars{background:transparent}
+  .menu-toggle[aria-expanded="true"] .menu-bars::before{top:0;transform:rotate(45deg)}
+  .menu-toggle[aria-expanded="true"] .menu-bars::after{top:0;transform:rotate(-45deg)}
+  .nav{display:none;flex:1 1 100%;flex-direction:column;gap:0;margin-top:8px;border-top:1px solid #3A5A4E}
+  .nav.open{display:flex}
+  .nav a,.nav span{padding:14px 2px;border-bottom:1px solid #2A473D;font-size:1.05rem}
+
+  /* buttons: full width, same size, centred */
+  .btn-row{flex-direction:column;gap:10px}
+  .btn-row .btn{width:100%;text-align:center}
+  .section .btn,.quote .btn,.calc .btn{text-align:center}
+
+  /* fact strip and chips: even grid */
+  .strip .wrap{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;text-align:center;font-size:.95rem}
+  .strip .wrap span:last-child{grid-column:1 / -1}
+  .facts{display:grid;grid-template-columns:1fr;gap:8px}
+  .facts li{text-align:center}
+  .hero .fine{text-align:center}
+}
+@media (max-width:720px){.topbar .todo{white-space:nowrap}.topbar{font-size:.85rem}}
+@media (max-width:720px){
+  .strip .wrap{grid-template-columns:1fr;gap:0;padding-block:6px}
+  .strip .wrap span{padding:12px 0;border-bottom:1px solid rgba(14,42,34,.18)}
+  .strip .wrap span:last-child{border-bottom:0}
+}
