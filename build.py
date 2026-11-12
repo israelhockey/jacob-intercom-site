@@ -13,6 +13,10 @@ BASE = "https://jacobintercom.com"
 # Path the site is served from. "/" on jacobintercom.com; "/jacob-intercom-site/" on GitHub Pages before the domain is attached.
 SITE_BASE = os.environ.get("SITE_BASE", "/")
 # Where the built site is actually served; link previews need full URLs on that host.
+import hashlib
+# Changes whenever the stylesheet or script changes, so browsers never keep an old copy.
+ASSET_V = hashlib.md5(b"".join(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", f), "rb").read()
+                               for f in ("site.css", "site.js"))).hexdigest()[:8]
 PUBLIC_URL = os.environ.get("PUBLIC_URL", BASE).rstrip("/")
 PHONE, PHONE_TEL = "718-252-2730", "+17182522730"
 PHONE2, PHONE2_TEL = "212-837-2147", "+12128372147"
@@ -207,7 +211,7 @@ def head(ctx):
     else:
         out.append('<meta name="robots" content="noindex">')
         out.append('<meta name="claude:viewport-fit-sides" content="cover">')
-    out += [f'<link rel="stylesheet" href="{FONTS}">', f'<link rel="stylesheet" href="{ctx.asset("site.css")}">']
+    out += [f'<link rel="stylesheet" href="{FONTS}">', f'<link rel="stylesheet" href="{ctx.asset("site.css")}?v={ASSET_V}">']
     out.append(f'<link rel="icon" href="{ctx.asset("favicon-32.png")}" sizes="32x32" type="image/png">')
     out.append(f'<link rel="apple-touch-icon" href="{ctx.asset("apple-touch-icon.png")}">')
     out.append('<meta name="theme-color" content="#3698C2">')
@@ -307,7 +311,7 @@ def footer(ctx):
 <div><strong>Company</strong><p>{ctx.link('about/', 'About')}</p><p>{ctx.link('projects/', 'Projects')}</p><p>{ctx.link('vendor-onboarding/', 'Vendor onboarding')}</p><p>{ctx.link('superintendents/', 'For superintendents')}</p><p>{ctx.link('guides/', 'Guides')}</p><p>{ctx.link('reviews/', 'Reviews')}</p><p>{ctx.link('privacy/', 'Privacy')}</p></div>
 </div></footer>
 <div class="callbar"><a class="btn btn-brass" href="tel:{PHONE_TEL}">Call {PHONE}</a><a class="btn btn-ghost" href="#quote">Request a survey</a></div>
-<script src="{ctx.asset('site.js')}"></script>"""
+<script src="{ctx.asset('site.js')}?v={ASSET_V}"></script>"""
 
 
 def article(ctx):
