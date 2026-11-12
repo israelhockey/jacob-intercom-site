@@ -337,7 +337,7 @@ def home_quote(ctx):
 
 def footer(ctx):
     return f"""<footer class="site-footer"><div class="wrap">
-<div><a class="logo" href="{ctx.url('')}"><img src="{ctx.asset('logo-white.png')}" alt="Jacob Intercom" width="400" height="86" loading="lazy"></a><p>209 Avenue F, Brooklyn, NY 11218</p><p>Licence <span class="todo">[LICENCE NO.]</span>. Fully insured.</p><p>35 years in business.</p></div>
+<div><a class="logo" href="{ctx.url('')}"><img src="{ctx.asset('logo-white.png')}" alt="Jacob Intercom" width="400" height="86" loading="lazy"></a><p>209 Avenue F, Brooklyn, NY 11218</p><p>Fully insured.</p><p>35 years in business.</p></div>
 <div><strong>Call or email</strong><p>{ctx.expand('{{tel}}')}</p><p>{ctx.expand('{{tel2}}')}</p><p><a href="mailto:jacobintercom@gmail.com">jacobintercom@gmail.com</a></p></div>
 <div><strong>Services</strong><p>{ctx.link('intercom-repair/', 'Intercom repair')}</p><p>{ctx.link('intercom-maintenance-contract/', 'Service agreements')}</p><p>{ctx.link('intercom-replacement/', 'Building upgrades')}</p><p>{ctx.link('property-managers/', 'Portfolio programs')}</p><p>{ctx.link('lee-dan-intercom-systems/', 'Lee-Dan systems')}</p></div>
 <div><strong>Service areas</strong><p>{ctx.link('service-areas/', 'All service areas')}</p><p>{ctx.link('intercom-installation-brooklyn/', 'Brooklyn')}, {ctx.link('intercom-installation-manhattan/', 'Manhattan')}, {ctx.link('intercom-installation-queens/', 'Queens')}</p><p>{ctx.link('intercom-installation-bronx/', 'The Bronx')}, {ctx.link('intercom-installation-staten-island/', 'Staten Island')}</p></div>

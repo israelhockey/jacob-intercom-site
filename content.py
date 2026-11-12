@@ -1029,7 +1029,7 @@ page(path="about/", nav="About",
      desc="Jacob Intercom has repaired and installed intercoms across New York for 35 years, from a base at 209 Avenue F in Brooklyn.",
      h1="About Jacob Intercom",
      lead="At Jacob Intercom, we can help you save a lot of money. Over 35 years of experience with intercom systems, CCTV and access control, from our base on Avenue F in Brooklyn.",
-     facts=["<b>35 years</b> in business", "Based in <b>Brooklyn</b>", "Licensed and insured"],
+     facts=["<b>35 years</b> in business", "Based in <b>Brooklyn</b>", "Fully insured"],
      body="""
 <div class="note"><p><strong>For Jacob to write or approve.</strong> This page should be in his words. The structure and the confirmed facts are in place. The rest is marked for him.</p></div>
 <figure class="portrait"><img src="{{a:img/jacob.webp}}" alt="Jacob of Jacob Intercom, holding a tool bag and answering his phone" width="600" height="900" fetchpriority="high"><figcaption>Jacob, founder of Jacob Intercom. [JACOB: CONFIRM HOW HE WANTS TO BE NAMED]</figcaption></figure>
@@ -1049,8 +1049,8 @@ page(path="about/", nav="About",
 </ul>
 <h2>The team</h2>
 <p>[NAMES AND ROLES, WITH PERMISSION]. One of our Google reviewers wrote: &ldquo;Marina is the person to go to!&rdquo;</p>
-<h2>Licences and insurance</h2>
-<p>Licence: [LICENCE NO. AND TYPE]. Insurance: [INSURER AND LIMITS]. A certificate of insurance is available to managing agents and boards on request. See [[vendor-onboarding/|vendor onboarding]].</p>
+<h2>Insurance</h2>
+<p>Insurance: [INSURER AND LIMITS]. A certificate of insurance is available to managing agents and boards on request. See [[vendor-onboarding/|vendor onboarding]].</p>
 <h2>Where we work</h2>
 <p>Our office is at 209 Avenue F, Brooklyn, NY 11218. We cover Brooklyn, Manhattan, Queens, the Bronx and Staten Island, and take jobs on Long Island, in Westchester and in New Jersey.</p>
 """,
@@ -1133,7 +1133,7 @@ btype("co-op-condo-intercom/", "Co-ops and condos",
 <li><strong>How long will residents be without an intercom?</strong> We plan the changeover to keep that to a minimum.</li>
 </ul>
 <h2>Paperwork</h2>
-<p>A certificate of insurance naming the corporation or condominium and the managing agent, sent before the first visit. Written quotes and an itemised invoice. Licence: [LICENCE NO.].</p>
+<p>A certificate of insurance naming the corporation or condominium and the managing agent, sent before the first visit. Written quotes and an itemised invoice.</p>
 <h2>Shareholders and unit owners</h2>
 <p>In most co-ops and condos the building intercom is a common element, and the apartment station is often treated as part of it. Check your proprietary lease or bylaws, or ask the managing agent, before arranging a repair to your own station.</p>
 <p>[JACOB: A CO-OP JOB TO FEATURE, WITH THE BOARD'S PERMISSION]</p>
@@ -2210,7 +2210,7 @@ guide("co-op-intercom-replacement", "Co-op replacement",
 <h2>3. Compare the ten-year cost</h2>
 <p>Include subscriptions, expected repairs and replacement parts. A cheaper installation with a monthly fee can cost more over time.</p>
 <h2>4. Check the paperwork</h2>
-<p>Licence, insurance certificate naming the corporation and managing agent, warranty terms, and a schedule.</p>
+<p>An insurance certificate naming the corporation and managing agent, warranty terms, and a schedule.</p>
 <h2>5. Tell shareholders</h2>
 <p>Explain what is changing, when contractors need apartment access, and how residents will answer the door during the changeover.</p>
 <h2>6. Plan the changeover</h2>
@@ -2305,7 +2305,7 @@ wider("long-island", "Long Island", "Nassau County and western Suffolk: [TOWNS J
 wider("westchester", "Westchester", "Yonkers, Mount Vernon, New Rochelle, White Plains and nearby: [TOWNS JACOB HAS WORKED IN].",
       "<p>Westchester's apartment buildings and co-ops are concentrated in the southern cities.</p>")
 wider("new-jersey", "New Jersey", "Jersey City, Hoboken and nearby: [TOWNS JACOB HAS WORKED IN].",
-      "<p>[CONFIRM ANY NEW JERSEY LICENSING NEEDED FOR THIS WORK]</p>")
+      "<p>Jersey City and Hoboken have a large stock of older walk-ups and newer multi-family buildings, many still running audio intercoms due for an upgrade.</p>")
 
 page(path="service-areas/", nav="Service areas",
      title="Intercom Service Areas: NYC, Long Island, Westchester, NJ | Jacob Intercom",
@@ -2600,7 +2600,7 @@ page(path="property-managers/", nav="Portfolio programs",
 <li><strong>Predictable costs.</strong> Fixed rates across the portfolio and a replacement budget you can plan around, instead of surprise quotes.</li>
 <li><strong>One phone number for every building.</strong> Your supers call one place, whatever the make.</li>
 <li><strong>Job reports your team can file.</strong> After every visit: what was wrong, what was done, parts used, photos, and anything to watch.</li>
-<li><strong>Paperwork without chasing.</strong> Certificates of insurance per building, W-9 and licence ready before the first visit. See [[vendor-onboarding/|vendor onboarding]].</li>
+<li><strong>Paperwork without chasing.</strong> Certificates of insurance per building and a W-9, ready before the first visit. See [[vendor-onboarding/|vendor onboarding]].</li>
 </ul>
 
 <h2>Taking over a new portfolio</h2>
@@ -2784,11 +2784,11 @@ page(path="superintendents/", nav="For superintendents",
            ("Who approves the work, me or management?", "Whoever your company has set as the approver. On agreement buildings, repairs under [AMOUNT] are pre-approved.")])
 
 page(path="vendor-onboarding/", nav="Vendor onboarding",
-     title="Vendor Onboarding: COI, W-9 & Licence | Jacob Intercom",
-     desc="Approving Jacob Intercom as a vendor: certificates of insurance, W-9, licence, invoicing terms and job reporting for New York management companies.",
+     title="Vendor Onboarding: Certificate of Insurance & W-9 | Jacob Intercom",
+     desc="Approving Jacob Intercom as a vendor: certificates of insurance, W-9, invoicing terms and job reporting for New York management companies.",
      h1="Vendor onboarding",
      lead="Everything your accounts payable and compliance teams need to approve us, ready before the first job.",
-     facts=["COI <b>per building</b>", "W-9 and licence on request", "Invoicing <b>per building or portfolio</b>"],
+     facts=["COI <b>per building</b>", "W-9 on request", "Invoicing <b>per building or portfolio</b>"],
      aside={"head": "Need our documents?", "text": "Email jacobintercom@gmail.com with the building addresses and the names to appear as additional insured. We'll send the certificate and W-9 the same day. [CONFIRM TURNAROUND]"},
      related=MGR_RELATED, no_reviews=True,
      body="""
@@ -2798,7 +2798,6 @@ page(path="vendor-onboarding/", nav="Vendor onboarding",
 <tbody>
 <tr><th scope="row">Certificate of insurance</th><td>Naming the owner, managing agent and building as additional insured. General liability [LIMITS]. Workers' compensation and disability [CARRIER]. Umbrella [LIMIT].</td></tr>
 <tr><th scope="row">W-9</th><td>[LEGAL BUSINESS NAME AND ENTITY TYPE]</td></tr>
-<tr><th scope="row">Licence</th><td>[LICENCE TYPE AND NUMBER]</td></tr>
 <tr><th scope="row">Vendor forms</th><td>We complete your vendor packet, compliance portal registration and any building-specific requirements.</td></tr>
 <tr><th scope="row">Lien waivers</th><td>[ON REQUEST FOR INSTALLATION PROJECTS]</td></tr>
 </tbody></table></div>
