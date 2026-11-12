@@ -22,9 +22,25 @@ PHONE, PHONE_TEL = "718-252-2730", "+17182522730"
 PHONE2, PHONE2_TEL = "212-837-2147", "+12128372147"
 GTM_ID = "GTM-M2T83X8J"  # his existing Tag Manager container, carried over from the old site
 FONTS = "https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@400;500;700&display=swap"
-NAV = [("intercom-repair/", "Repair"), ("intercom-maintenance-contract/", "Service agreements"),
-       ("intercom-replacement/", "Upgrades"), ("lee-dan-intercom-systems/", "Lee-Dan"),
-       ("projects/", "Projects"), ("about/", "About"), ("contact/", "Contact")]
+# Same menu as Jacob's current site (Service Areas, Services, New Products, About us, Blog, Contact),
+# with the new site's extra pages filed under the matching heading.
+NAV = [
+    ("Service Areas", [("intercom-installation-brooklyn/", "Brooklyn"), ("intercom-installation-bronx/", "Bronx"),
+                       ("intercom-installation-manhattan/", "Manhattan"), ("intercom-installation-staten-island/", "Staten Island"),
+                       ("intercom-installation-queens/", "Queens"), ("service-areas/", "All service areas")]),
+    ("Services", [("intercom-installation/", "Intercom installation"), ("intercom-repair/", "Intercom repair"),
+                  ("security-cameras/", "CCTV"), ("access-control/", "Access controls"),
+                  ("intercom-maintenance-contract/", "Maintenance and service agreements"),
+                  ("intercom-replacement/", "Upgrades and replacements"), ("intercom-repair/emergency/", "Emergency repair")]),
+    ("New Products", [("lee-dan-intercom-systems/", "Lee-Dan Intercom Systems"), ("akuvox-r29/", "R29 Akuvox"),
+                      ("dvt-104/", "DVT-104"), ("dt-607entry-panels/", "DT-607 Entry Panels"),
+                      ("dx-471-monitor/", "DX-471 Monitor"), ("brands/", "All brands we service")]),
+    ("About us", [("about/", "About Jacob Intercom"), ("projects/", "Projects"), ("reviews/", "Reviews"),
+                  ("property-managers/", "For property managers"), ("superintendents/", "For superintendents"),
+                  ("vendor-onboarding/", "Vendor onboarding")]),
+    ("guides/", "Blog"),
+    ("contact/", "Contact us"),
+]
 BUILT = {p["path"] for p in PAGES}
 SHOTS = {
     1: "Pre-war apartment building entrance with a stainless steel intercom panel beside the doors",
@@ -234,8 +250,21 @@ def head(ctx):
     return "\n".join(out)
 
 
+def nav_html(ctx):
+    out = []
+    for i, (key, val) in enumerate(NAV):
+        if isinstance(val, list):
+            here = any(p == ctx.page["path"] for p, _ in val)
+            links = "".join(f"<li>{ctx.link(p, t)}</li>" for p, t in val)
+            out.append(f'<div class="nav-group{" here" if here else ""}"><button type="button" class="nav-top" aria-expanded="false" aria-controls="sub-{i}">{key}<span class="caret" aria-hidden="true"></span></button>'
+                       f'<ul class="nav-sub" id="sub-{i}">{links}</ul></div>')
+        else:
+            out.append(ctx.link(key, val, "nav-link"))
+    return "".join(out)
+
+
 def header(ctx):
-    nav = "".join(ctx.link(path, text) for path, text in NAV)
+    nav = nav_html(ctx)
     return f"""<header class="site-header"><div class="wrap">
 <a class="logo" href="{ctx.url('')}"><img src="{ctx.asset('logo-white.png')}" alt="Jacob Intercom, Intercom Specialist" width="400" height="86"></a>
 <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="menu-bars" aria-hidden="true"></span>Menu</button>

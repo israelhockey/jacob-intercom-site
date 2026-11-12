@@ -16,6 +16,24 @@
     });
   }
 
+  // Dropdown menus: click or tap to open, Escape or click elsewhere to close
+  var groups = [].slice.call(document.querySelectorAll('.nav-group'));
+  function closeAll(except) {
+    groups.forEach(function (g) { if (g !== except) { g.classList.remove('open'); g.querySelector('.nav-top').setAttribute('aria-expanded', 'false'); } });
+  }
+  groups.forEach(function (g) {
+    var btn = g.querySelector('.nav-top');
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = !g.classList.contains('open');
+      closeAll(g);
+      g.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+  document.addEventListener('click', function (e) { if (!e.target.closest('.nav-group')) closeAll(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
+
   // Buzzer panel troubleshooter (home page)
   var panel = document.querySelector('[data-panel]');
   if (panel) {

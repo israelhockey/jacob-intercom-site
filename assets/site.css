@@ -39,8 +39,8 @@ p{margin:0}
 .logo{display:inline-flex;text-decoration:none}
 .logo img{height:52px;width:auto;display:block}
 
-.nav{display:flex;flex-wrap:wrap;gap:2px 22px;font-size:1rem}
-.nav a,.nav span{color:#fff;text-decoration:none;padding:10px 0}
+.nav{display:flex;flex-wrap:wrap;align-items:center;gap:2px 6px;font-size:1rem}
+.nav .nav-link{color:#fff;text-decoration:none;padding:10px 12px;font-weight:500}
 .nav span{color:#D7EAF2}
 .nav a:hover,.nav a[aria-current="page"]{color:#fff;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
 .btn{display:inline-block;font-weight:600;text-decoration:none;border-radius:6px;padding:14px 20px;border:2px solid transparent;font-size:1.05rem;line-height:1.2;cursor:pointer;font-family:inherit}
@@ -253,7 +253,6 @@ form.card input[type=file]{border-style:dashed}
   .menu-toggle[aria-expanded="true"] .menu-bars::after{top:0;transform:rotate(-45deg)}
   .nav{display:none;flex:1 1 100%;flex-direction:column;gap:0;margin-top:8px;border-top:1px solid rgba(255,255,255,.35)}
   .nav.open{display:flex}
-  .nav a,.nav span{padding:14px 2px;border-bottom:1px solid rgba(255,255,255,.25);font-size:1.05rem}
 
   /* buttons: full width, same size, centred */
   .btn-row{flex-direction:column;gap:10px}
@@ -349,3 +348,43 @@ form.card textarea{resize:vertical}
   .home-cards,.home-trust .wrap,.home-contact .wrap{grid-template-columns:1fr;gap:36px}
   .home-services,.home-trust,.home-contact{padding-block:60px}
 }
+
+/* ── dropdown menu (desktop) ── */
+.nav-group{position:relative}
+.nav-top{display:inline-flex;align-items:center;gap:7px;background:none;border:0;color:#fff;font:500 1rem var(--body);padding:10px 12px;cursor:pointer;border-radius:4px}
+.nav-top:hover,.nav-group.open .nav-top,.nav-group.here .nav-top{background:rgba(255,255,255,.14)}
+.caret{width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .15s}
+.nav-group.open .caret{transform:rotate(-135deg) translateY(-2px)}
+.nav-sub{list-style:none;margin:0;padding:8px 0;position:absolute;left:0;top:calc(100% + 6px);min-width:250px;background:#fff;border-radius:6px;box-shadow:0 12px 30px rgba(21,68,88,.22);border-top:4px solid var(--brand);display:none;z-index:40}
+.nav-group.open .nav-sub{display:block}
+@media (hover:hover) and (min-width:721px){.nav-group:hover .nav-sub{display:block}.nav-group:hover .caret{transform:rotate(-135deg) translateY(-2px)}}
+.nav-sub a,.nav-sub span{display:block;padding:10px 18px;color:var(--ink);text-decoration:none;font-weight:500}
+.nav-sub a:hover,.nav-sub a[aria-current="page"]{background:var(--tint);color:var(--deep)}
+.nav .nav-link:hover,.nav .nav-link[aria-current="page"]{background:rgba(255,255,255,.14);border-radius:4px}
+@media (max-width:1180px) and (min-width:721px){.nav-top,.nav .nav-link{padding:10px 8px;font-size:.95rem}.logo img{height:44px}}
+@media (max-width:720px){
+  .nav{align-items:stretch}
+  .nav-group{border-bottom:1px solid rgba(255,255,255,.25);width:100%}
+  .nav-top{width:100%;justify-content:space-between;padding:15px 2px;font-size:1.08rem;border-radius:0;background:none!important}
+  .nav-sub{position:static;box-shadow:none;border:0;background:rgba(0,0,0,.12);border-radius:4px;margin:0 0 10px;padding:4px 0;min-width:0}
+  .nav-sub a,.nav-sub span{color:#fff;padding:11px 14px}
+  .nav-sub a:hover,.nav-sub a[aria-current="page"]{background:rgba(255,255,255,.12);color:#fff}
+  .nav .nav-link{padding:15px 2px;border-bottom:1px solid rgba(255,255,255,.25);font-size:1.08rem;border-radius:0}
+}
+
+/* home: What we offer / Who we are, service areas */
+.home-offer{padding-block:88px;background:var(--tint)}
+.home-offer .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.home-offer h2{color:var(--deep);margin-bottom:22px}
+.ticks{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.ticks li{position:relative;padding-left:34px;font-size:1.05rem}
+.ticks li::before{content:"";position:absolute;left:0;top:4px;width:20px;height:20px;border-radius:50%;background:var(--brand)}
+.ticks li::after{content:"";position:absolute;left:7px;top:8px;width:5px;height:10px;border-right:2.5px solid #fff;border-bottom:2.5px solid #fff;transform:rotate(45deg)}
+.home-areas{background:var(--brand);color:#fff;padding-block:64px;text-align:center}
+.home-areas h2{margin-bottom:26px}
+.area-links{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.area-links a{color:#fff;text-decoration:none;border:2px solid rgba(255,255,255,.8);border-radius:4px;padding:12px 22px;font-weight:700;font-size:1.1rem}
+.area-links a:hover{background:#fff;color:var(--deep)}
+.home-areas p{margin:22px 0 0;color:#EAF4F9}
+.home-areas p a{color:#fff;font-weight:700}
+@media (max-width:860px){.home-offer .wrap{grid-template-columns:1fr;gap:40px}.home-offer,.home-areas{padding-block:56px}.area-links a{flex:1 1 40%}}

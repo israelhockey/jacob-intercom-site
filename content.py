@@ -60,6 +60,34 @@ HOME = """
 </div>
 </div></section>
 
+<section class="home-offer"><div class="wrap">
+<div>
+<h2>What we offer</h2>
+<ul class="ticks">
+<li>We install, repair and upgrade intercom systems for apartment buildings, offices and commercial properties throughout NYC.</li>
+<li>We also provide CCTV camera installation and access control solutions.</li>
+<li>Maintenance and service plans that keep your systems working, with same-day service available.</li>
+<li>Reliable service with quality solutions at competitive prices, and free estimates.</li>
+</ul>
+</div>
+<div>
+<h2>Who we are</h2>
+<ul class="ticks">
+<li>At Jacob Intercom, we specialize in professional intercom installation, repair and upgrade services, with quality solutions designed to meet your property's specific needs.</li>
+<li>We have proudly served customers throughout the New York community for over 35 years.</li>
+<li>Jacob Intercom is dedicated to providing reliable products, expert service and solutions that fit your property's needs and budget.</li>
+</ul>
+</div>
+</div></section>
+
+<section class="home-areas"><div class="wrap">
+<h2>We provide service in the following:</h2>
+<div class="area-links">
+<a href="{{u:intercom-installation-brooklyn/}}">Brooklyn</a><a href="{{u:intercom-installation-queens/}}">Queens</a><a href="{{u:intercom-installation-bronx/}}">Bronx</a><a href="{{u:intercom-installation-manhattan/}}">Manhattan</a><a href="{{u:intercom-installation-staten-island/}}">Staten Island</a>
+</div>
+<p>Also Long Island, Westchester and New Jersey. [[service-areas/|See all service areas]]</p>
+</div></section>
+
 <section class="home-trust"><div class="wrap">
 <div>
 <h2>Expertise you can count on</h2>
