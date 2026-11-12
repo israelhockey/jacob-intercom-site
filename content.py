@@ -616,7 +616,7 @@ ld("wiring", "Wiring guide",
 <p>The three station models look alike and are built for different wire counts. A four-wire station on a three-wire line has a terminal with nothing to connect to, and it will not work. Putting a wire on the wrong terminal can short a common wire and take out the whole line.</p>
 <p>If building staff are replacing a station, photograph the wires on their terminals before you remove anything, and fit the same model that came off.</p>
 <h2>Why it matters for upgrades</h2>
-<p>Wire that is already in the walls is the most valuable part of an old system. Newer video intercoms, including Lee-Dan's own 2Easy range, run on two wires. A building wired for a three, four or five-wire Lee-Dan often has enough good conductors to carry one, which means video without opening walls. We test the existing wire before quoting. See [[lee-dan-intercom-systems/replacement/|replacement and upgrades]] and [[lee-dan-intercom-systems/2easy/|Lee-Dan 2Easy]].</p>
+<p>Wire that is already in the walls is the most valuable part of an old system. Newer two-wire video intercoms, such as the [[dt-607entry-panels/|DT-607 panels]] and [[dx-471-monitor/|DX-471 monitors]], run on two wires. A building wired for a three, four or five-wire Lee-Dan often has enough good conductors to carry one, which means video without opening walls. We test the existing wire before quoting. See [[lee-dan-intercom-systems/replacement/|replacement and upgrades]].</p>
 <h2>Diagrams</h2>
 <p>[WIRING DIAGRAMS TO BE DRAWN FOR THE SITE AND CHECKED BY JACOB]</p>
 """,
@@ -740,7 +740,7 @@ ld("replacement", "Replacement and upgrades",
 <li>What the door strike is, and whether it should be replaced at the same time.</li>
 </ol>
 <h2>Systems we install in place of an old Lee-Dan</h2>
-<p>Lee-Dan's own [[lee-dan-intercom-systems/2easy/|2Easy two-wire video range]], and systems from [[brands/aiphone/|Aiphone]], [[brands/comelit/|Comelit]], [[brands/akuvox/|Akuvox]] and [[brands/butterflymx/|ButterflyMX]]. [JACOB: WHICH HE RECOMMENDS MOST OFTEN, AND WHY]</p>
+<p>Two-wire video such as the [[dt-607entry-panels/|DT-607]] and [[dx-471-monitor/|DX-471]], and systems from [[brands/aiphone/|Aiphone]], [[brands/comelit/|Comelit]], [[brands/akuvox/|Akuvox]] and [[brands/butterflymx/|ButterflyMX]]. [JACOB: WHICH HE RECOMMENDS MOST OFTEN, AND WHY]</p>
 <h2>What it costs</h2>
 <p>Price depends on the number of apartments and entrances and on how much wire can be reused: [REPLACEMENT PRICE RANGE BY BUILDING SIZE]. We give a written quote after testing the wiring.</p>
 """,
@@ -783,41 +783,6 @@ ld("parts", "Lee-Dan parts",
     ("Are TekTone parts compatible with Lee-Dan?", "Stations and amplifiers with matching model numbers are sold as direct replacements for each other."),
     ("Do you sell parts without fitting them?", "[PARTS-ONLY SALES: YES OR NO]")],
    facts=["Stations, amplifiers, panels", "Still <b>available</b>", "Supplied and fitted"])
-
-ld("2easy", "Lee-Dan 2Easy",
-   "Lee-Dan 2Easy Video Intercom Installation NYC | Jacob Intercom",
-   "Lee-Dan 2Easy two-wire colour video intercoms in New York: what the system is, why it suits older buildings, and installation on existing wiring.",
-   "Lee-Dan 2Easy video intercoms",
-   "2Easy is Lee-Dan's two-wire colour video intercom. For a building with an old audio system, it is often the shortest route to video.",
-   """
-<h2>What 2Easy is</h2>
-<p>2Easy is a colour video intercom that runs on two wires. A camera panel at the door shows each visitor on a monitor in the apartment, and the resident talks and releases the door from the monitor.</p>
-<p>It is sold as kits sized by the number of apartments, from a single apartment up to eight, and as separate parts for larger buildings.</p>
-<h2>The parts</h2>
-<ul>
-<li><strong>Door panels,</strong> with a camera and a call button for each apartment. [[dt-607entry-panels/|DT-607 entry panels]] and the larger DMR11 lobby panels are in this range.</li>
-<li><strong>Apartment monitors.</strong> The [[dx-471-monitor/|DX-471]] is a 7-inch colour touchscreen. Smaller monitors are also made.</li>
-<li><strong>A power supply</strong> that feeds the system over the same two wires.</li>
-</ul>
-<h2>Why it suits older New York buildings</h2>
-<p>A building with a three, four or five-wire Lee-Dan audio system already has more wire in the walls than 2Easy needs. If that wire tests well, the video system can run on it, and no walls are opened. See the [[lee-dan-intercom-systems/wiring/|wiring guide]].</p>
-<p>It also suits smaller walk-ups, where a kit sized to the building covers every apartment on two wires.</p>
-<h2>How an installation goes</h2>
-<ol>
-<li>We test the existing wire to every apartment.</li>
-<li>We fit the door panel, sized to cover the old panel's opening where possible.</li>
-<li>We fit a monitor in each apartment in place of the old station.</li>
-<li>We connect the power supply and the door release, and test every apartment.</li>
-<li>We show each resident how to use it.</li>
-</ol>
-<h2>What it costs</h2>
-<p>Price depends on the number of apartments and how much of the existing wiring can be used: [2EASY PRICE RANGE]. We give a written quote after testing the wiring.</p>
-<p>[JACOB: HOW MANY 2EASY SYSTEMS HE HAS INSTALLED, AND WHERE IT WORKS BEST]</p>
-""",
-   [("Can 2Easy run on our old intercom wiring?", "Often. It needs two wires per apartment, and older Lee-Dan systems have three to five. We test the wire first."),
-    ("Does 2Easy work with a phone app?", "[CONFIRM WHICH 2EASY MONITORS SUPPORT PHONE ANSWERING]"),
-    ("Is 2Easy only for small buildings?", "Kits cover one to eight apartments, and larger buildings are built from separate panels and monitors.")],
-   facts=["<b>Two-wire</b> colour video", "Often on <b>existing wiring</b>", "Kits for 1 to 8 apartments"])
 
 # ───────────────────────────── Installation ─────────────────────────────
 
@@ -1199,7 +1164,7 @@ page(path="brands/", nav="Brands",
 <div class="tablebox"><table>
 <thead><tr><th scope="col">Brand</th><th scope="col">What you'll usually find in New York</th></tr></thead>
 <tbody>
-<tr><th scope="row">[[lee-dan-intercom-systems/|Lee-Dan]]</th><td>Audio systems in walk-ups and small buildings, and 2Easy two-wire video</td></tr>
+<tr><th scope="row">[[lee-dan-intercom-systems/|Lee-Dan]]</th><td>Audio systems in walk-ups and apartment buildings</td></tr>
 <tr><th scope="row">[[brands/aiphone/|Aiphone]]</th><td>GT multi-tenant video, IX and IXG network systems, small kits</td></tr>
 <tr><th scope="row">[[brands/butterflymx/|ButterflyMX]]</th><td>Touchscreen panels that call residents' phones</td></tr>
 <tr><th scope="row">[[brands/comelit/|Comelit]]</th><td>Two-wire video in apartment buildings, IP systems</td></tr>
@@ -1685,109 +1650,179 @@ svc("security-cameras/apartment-buildings/", "Cameras for apartment buildings",
 
 # ───────────────────────────── Existing product pages (URLs kept) ─────────────────────────────
 
-PROD_RELATED = [("lee-dan-intercom-systems/2easy/", "Lee-Dan 2Easy"), ("intercom-installation/video/", "Video intercoms"), ("brands/", "Brands we service"), ("contact/", "Contact us")]
-PROD_NOTE = '<div class="note"><p><strong>For Jacob to confirm before launch:</strong> whether he still sells and installs this model, and its price fitted. Specifications should be checked against the manufacturer\'s current sheet.</p></div>'
+PROD_RELATED = [("dt-607entry-panels/", "DT-607 entry panels"), ("intercom-installation/video/", "Video intercoms"), ("brands/", "Brands we service"), ("contact/", "Contact us")]
+
+
+PRODUCT_PICS = {  # photos taken from the matching product page on jacobintercom.com
+    "akuvox-r29/": [("r29-1.webp", "Akuvox R29 outdoor door station")],
+    "dvt-104/": [("dvt104.webp", "DVT-104 intercom panel with keypad, display and proximity reader")],
+    "dt-607entry-panels/": [("dt607-1.webp", "DT-607 entry panel with camera and card reader")],
+    "dx-471-monitor/": [("dx471-screen.webp", "DX-471 7-inch touch screen monitor")],
+    "lee-dan-intercom-systems/": [("leedan.webp", "Apartment intercom station with Talk, Listen and Door buttons")],
+}
+
+PROD_NOTE = '<div class="note"><p><strong>Product details on this page come from Jacob Intercom\'s product page for this model.</strong> Prices fitted: [JACOB TO ADD].</p></div>'
 
 
 def product(path, nav, title, desc, h1, lead, body, faqs, facts, related=PROD_RELATED):
-    page(path=path, nav=nav, title=title, desc=desc, h1=h1, lead=lead, facts=facts,
-         aside={"head": "Want this installed?", "text": "Tell us the number of apartments and send a photo of your current panel. We'll tell you if it fits and what it costs."},
+    page(path=path, nav=nav, title=title, desc=desc, h1=h1, lead=lead, facts=facts, pics=PRODUCT_PICS.get(path),
+         aside={"head": "Want this installed?", "text": "Tell us about your building and send a photo of your current panel. We'll tell you if it fits. Free quote."},
          body=PROD_NOTE + body, faqs=faqs, related=related)
 
 
-product("akuvox-r29/", "Akuvox R29",
-        "Akuvox R29 Video Door Phone: Installation in NYC | Jacob Intercom",
-        "The Akuvox R29 network video door phone with a 7-inch touchscreen and face recognition, installed in New York apartment buildings and offices.",
-        "Akuvox R29 video door phone",
-        "A touchscreen door phone for buildings that want a resident directory, video calls to phones and monitors, and keyless entry in one panel.",
+product("akuvox-r29/", "R29 Akuvox",
+        "Akuvox R29 Intercom Installation NYC | Jacob Intercom",
+        "Akuvox R29 video intercom installation in NYC: the R29 outdoor door station with the C316 indoor monitor or calls to residents' mobile phones. Free quote.",
+        "Akuvox R29 intercom installation",
+        "Akuvox intercom systems provide secure, convenient access control for residential and commercial buildings. Jacob Intercom installs and sets up the Akuvox R29 to improve building security and make access easier for residents, tenants and visitors.",
         """
-<h2>What it is</h2>
-<p>The R29 is a network door phone from [[brands/akuvox/|Akuvox]]. A visitor finds a resident on its 7-inch touchscreen directory and calls them. The call reaches an indoor monitor, a phone app, or both, with video from the panel's camera.</p>
-<h2>What it does</h2>
+<h2>Modern intercom solutions for secure building access</h2>
+<p>Akuvox intercom systems combine video communication, secure access control and modern technology to help buildings manage entry with more convenience and security. They suit apartment buildings, residential properties, commercial buildings and any property that needs reliable visitor communication and controlled access.</p>
 <ul>
-<li><strong>Resident directory</strong> on the touchscreen, searchable by name.</li>
-<li><strong>Video calls</strong> to indoor monitors and to residents' phones.</li>
-<li><strong>Face recognition</strong> so residents can enter without a fob or code.</li>
-<li><strong>Codes, cards and fobs</strong> for residents, staff and deliveries.</li>
-<li><strong>Remote management</strong> of residents and access through Akuvox's cloud service.</li>
+<li><strong>Video communication:</strong> residents see and talk to visitors before granting access.</li>
+<li><strong>Secure access:</strong> controlled building entry with modern intercom technology.</li>
+<li><strong>Modern technology:</strong> a convenient, professional building access experience.</li>
 </ul>
-<h2>Where it fits</h2>
-<p>Mid-size and large apartment buildings, condos and offices that want a modern entrance and are ready for a network-based system. It needs a network cable to the door for power and data. See [[intercom-installation/ip-smartphone/|IP and smartphone intercoms]].</p>
-<h2>What installation involves</h2>
-<ol>
-<li>A network cable and switch to power the panel.</li>
-<li>Mounting the panel, flush or on the surface, in place of the old one.</li>
-<li>Connecting the door strike or lock and the exit button.</li>
-<li>Loading the resident directory and setting up the app.</li>
-<li>Indoor monitors in apartments that want one.</li>
-</ol>
-<h2>What it costs</h2>
-<p>[R29 SUPPLIED AND FITTED PRICE, PLUS MONITORS AND CLOUD FEES]</p>
+<h2>Two ways to set up the R29</h2>
+<p>Akuvox systems can be configured to meet the needs of different buildings and residents. Depending on the property, the R29 outdoor station works with an indoor C316 monitor or sends intercom calls to residents' mobile phones.</p>
+<h3>R29 with the C316 indoor monitor</h3>
+<p>The R29 outdoor door station connects to the Akuvox C316 indoor monitor, so residents can see and speak with visitors from inside their apartment before deciding whether to let them in.</p>
+<h3>R29 with mobile phone access</h3>
+<p>The R29 can also be set up so residents receive intercom calls on their smartphones. This is a convenient alternative where an indoor monitor isn't installed in the apartment.</p>
+<h2>Inside the apartment: the Akuvox C316</h2>
+<p>When a visitor calls from the outdoor intercom, the C316 indoor monitor lets residents view and speak with them from inside the apartment before granting access. It keeps residents connected to the building entrance and helps them manage visitors with confidence.</p>
+<h2>Professional Akuvox installation</h2>
+<p>Jacob Intercom installs and sets up Akuvox intercom systems for residential and commercial buildings across NYC. We help property owners and building managers choose the configuration that fits the property, whether that's indoor monitors, mobile access or a mix of both, and we handle the panel, the wiring and network, the door release and the setup.</p>
+<p>See also [[brands/akuvox/|Akuvox]] and [[intercom-installation/ip-smartphone/|IP and smartphone intercoms]].</p>
 """,
-        [("Does the R29 need internet?", "It runs on the building's network. Calls to phones need internet; local monitors and door release do not."),
-         ("Can face recognition be turned off?", "Yes. Buildings can use codes, cards or fobs instead."),
-         ("Can the R29 replace our old intercom panel?", "Yes. We fit it in place of the old panel and run the network cable it needs.")],
-        ["7-inch <b>touchscreen</b> directory", "Face recognition and codes", "Calls monitors and phones"],
+        [("Does every apartment need an indoor monitor?", "No. The R29 can send calls to residents' mobile phones instead, which is a good option where a monitor isn't installed."),
+         ("Can the R29 replace our old intercom panel?", "Yes. We install it in place of the old panel and set up the indoor monitors or mobile access the building needs."),
+         ("Do you install the C316 monitors too?", "Yes. We install and set up both the R29 outdoor station and the C316 indoor monitors.")],
+        ["<b>R29</b> outdoor door station", "<b>C316</b> indoor monitor or mobile", "Residential and commercial"],
         related=[("brands/akuvox/", "Akuvox"), ("intercom-installation/ip-smartphone/", "IP and smartphone intercoms"), ("access-control/", "Access control"), ("contact/", "Contact us")])
 
 product("dt-607entry-panels/", "DT-607 entry panels",
-        "Lee-Dan 2Easy DT-607 Entry Panel: Installation NYC | Jacob Intercom",
-        "The Lee-Dan 2Easy DT-607 video entry panel for brownstones and small buildings, installed on two wires in New York.",
-        "DT-607 video entry panel",
-        "The door panel of Lee-Dan's 2Easy two-wire video system, sized for houses and small buildings.",
+        "DT-607 Entry Panels: 2-Wire Video Intercom Installation NYC | Jacob Intercom",
+        "DT-607 2-wire video entry panels with a 170° or 105° camera, built-in card/fob reader and 1 to 4 buttons. Installed by Jacob Intercom in NYC. Free quote.",
+        "DT-607 entry panels",
+        "Entry panels with a 170° or 105° camera, a built-in card and fob reader, and 1, 2, 3 or 4 buttons. A non-polar 2-wire system for simple installation.",
         """
-<h2>What it is</h2>
-<p>The DT-607 is a video entry panel in Lee-Dan's [[lee-dan-intercom-systems/2easy/|2Easy]] range. It has a camera, a speaker and microphone, and call buttons, and connects to apartment monitors over two wires.</p>
-<h2>Where it fits</h2>
-<p>Smaller walk-ups, especially those upgrading from an old audio intercom on the existing wire.</p>
-<h2>Paired with</h2>
-<p>Apartment monitors such as the [[dx-471-monitor/|DX-471]] touchscreen, and the 2Easy power supply.</p>
-<h2>What installation involves</h2>
-<p>We test the existing wire to each apartment, fit the panel, ideally covering the old panel's opening, connect the monitors and the door release, and test every apartment.</p>
-<h2>What it costs</h2>
-<p>[DT-607 SYSTEM PRICE BY NUMBER OF APARTMENTS]</p>
+<h2>Main features</h2>
+<ul>
+<li>FE type entry panels allow digital pan, tilt and zoom on monitors that support it.</li>
+<li>Built-in card/fob reader for unlocking the entry, with proximity access control.</li>
+<li>Non-polar, 2-wire system for simplified installation.</li>
+<li>Works with other 2-wire components and monitors, such as the [[dx-471-monitor/|DX-471]].</li>
+<li>1, 2, 3 or 4 button models.</li>
+<li>Terminals to add a motion detector, to activate the panel or turn on a light.</li>
+<li>Auto-sensing LED light for clear night vision.</li>
+<li>Zinc alloy housing with electroplating and polishing treatment.</li>
+<li>Surface mounting with rain shield. Weather resistant, IP54 rated.</li>
+<li>Large back-lit name plate, and indicator lights during unlock and talk.</li>
+</ul>
+<h2>Models</h2>
+<div class="tablebox"><table>
+<thead><tr><th scope="col">Model</th><th scope="col">Camera</th><th scope="col">For</th></tr></thead>
+<tbody>
+<tr><th scope="row">DT-607FE/ID/S1/RH</th><td>170° fish-eye</td><td>Home, villa or business</td></tr>
+<tr><th scope="row">DT-607FE/ID/S2/RH</th><td>170° fish-eye</td><td>Two apartments</td></tr>
+<tr><th scope="row">DT-607FE/ID/S3/RH</th><td>170° fish-eye</td><td>Three apartments</td></tr>
+<tr><th scope="row">DT-607FE/ID/S4/RH</th><td>170° fish-eye</td><td>Four apartments</td></tr>
+<tr><th scope="row">DT-607C/ID/S1/RH</th><td>105°</td><td>Home, villa or business</td></tr>
+<tr><th scope="row">DT-607C/ID/S2/RH</th><td>105°</td><td>Two apartments</td></tr>
+<tr><th scope="row">DT-607C/ID/S3/RH</th><td>105°</td><td>Three apartments</td></tr>
+<tr><th scope="row">DT-607C/ID/S4/RH</th><td>105°</td><td>Four apartments</td></tr>
+</tbody></table></div>
+<p>The DT-607FE series uses a 170° fish-eye camera and works with monitor stations that support digital pan, tilt and zoom. The DT-607C series uses a 105° camera. An AB-607 angled bracket is available for mounting.</p>
+<h2>Why 2-wire matters</h2>
+<p>Because the DT-607 runs on two non-polar wires, it can often use wiring that is already in the building. That makes it a practical way to upgrade an older audio intercom to video without opening walls. We test the existing wire before we quote.</p>
+<h2>Installation</h2>
+<p>Jacob Intercom installs DT-607 panels with matching 2-wire monitors, connects the door release and card/fob access, and tests every apartment before we leave.</p>
 """,
-        [("Can the DT-607 use our old intercom wiring?", "Often. 2Easy needs two wires per apartment, and older systems usually have more."),
-         ("How many apartments can it call?", "[BUTTON COUNTS AVAILABLE]")],
-        ["Lee-Dan <b>2Easy</b> range", "Two-wire colour video", "For houses and small buildings"])
+        [("What's the difference between the FE and C models?", "The FE models have a 170° fish-eye camera and support digital pan, tilt and zoom on compatible monitors. The C models have a 105° camera."),
+         ("How many apartments can one panel call?", "DT-607 panels come in 1, 2, 3 and 4 button models, for a home or business up to four apartments."),
+         ("Can residents open the door with a fob?", "Yes. The panel has a built-in card/fob reader for unlocking the entry.")],
+        ["170° or 105° <b>camera</b>", "Built-in <b>card/fob</b> reader", "<b>2-wire</b>, 1 to 4 buttons"],
+        related=[("dx-471-monitor/", "DX-471 monitor"), ("intercom-installation/video/", "Video intercoms"), ("access-control/key-fob/", "Key fob systems"), ("contact/", "Contact us")])
 
-product("dvt-104/", "DVT-104 video door phone",
-        "Lee-Dan DVT-104 Video Door Phone: Installation NYC | Jacob Intercom",
-        "The Lee-Dan DVT-104 video door phone, installed in New York homes and small buildings.",
-        "DVT-104 video door phone",
-        "A compact video door station for a house or a small building, from Lee-Dan.",
+product("dvt-104/", "DVT-104",
+        "DVT-104 Intercom System with IP Camera: Installation NYC | Jacob Intercom",
+        "The DVT-104 intercom system with an IP camera and proximity tag reader. No wiring to apartments, no indoor monitors, calls to residents' phones. Up to 115 apartments.",
+        "DVT-104 intercom system",
+        "An intercom system combined with an IP camera and a proximity tag reader. Manage calls from anywhere, see the caller and open the door from your cell phone.",
         """
-<h2>What it is</h2>
-<p>The DVT-104 is a Lee-Dan video door phone: a door station with a camera and call button, used with an indoor monitor so residents can see and talk to visitors and release the door.</p>
+<h2>Description</h2>
+<p>The DVT-104 combines an intercom, an IP camera and a proximity tag reader in a long-profile panel designed for a luxurious look. Residents manage calls from anywhere, view the caller and open the door directly from their cell phone.</p>
+<p>The system does not require wiring in the building or apartments, which makes it an ideal solution for replacing outdated systems and infrastructure.</p>
+<h2>Overview</h2>
+<ul>
+<li>No wiring needed, and no need for indoor monitors.</li>
+<li>Up to 3 phone numbers per apartment for maximum availability and flexibility.</li>
+<li>Can manage 2 entrance doors or a parking lot gate.</li>
+<li>Remote control over tenant numbers and system settings.</li>
+<li>The camera is viewed through a dedicated app for Android and iOS.</li>
+<li>Anti-vandal panel made of aluminum.</li>
+<li>Accessible 3.5 inch display, with voice messages for improved accessibility.</li>
+<li>3 door opening options for the tenant: entry code, proximity tag or phone call.</li>
+<li>Supports 4 languages: English, Hebrew, Russian and Arabic.</li>
+</ul>
+<h2>Specifications</h2>
+<div class="tablebox"><table>
+<tbody>
+<tr><th scope="row">Dimensions</th><td>Width 12 cm, height 31 cm, depth 4 cm</td></tr>
+<tr><th scope="row">Operating voltage</th><td>12 VAC/DC</td></tr>
+<tr><th scope="row">Capacity</th><td>Up to 115 apartments</td></tr>
+<tr><th scope="row">Camera</th><td>170°, 960 × 960 resolution, 0.001 lux</td></tr>
+<tr><th scope="row">Network</th><td>The camera needs its own Ethernet connection (CAT-5)</td></tr>
+</tbody></table></div>
 <h2>Where it fits</h2>
-<p>Small buildings and secondary entrances that need simple video entry.</p>
-<h2>What installation involves</h2>
-<p>Fitting the door station, the indoor monitor and the wiring between them, and connecting the door release. Where an older door station is being replaced, we test whether the existing wire can be reused.</p>
-<h2>What it costs</h2>
-<p>[DVT-104 SUPPLIED AND FITTED PRICE]</p>
+<p>Buildings with old or failing apartment wiring, where running new cable to every unit would be expensive and disruptive. Because calls go to residents' phones, nothing is installed inside the apartments.</p>
+<h2>Installation</h2>
+<p>Jacob Intercom mounts the panel, runs the network connection for the camera, connects the door release (and a second door or parking gate if needed), and sets up the tenant list and phone numbers.</p>
 """,
-        [("Is the DVT-104 part of the 2Easy range?", "[CONFIRM WITH JACOB]"),
-         ("Can it open a gate as well as a door?", "[CONFIRM WITH JACOB]")],
-        ["Lee-Dan video door phone", "For houses and small buildings", "Supplied and fitted"])
+        [("Do apartments need any wiring or monitors?", "No. The DVT-104 calls residents' phones, so there is no wiring or monitor inside the apartments."),
+         ("How many phone numbers can each apartment have?", "Up to three, so a call can reach whoever is available."),
+         ("How do tenants open the door?", "Three ways: an entry code, a proximity tag, or from a phone call.")],
+        ["<b>No wiring</b> to apartments", "Up to <b>115</b> apartments", "Code, tag or phone call"],
+        related=[("intercom-installation/ip-smartphone/", "IP and smartphone intercoms"), ("intercom-replacement/", "Upgrades and replacements"), ("access-control/", "Access control"), ("contact/", "Contact us")])
 
 product("dx-471-monitor/", "DX-471 monitor",
-        "Lee-Dan 2Easy DX-471 Touchscreen Monitor: Installation NYC | Jacob Intercom",
-        "The Lee-Dan 2Easy DX-471 7-inch colour touchscreen apartment monitor, installed in New York buildings on two-wire systems.",
-        "DX-471 touchscreen monitor",
-        "The apartment monitor of Lee-Dan's 2Easy system: a 7-inch colour touchscreen that shows the visitor and opens the door.",
+        "DX-471 7-Inch Touch Screen Monitor, WiFi & Mobile: Installation NYC | Jacob Intercom",
+        "The DX-471 7-inch touch screen 2-wire video intercom monitor with WiFi and mobile app. Up to 256 apartments. Installed by Jacob Intercom in NYC. Free quote.",
+        "DX-471 monitor",
+        "A 7-inch touch screen monitor, WiFi and mobile enabled. See and screen visitors, talk two ways and unlock the door from the monitor or your phone.",
         """
-<h2>What it is</h2>
-<p>The DX-471 is a 7-inch colour touchscreen monitor in Lee-Dan's [[lee-dan-intercom-systems/2easy/|2Easy]] range. When a visitor calls, it shows them from the door panel's camera. The resident talks hands-free and releases the door from the screen.</p>
-<h2>Where it fits</h2>
-<p>In each apartment of a 2Easy system, with door panels such as the [[dt-607entry-panels/|DT-607]]. It replaces an old audio station on the same wall, often on the same wires.</p>
-<h2>Repair and replacement</h2>
-<p>A monitor that has stopped showing a picture or ringing is tested at the wall first, because the fault can be in the wiring or the power supply. A failed monitor is replaced like for like.</p>
-<h2>What it costs</h2>
-<p>[DX-471 SUPPLIED AND FITTED PRICE]</p>
+<h2>Advanced features</h2>
+<ul>
+<li>The mobile app allows two-way communication, video and door unlock (Android or Apple iOS).</li>
+<li>Divert entry panel calls to a smartphone or tablet over local WiFi and a SIP server.</li>
+<li>See and screen visitors, with two-way communication before unlocking the door.</li>
+<li>Simple, intuitive touch screen menu.</li>
+<li>Touch sensor Talk and Unlock buttons, marked with raised dots for the visually impaired (one dot for talk, two for unlock).</li>
+<li>Pan, tilt and zoom when used with FE type entry panels such as the [[dt-607entry-panels/|DT-607FE]].</li>
+<li>Hands-free operation.</li>
+<li>Stylish low-profile surface mount monitor.</li>
+<li>Multiple monitors per apartment: add a DT-47MG (wired) or a second DX-471 (WiFi).</li>
+<li>Intercom options: monitor to monitor, guard station call and apartment-wide broadcast.</li>
+<li>Record snapshots or video from the entry panel or other cameras (a micro SD card is needed for video).</li>
+<li>Compatible with all 2-wire system components.</li>
+</ul>
+<h2>Specifications</h2>
+<div class="tablebox"><table>
+<tbody>
+<tr><th scope="row">Screen</th><td>7-inch touch screen</td></tr>
+<tr><th scope="row">Dimensions</th><td>6.34 in high × 6.85 in wide × 0.87 in deep</td></tr>
+<tr><th scope="row">Connectivity</th><td>2-wire, WiFi, mobile app</td></tr>
+<tr><th scope="row">Applications</th><td>From one to 256 apartments</td></tr>
+</tbody></table></div>
+<h2>Installation</h2>
+<p>Jacob Intercom installs DX-471 monitors with 2-wire entry panels, often on the building's existing wiring, and sets up the WiFi and mobile app for residents who want calls on their phones.</p>
 """,
-        [("Can one apartment get a DX-471 while others keep old stations?", "Not on an old audio system. The building needs a 2Easy door panel and power supply first."),
-         ("Does the DX-471 work with a phone app?", "[CONFIRM WITH JACOB]")],
-        ["7-inch <b>colour touchscreen</b>", "Lee-Dan 2Easy range", "Two-wire installation"])
+        [("Can residents answer the door from their phone?", "Yes. The mobile app gives two-way talk, video and door unlock on Android and iPhone."),
+         ("Can an apartment have more than one monitor?", "Yes. Add a DT-47MG wired monitor or a second DX-471 over WiFi."),
+         ("How big a building can it serve?", "Applications range from one to 256 apartments.")],
+        ["<b>7-inch</b> touch screen", "<b>WiFi</b> and mobile app", "1 to <b>256</b> apartments"],
+        related=[("dt-607entry-panels/", "DT-607 entry panels"), ("intercom-installation/video/", "Video intercoms"), ("intercom-installation/ip-smartphone/", "Smartphone intercoms"), ("contact/", "Contact us")])
 
 # ───────────────────────────── Guides ─────────────────────────────
 
@@ -2021,7 +2056,7 @@ guide("intercom-wiring-explained", "Intercom wiring",
 </tbody></table></div>
 <p>The riser cable carries the common wires plus one selective wire for every apartment on that line.</p>
 <h2>Two-wire systems</h2>
-<p>Newer systems put power, voice, video and calls on two wires. Each apartment unit has an address, so the system reaches it digitally instead of on its own wire. Comelit's Simplebus and Lee-Dan's [[lee-dan-intercom-systems/2easy/|2Easy]] are examples.</p>
+<p>Newer systems put power, voice, video and calls on two wires. Each apartment unit has an address, so the system reaches it digitally instead of on its own wire. Comelit's Simplebus and the [[dt-607entry-panels/|DT-607]] 2-wire panels are examples.</p>
 <p>This is why older buildings can often get video without rewiring: they already have more than two wires to every apartment.</p>
 <h2>Network cable</h2>
 <p>IP intercoms use network cable, usually to the door panel at least, and often to each apartment monitor. Where an old riser can't carry network signals, a new cable is run alongside it.</p>
@@ -2134,7 +2169,7 @@ guide("best-intercom-systems-nyc-buildings", "Choosing a system",
 </ol>
 <h2>Systems we install most</h2>
 <ul>
-<li>[[lee-dan-intercom-systems/2easy/|Lee-Dan 2Easy]] and [[brands/comelit/|Comelit]] two-wire video for older buildings.</li>
+<li>[[dt-607entry-panels/|DT-607]] and [[brands/comelit/|Comelit]] two-wire video for older buildings.</li>
 <li>[[brands/aiphone/|Aiphone]] wired and network systems for most building sizes.</li>
 <li>[[brands/butterflymx/|ButterflyMX]] and [[brands/akuvox/|Akuvox]] for phone answering and keyless entry.</li>
 </ul>
@@ -2188,7 +2223,7 @@ guide("upgrade-buzzer-to-video", "Upgrading to video",
 <p>Those apartments get new cable, or a wireless link, while the rest use the old wire.</p>
 <h2>Options</h2>
 <ul>
-<li>[[lee-dan-intercom-systems/2easy/|Lee-Dan 2Easy]]: two-wire colour video kits.</li>
+<li>[[dt-607entry-panels/|DT-607 panels]] and [[dx-471-monitor/|DX-471 monitors]]: two-wire colour video.</li>
 <li>[[brands/comelit/|Comelit]] Simplebus: two-wire video for larger buildings.</li>
 <li>[[brands/butterflymx/|ButterflyMX]] or [[brands/akuvox/|Akuvox]]: phone answering, no apartment wiring needed.</li>
 </ul>

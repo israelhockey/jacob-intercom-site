@@ -393,3 +393,10 @@ form.card textarea{resize:vertical}
 .home-jacob{width:190px;height:190px;object-fit:cover;border-radius:50%;border:5px solid #fff;box-shadow:0 8px 24px rgba(21,68,88,.18)}
 .home-addr a{color:var(--deep)}
 @media (max-width:480px){.home-reach{grid-template-columns:120px 1fr;gap:18px}.home-jacob{width:120px;height:120px}.home-big{font-size:1.6rem}}
+
+/* product photos from Jacob's site */
+.prod-figure{background:#fff;border:1px solid var(--line);border-radius:8px;padding:28px;display:flex;flex-direction:column;gap:20px;align-items:center}
+.prod-main{max-width:100%;max-height:440px;width:auto;height:auto;object-fit:contain}
+.prod-thumbs{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;border-top:1px solid var(--line);padding-top:18px;width:100%}
+.prod-thumbs img{height:110px;width:auto;max-width:44%;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:6px;padding:8px}
+@media (max-width:480px){.prod-figure{padding:16px}.prod-thumbs img{height:84px}}

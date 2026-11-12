@@ -161,6 +161,7 @@ REDIRECTS = {
     "/intercoms/": "/intercom-installation/",
     "/contact-us/": "/contact/",
     "/blog/": "/guides/",
+    "/lee-dan-intercom-systems/2easy/": "/dt-607entry-panels/",
     "/blog/emergency-intercom-repair-services-in-new-york-a-full-guide/": "/intercom-repair/emergency/",
     "/blog/how-many-security-cameras-does-a-house-really-need/": "/security-cameras/",
     "/blog/how-to-choose-the-right-door-entry-system-for-your-nyc-property/": "/guides/best-intercom-systems-nyc-buildings/",
@@ -362,6 +363,11 @@ def article(ctx):
     aside = p.get("aside") or {}
     n = p.get("shot") or PAGE_SHOT.get(p["path"])
     fig = f'<figure class="figure">{ctx.img(n, eager=True)}</figure>' if n else ""
+    if p.get("pics"):  # product photos from Jacob's site: main image plus a strip of extra views
+        main, *more = p["pics"]
+        thumbs = "".join(f'<img src="{ctx.asset("img/orig/" + f)}" alt="{html.escape(a, quote=True)}" loading="lazy" decoding="async">' for f, a in more)
+        fig = (f'<figure class="figure prod-figure"><img class="prod-main" src="{ctx.asset("img/orig/" + main[0])}" alt="{html.escape(main[1], quote=True)}" fetchpriority="high" decoding="async">'
+               + (f'<div class="prod-thumbs">{thumbs}</div>' if thumbs else "") + "</figure>")
     related = "".join(f"<li>{ctx.link(path, text)}</li>" for path, text in p.get("related", []))
     related = f'<p><strong>Related</strong></p><ul class="linklist">{related}</ul>' if related else ""
     return f"""<section class="hero"><div class="wrap stack" style="gap:20px">
