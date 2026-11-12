@@ -27,7 +27,7 @@ NAV = [("intercom-repair/", "Repair"), ("intercom-maintenance-contract/", "Servi
        ("projects/", "Projects"), ("about/", "About"), ("contact/", "Contact")]
 BUILT = {p["path"] for p in PAGES}
 SHOTS = {
-    1: "Brooklyn brownstone entrance with an intercom panel beside the door",
+    1: "Pre-war apartment building entrance with a stainless steel intercom panel beside the doors",
     2: "Hand pressing a button on a brass apartment buzzer panel",
     3: "Pre-war apartment lobby with brass mailboxes and an intercom panel",
     4: "Gloved hands testing the wiring inside an open intercom entry panel",

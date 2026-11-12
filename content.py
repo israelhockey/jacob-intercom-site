@@ -37,7 +37,7 @@ def symptom(path, nav, title, desc, h1, lead, notice, causes, checks, fix, cost,
 # ───────────────────────────── Home ─────────────────────────────
 
 HOME = """
-<section class="home-hero" style="--hero:url('{{a:img/shot-11.webp}}')"><div class="wrap">
+<section class="home-hero" style="--hero:url('{{a:img/hero-building.webp}}')"><div class="wrap">
 <h1>Intercom systems for New York's apartment buildings</h1>
 <p>Repairs, service agreements and full system replacements for property managers, management companies and supers. 35 years. Buildings of 10 to 200+ apartments.</p>
 <div class="btn-row"><a class="btn btn-brass" href="#quote">Request a building survey</a><a class="btn btn-ghost" href="tel:+17182522730">Call 718-252-2730</a></div>

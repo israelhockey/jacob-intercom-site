@@ -340,7 +340,7 @@ form.card textarea{resize:vertical}
 .prose .panel{margin:28px 0}
 .prose .panel-head h2{margin-top:0;font-family:var(--body);text-transform:none;letter-spacing:0;font-size:1.2rem;color:var(--ink)}
 @media (max-width:860px){
-  .home-hero{background:linear-gradient(180deg,rgba(21,68,88,.35) 0%,rgba(21,68,88,.93) 55%),var(--hero) center/cover;min-height:620px}
+  .home-hero{background:linear-gradient(180deg,rgba(21,68,88,.3) 0%,rgba(21,68,88,.93) 55%),var(--hero) 72% center/cover;min-height:620px}
   .home-proof .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}
   .home-proof div{padding:22px 8px}
   .home-proof div:nth-child(3){border-left:0}
