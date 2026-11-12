@@ -388,3 +388,8 @@ form.card textarea{resize:vertical}
 .home-areas p{margin:22px 0 0;color:#EAF4F9}
 .home-areas p a{color:#fff;font-weight:700}
 @media (max-width:860px){.home-offer .wrap{grid-template-columns:1fr;gap:40px}.home-offer,.home-areas{padding-block:56px}.area-links a{flex:1 1 40%}}
+
+.home-reach{display:grid;grid-template-columns:190px 1fr;gap:28px;align-items:center;margin-top:8px}
+.home-jacob{width:190px;height:190px;object-fit:cover;border-radius:50%;border:5px solid #fff;box-shadow:0 8px 24px rgba(21,68,88,.18)}
+.home-addr a{color:var(--deep)}
+@media (max-width:480px){.home-reach{grid-template-columns:120px 1fr;gap:18px}.home-jacob{width:120px;height:120px}.home-big{font-size:1.6rem}}

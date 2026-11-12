@@ -315,9 +315,14 @@ def home_quote(ctx):
 <div>
 <h2>Call us now for a free quote</h2>
 <p class="home-sub">Our technicians are available for a free consultation. We look forward to working with you!</p>
+<div class="home-reach">
+<img class="home-jacob" src="{ctx.asset('img/jacob-phone.webp')}" alt="Jacob of Jacob Intercom on the phone" width="634" height="628" loading="lazy">
+<div>
 <p class="home-big">{ctx.expand('{{tel}}')}</p>
 <p class="home-big">{ctx.expand('{{tel2}}')}</p>
-<p class="home-addr">209 Avenue F, Brooklyn, NY 11218<br>Monday to Thursday 9 to 5, Friday 8 to 4</p>
+<p class="home-addr"><a href="mailto:jacobintercom@gmail.com">jacobintercom@gmail.com</a><br>209 Avenue F, Brooklyn, NY 11218<br>Monday to Thursday 9 to 5, Friday 8 to 4</p>
+</div>
+</div>
 </div>
 <form class="card" data-quote novalidate>
 <div class="form-2"><label for="h-name">Name<input id="h-name" name="name" type="text" autocomplete="name"></label>
