@@ -37,14 +37,58 @@ def symptom(path, nav, title, desc, h1, lead, notice, causes, checks, fix, cost,
 # ───────────────────────────── Home ─────────────────────────────
 
 HOME = """
-<section class="hero" id="top"><div class="wrap row" style="gap:48px;align-items:flex-start">
-<div class="col stack" style="gap:22px;flex-basis:420px">
-<h1>The intercom contractor for New York's managed buildings.</h1>
-<p class="lead">Repairs, service agreements and whole-building system replacements for property management companies, building managers and supers. Buildings of 10 to 200+ apartments, across all five boroughs, for 35 years.</p>
-<div class="btn-row"><a class="btn btn-brass" href="{{u:contact/}}#quote">Request a building survey</a><a class="btn btn-ghost" href="tel:+17182522730">Call 718-252-2730</a></div>
-<p class="fine">Certificate of insurance on request. Licence [LICENCE NO.]. Rated 4.7 from 23 Google reviews.</p>
+<section class="home-hero" style="--hero:url('{{a:img/shot-11.webp}}')"><div class="wrap">
+<h1>Intercom systems for New York's apartment buildings</h1>
+<p>Repairs, service agreements and full system replacements for property managers, management companies and supers. 35 years. Buildings of 10 to 200+ apartments.</p>
+<div class="btn-row"><a class="btn btn-brass" href="#quote">Request a building survey</a><a class="btn btn-ghost" href="tel:+17182522730">Call 718-252-2730</a></div>
+</div></section>
+
+<section class="home-proof" aria-label="At a glance"><div class="wrap">
+<div><b>35 years</b><span>in business in New York</span></div>
+<div><b>[NUMBER]</b><span>buildings under service</span></div>
+<div><b>15 brands</b><span>Lee-Dan to ButterflyMX</span></div>
+<div><b>All 5</b><span>boroughs, plus LI, Westchester, NJ</span></div>
+</div></section>
+
+<section class="home-services"><div class="wrap">
+<h2>What we do for your buildings</h2>
+<p class="home-sub">One contractor for every intercom in your portfolio, whatever the make or age.</p>
+<div class="home-cards">
+<a class="home-card" href="{{u:intercom-repair/}}"><img src="{{a:img/shot-16.webp}}" alt="Intercom technician's tools laid out in an apartment lobby" width="1600" height="900" loading="lazy"><div><h3>Repairs and service calls</h3><p>Dead risers, failed amplifiers, door releases and damaged panels. Priced before work starts, with a written report after.</p><span class="more">Intercom repair</span></div></a>
+<a class="home-card" href="{{u:intercom-maintenance-contract/}}"><img src="{{a:img/shot-17.webp}}" alt="Inspection checklist and building keys on a desk" width="1600" height="900" loading="lazy"><div><h3>Service agreements</h3><p>Scheduled inspections, priority response and fixed rates across all your buildings, on one invoice.</p><span class="more">Service agreements</span></div></a>
+<a class="home-card" href="{{u:intercom-replacement/}}"><img src="{{a:img/shot-24.webp}}" alt="Old brass intercom panel beside a new video panel" width="1600" height="900" loading="lazy"><div><h3>Upgrades and replacements</h3><p>Whole-building conversions to video and smartphone entry, phased so tenants are never locked out.</p><span class="more">Building upgrades</span></div></a>
 </div>
-<div class="panel col" data-panel style="flex-basis:460px">
+</div></section>
+
+<section class="home-trust"><div class="wrap">
+<div>
+<h2>Thirty-five years in New York's buildings</h2>
+<p>Jacob Intercom has worked with managers, supers and boards across the city since [YEAR]. We know the old systems most contractors won't touch, like [[lee-dan-intercom-systems/|Lee-Dan]], and we install the new ones properly.</p>
+<p>Licensed [LICENCE NO.] and fully insured. Certificates of insurance on request. [[about/|About Jacob Intercom]]</p>
+</div>
+<div>
+<blockquote><p>"Jacob Intercom helped us modernize our building with a wireless intercom. Residents appreciate the convenience, and we appreciate the increased security."</p><cite>Google review, rated 4.7 from 23 reviews</cite></blockquote>
+<p class="clients">Trusted by [MANAGEMENT COMPANIES, WITH PERMISSION]</p>
+</div>
+</div></section>
+"""
+
+page(path="", nav="Home", no_reviews=True, home_form=True, title="Intercom Contractor for NYC Property Managers & Apartment Buildings | Jacob Intercom",
+     desc="Intercom repair, service agreements and whole-building system replacements for New York property managers, management companies and supers. Buildings of 10 to 200+ units. 35 years.",
+     h1="The intercom contractor for New York's managed buildings.", html=HOME)
+
+# ───────────────────────────── Repair hub ─────────────────────────────
+
+page(path="intercom-repair/", nav="Intercom repair",
+     title="Intercom Repair NYC: Buzzers, Door Release, Audio & Video | Jacob Intercom",
+     desc="Intercom repair for New York apartment buildings, co-ops and managed portfolios. One unit, one riser or the whole building, diagnosed and priced before work starts.",
+     h1="Intercom repair in New York City",
+     lead="One dead apartment, a dead riser or a silent building: we find what failed, agree the price with you, and fix it. Most repairs take one visit.",
+     facts=["<b>35 years</b> servicing New York buildings", "Buildings of <b>10 to 200+</b> units", "<b>15 brands</b>, including Lee-Dan", "Price given <b>before</b> work starts"],
+     body="""
+<h2>Start with what it's doing</h2>
+<p>Almost every intercom call we get is one of six problems. Pick yours for the likely causes, what building staff can check first, and what the repair usually costs.</p>
+<div class="panel col" data-panel >
 <div class="panel-head"><h2>Calling from the building? Press what it's doing.</h2><div class="grille" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
 <div class="panel-buttons">
 <button type="button" aria-pressed="true" data-id="ring" data-title="Apartments aren't ringing" data-cause="One unit: the apartment station or its wire. A vertical line of units: the riser. Every unit: the amplifier or power supply. Tell us which pattern you see and we'll bring the right parts." data-price="Usually fixed in one visit. Price agreed before work starts." data-linktext="Buzzer repair for buildings" data-href="{{u:intercom-repair/door-buzzer/}}">Units not ringing</button>
@@ -61,106 +105,6 @@ HOME = """
 <div class="btn-row" style="align-items:center"><a class="btn btn-dark" href="tel:+17182522730">Call about this building</a><a data-out="link" href="{{u:intercom-repair/door-buzzer/}}" style="font-weight:600">Buzzer repair for buildings</a></div>
 </div>
 </div>
-</div></section>
-
-<section class="strip" aria-label="Jacob Intercom at a glance"><div class="wrap"><span>35 years in business</span><span>Buildings of 10 to 200+ apartments</span><span>[NUMBER] buildings under service</span><span>NYC, Long Island, Westchester and NJ</span></div></section>
-
-<section class="section"><div class="wrap">
-<h2>Who we work for</h2>
-<p class="intro">Tenants don't hire an intercom company. The people who run the building do, and that's who we're set up for.</p>
-<div class="who">
-<div class="col-rule stack"><h3>Property management companies</h3><p>One vendor across the portfolio, one point of contact, and paperwork that's ready before your accounts team asks for it.</p><p>[[property-managers/|Portfolio programs]]</p></div>
-<div class="col-rule stack"><h3>Building managers and supers</h3><p>Call with what the building is doing. We schedule apartment access with you and leave the equipment labelled for next time.</p><p>[[superintendents/|For superintendents]]</p></div>
-<div class="col-rule stack"><h3>Co-op and condo boards</h3><p>Written options a board can vote on, a survey of the existing wiring, and a changeover plan residents are told about in advance.</p><p>[[co-op-condo-intercom/|Co-ops and condos]]</p></div>
-<div class="col-rule stack"><h3>Owners and real estate firms</h3><p>For firms with their own maintenance crews, we take the intercom and entry work your staff shouldn't have to learn.</p><p>[[apartment-building-intercom/|Apartment buildings]]</p></div>
-</div>
-</div></section>
-
-<section class="section band-tint"><div class="wrap">
-<h2>Three ways to work with us</h2>
-<div class="who three">
-<div class="tile stack"><h3>Service calls</h3><p>On-call repair for any building you manage: dead risers, failed amplifiers, door releases, vandalised panels. You get the price before work starts and a written job report after.</p><ul class="linklist"><li>[[intercom-repair/|Intercom repair]]</li><li>[[intercom-repair/emergency/|Urgent and after-hours calls]]</li></ul></div>
-<div class="tile stack"><h3>Service agreements</h3><p>Scheduled inspection of every building, priority response, fixed rates across the portfolio, and one invoice. Most whole-building failures give warning; an inspection catches them.</p><ul class="linklist"><li>[[intercom-maintenance-contract/|Service agreements]]</li><li>[[pricing/|How we price]]</li></ul></div>
-<div class="tile stack"><h3>System replacements</h3><p>Whole-building conversions, from Lee-Dan and other legacy audio systems to video and smartphone entry. Surveyed, phased and installed with the building occupied.</p><ul class="linklist"><li>[[intercom-replacement/|Building upgrades]]</li><li>[[intercom-installation/video/|Video intercom systems]]</li></ul></div>
-</div>
-</div></section>
-
-<section class="section band-dark"><div class="wrap row" style="gap:48px;align-items:flex-start">
-<div class="col stack" style="flex-basis:380px;gap:18px">
-<h2>Forty buildings. One intercom vendor.</h2>
-<p style="font-size:1.12rem;max-width:32em">When a management company takes on a new portfolio, the intercoms are usually a mix: a few modern video systems, a lot of tired audio, and some buildings nobody has looked at in years. We survey the lot, tell you what each building has and how long it has left, and give you a plan you can budget for.</p>
-<div><a class="btn btn-brass" href="{{u:property-managers/}}">How portfolio programs work</a></div>
-</div>
-<ol class="steps col" style="flex-basis:460px">
-<li><strong>Portfolio survey.</strong> Every building visited: entry panels, amplifier, power, door hardware and a test of each riser.</li>
-<li><strong>Condition report.</strong> One page per building: the system, its age, what's failing, and a repair-or-replace recommendation.</li>
-<li><strong>Replacement plan.</strong> Buildings ranked by risk, with a budget for each, so capital spending can be spread over the year.</li>
-<li><strong>Installation.</strong> Building by building, with notice to residents and the old system kept live until the new one works.</li>
-<li><strong>Ongoing service.</strong> The whole portfolio under one agreement, with one invoice and a record of every system.</li>
-</ol>
-</div></section>
-
-<section class="section"><div class="wrap row" style="align-items:center;gap:48px">
-<div class="col" style="flex-basis:300px;max-width:420px">{{img:25}}</div>
-<div class="col stack" style="flex-basis:480px;gap:18px">
-<h2>Buildings still on Lee-Dan</h2>
-<p style="font-size:1.12rem;max-width:32em">Thousands of New York buildings still run Lee-Dan audio systems. Most contractors will only quote a replacement. We keep them running, stock the parts, and when conversion is the better money, we plan it around the wire that's already in the walls.</p>
-<ul class="linklist grid2">
-<li>[[lee-dan-intercom-systems/|Lee-Dan service and repair]]</li>
-<li>[[lee-dan-intercom-systems/replacement/|Converting a Lee-Dan building]]</li>
-<li>[[lee-dan-intercom-systems/pk-543-amplifier/|PK-543 amplifiers]]</li>
-<li>[[lee-dan-intercom-systems/troubleshooting/|Troubleshooting for supers]]</li>
-</ul>
-</div>
-</div></section>
-
-<section class="section band-tint"><div class="wrap">
-<h2 style="margin-bottom:8px">Projects</h2>
-<p style="color:var(--muted);margin-bottom:32px">Sample entries shown for layout. Each will be replaced with one of Jacob's real projects and its photos.</p>
-<div class="jobs">
-<article><div class="slot">Project photo</div><p class="sample">Sample</p><h3>[112] units, [FLATBUSH]: Lee-Dan to video</h3><p style="color:var(--muted);margin-top:8px">Six-storey elevator building. Existing risers tested and reused, new video panel and smartphone entry, completed in [3] weeks with the old system live throughout.</p></article>
-<article><div class="slot">Project photo</div><p class="sample">Sample</p><h3>[14]-building portfolio, [QUEENS]: survey and service agreement</h3><p style="color:var(--muted);margin-top:8px">A management company's new portfolio. Every building surveyed, four replacements planned over the year, the rest brought under one agreement.</p></article>
-<article><div class="slot">Project photo</div><p class="sample">Sample</p><h3>[68] units, [WASHINGTON HEIGHTS]: amplifier and panel</h3><p style="color:var(--muted);margin-top:8px">Whole building down after a basement flood. New amplifier and power supply the same day, vandal-resistant panel fitted the following week.</p></article>
-</div>
-<p style="margin-top:28px">[[projects/|All projects]]</p>
-</div></section>
-
-<section class="section"><div class="wrap row" style="gap:48px">
-<div class="col stack">
-<h2 style="font-size:clamp(1.6rem,3vw,2.3rem)">Vendor paperwork, ready before you ask</h2>
-<p style="color:var(--muted)">Getting a contractor approved shouldn't take three weeks of chasing. Everything your accounts and compliance teams need is ready on request.</p>
-<ul><li>Certificate of insurance naming the owner and managing agent</li><li>W-9 and licence, [LICENCE NO.]</li><li>Invoicing per building or per portfolio, terms [NET 30]</li><li>A written job report with photos after every visit</li></ul>
-<div><a class="btn btn-dark" href="{{u:vendor-onboarding/}}">Vendor onboarding</a></div>
-</div>
-<div class="col stack">
-<h2 style="font-size:clamp(1.6rem,3vw,2.3rem)">Every major system, old and new</h2>
-<p style="color:var(--muted)">Fifteen makes, so a mixed portfolio needs one vendor, not five.</p>
-<ul class="linklist" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 20px">
-<li>[[lee-dan-intercom-systems/|Lee-Dan]]</li><li>[[brands/aiphone/|Aiphone]]</li><li>[[brands/butterflymx/|ButterflyMX]]</li>
-<li>[[brands/comelit/|Comelit]]</li><li>[[brands/akuvox/|Akuvox]]</li><li>[[brands/tektone/|Tektone]]</li>
-<li>[[brands/mircom/|Mircom]]</li><li>[[brands/siedle/|Siedle]]</li><li>[[brands/elvox/|Elvox]]</li>
-<li>[[brands/doorbird/|DoorBird]]</li><li>[[brands/2n/|2N]]</li><li>[[brands/doorking/|DoorKing]]</li>
-<li>[[brands/alpha-communications/|Alpha]]</li><li>[[brands/pacific-electronics/|Pacific]]</li><li>[[brands/nutone/|NuTone]]</li>
-</ul>
-</div>
-</div></section>
-"""
-
-page(path="", nav="Home", title="Intercom Contractor for NYC Property Managers & Apartment Buildings | Jacob Intercom",
-     desc="Intercom repair, service agreements and whole-building system replacements for New York property managers, management companies and supers. Buildings of 10 to 200+ units. 35 years.",
-     h1="The intercom contractor for New York's managed buildings.", html=HOME)
-
-# ───────────────────────────── Repair hub ─────────────────────────────
-
-page(path="intercom-repair/", nav="Intercom repair",
-     title="Intercom Repair NYC: Buzzers, Door Release, Audio & Video | Jacob Intercom",
-     desc="Intercom repair for New York apartment buildings, co-ops and managed portfolios. One unit, one riser or the whole building, diagnosed and priced before work starts.",
-     h1="Intercom repair in New York City",
-     lead="One dead apartment, a dead riser or a silent building: we find what failed, agree the price with you, and fix it. Most repairs take one visit.",
-     facts=["<b>35 years</b> servicing New York buildings", "Buildings of <b>10 to 200+</b> units", "<b>15 brands</b>, including Lee-Dan", "Price given <b>before</b> work starts"],
-     body="""
-<h2>Start with what it's doing</h2>
-<p>Almost every intercom call we get is one of six problems. Pick yours for the likely causes, what building staff can check first, and what the repair usually costs.</p>
 <div class="tablebox"><table>
 <thead><tr><th scope="col">The problem</th><th scope="col">Where the fault usually is</th><th scope="col">Typical price</th></tr></thead>
 <tbody>

@@ -17,11 +17,10 @@ PUBLIC_URL = os.environ.get("PUBLIC_URL", BASE).rstrip("/")
 PHONE, PHONE_TEL = "718-252-2730", "+17182522730"
 PHONE2, PHONE2_TEL = "212-837-2147", "+12128372147"
 GTM_ID = "GTM-M2T83X8J"  # his existing Tag Manager container, carried over from the old site
-FONTS = ("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800"
-         "&family=Instrument+Sans:wght@400;500;600&display=swap")
+FONTS = "https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@400;500;700&display=swap"
 NAV = [("intercom-repair/", "Repair"), ("intercom-maintenance-contract/", "Service agreements"),
-       ("intercom-replacement/", "Upgrades"), ("property-managers/", "Portfolios"),
-       ("lee-dan-intercom-systems/", "Lee-Dan"), ("projects/", "Projects"), ("contact/", "Contact")]
+       ("intercom-replacement/", "Upgrades"), ("lee-dan-intercom-systems/", "Lee-Dan"),
+       ("projects/", "Projects"), ("about/", "About"), ("contact/", "Contact")]
 BUILT = {p["path"] for p in PAGES}
 SHOTS = {
     1: "Brooklyn brownstone entrance with an intercom panel beside the door",
@@ -209,10 +208,9 @@ def head(ctx):
         out.append('<meta name="robots" content="noindex">')
         out.append('<meta name="claude:viewport-fit-sides" content="cover">')
     out += [f'<link rel="stylesheet" href="{FONTS}">', f'<link rel="stylesheet" href="{ctx.asset("site.css")}">']
-    out.append(f'<link rel="icon" href="{ctx.asset("favicon.svg")}" type="image/svg+xml">')
     out.append(f'<link rel="icon" href="{ctx.asset("favicon-32.png")}" sizes="32x32" type="image/png">')
     out.append(f'<link rel="apple-touch-icon" href="{ctx.asset("apple-touch-icon.png")}">')
-    out.append('<meta name="theme-color" content="#0B0E13">')
+    out.append('<meta name="theme-color" content="#3698C2">')
     if p.get("noindex") and ctx.mode == "site":
         out.append('<meta name="robots" content="noindex">')
     if ctx.mode == "site" and GTM_ID:
@@ -234,14 +232,12 @@ def head(ctx):
 
 def header(ctx):
     nav = "".join(ctx.link(path, text) for path, text in NAV)
-    return f"""<div class="topbar"><div class="wrap"><span><span class="long">Open Monday to Thursday 9 to 5, Friday 8 to 4.</span><span class="short">Mon to Thu 9 to 5, Fri 8 to 4.</span> After hours: <span class="todo">[AFTER-HOURS LINE]</span></span><span class="addr">209 Avenue F, Brooklyn, NY 11218</span></div></div>
-<header class="site-header"><div class="wrap">
-<a class="logo" href="{ctx.url('')}">Jacob Intercom</a>
+    return f"""<header class="site-header"><div class="wrap">
+<a class="logo" href="{ctx.url('')}"><img src="{ctx.asset('logo-white.png')}" alt="Jacob Intercom, Intercom Specialist" width="400" height="86"></a>
 <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="menu-bars" aria-hidden="true"></span>Menu</button>
 <nav class="nav" id="site-nav" aria-label="Main">{nav}</nav>
-<a class="btn btn-brass" href="tel:{PHONE_TEL}">Call {PHONE}</a>
+<div class="hdr-phones"><a href="tel:{PHONE_TEL}">{PHONE}</a><a href="tel:+12128372147">212-837-2147</a></div>
 </div></header>"""
-
 
 def reviews():
     quotes = [
@@ -280,9 +276,30 @@ def quote(ctx):
 </div></section>"""
 
 
+def home_quote(ctx):
+    """Short enquiry block for the home page: four fields, phones beside it."""
+    return f"""<section class="home-contact" id="quote"><div class="wrap">
+<div>
+<h2>Tell us about your buildings</h2>
+<p class="home-sub">One building or forty. We'll come back the same business day.</p>
+<p class="home-big">{ctx.expand('{{tel}}')}</p>
+<p class="home-big">{ctx.expand('{{tel2}}')}</p>
+<p class="home-addr">209 Avenue F, Brooklyn, NY 11218<br>Monday to Thursday 9 to 5, Friday 8 to 4</p>
+</div>
+<form class="card" data-quote novalidate>
+<div class="form-2"><label for="h-name">Name<input id="h-name" name="name" type="text" autocomplete="name"></label>
+<label for="h-company">Company<input id="h-company" name="company" type="text" autocomplete="organization"></label></div>
+<div class="form-2"><label for="h-phone">Phone<input id="h-phone" name="phone" type="tel" autocomplete="tel"></label>
+<label for="h-buildings">Number of buildings<input id="h-buildings" name="buildings" type="number" min="1" inputmode="numeric"></label></div>
+<button class="btn btn-brass" type="submit">Request a building survey</button>
+<p class="form-msg" role="status" hidden></p>
+</form>
+</div></section>"""
+
+
 def footer(ctx):
     return f"""<footer class="site-footer"><div class="wrap">
-<div><a class="logo" href="{ctx.url('')}">Jacob Intercom</a><p>209 Avenue F, Brooklyn, NY 11218</p><p>Licence <span class="todo">[LICENCE NO.]</span>. Fully insured.</p><p>35 years in business.</p></div>
+<div><a class="logo" href="{ctx.url('')}"><img src="{ctx.asset('logo-white.png')}" alt="Jacob Intercom" width="400" height="86" loading="lazy"></a><p>209 Avenue F, Brooklyn, NY 11218</p><p>Licence <span class="todo">[LICENCE NO.]</span>. Fully insured.</p><p>35 years in business.</p></div>
 <div><strong>Call or email</strong><p>{ctx.expand('{{tel}}')}</p><p>{ctx.expand('{{tel2}}')}</p><p><a href="mailto:jacobintercom@gmail.com">jacobintercom@gmail.com</a></p></div>
 <div><strong>Services</strong><p>{ctx.link('intercom-repair/', 'Intercom repair')}</p><p>{ctx.link('intercom-maintenance-contract/', 'Service agreements')}</p><p>{ctx.link('intercom-replacement/', 'Building upgrades')}</p><p>{ctx.link('property-managers/', 'Portfolio programs')}</p><p>{ctx.link('lee-dan-intercom-systems/', 'Lee-Dan systems')}</p></div>
 <div><strong>Service areas</strong><p>{ctx.link('service-areas/', 'All service areas')}</p><p>{ctx.link('intercom-installation-brooklyn/', 'Brooklyn')}, {ctx.link('intercom-installation-manhattan/', 'Manhattan')}, {ctx.link('intercom-installation-queens/', 'Queens')}</p><p>{ctx.link('intercom-installation-bronx/', 'The Bronx')}, {ctx.link('intercom-installation-staten-island/', 'Staten Island')}</p></div>
@@ -332,7 +349,8 @@ def article(ctx):
 def render(page, mode):
     ctx = Ctx(page, mode)
     main = ctx.expand(page["html"]) if page.get("html") else article(ctx)
-    body = header(ctx) + "\n<main>" + main + ("" if page.get("no_reviews") else reviews()) + quote(ctx) + "</main>\n" + footer(ctx)
+    form = home_quote(ctx) if page.get("home_form") else quote(ctx)
+    body = header(ctx) + "\n<main>" + main + ("" if page.get("no_reviews") else reviews()) + form + "</main>\n" + footer(ctx)
     if mode == "preview" and page["path"] == "":
         return head(ctx) + "\n" + body  # the preview host wraps its entry page in its own document
     return ('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
