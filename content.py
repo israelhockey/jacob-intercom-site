@@ -30,7 +30,7 @@ def symptom(path, nav, title, desc, h1, lead, notice, causes, checks, fix, cost,
 {replace}
 """
     page(path=path, nav=nav, title=title, desc=desc, h1=h1, lead=lead,
-         facts=["<b>35 years</b> servicing New York buildings", "Buildings of <b>10 to 200+</b> units", "Price given <b>before</b> work starts"],
+         facts=["<b>35 years</b> servicing New York buildings", "<b>Same-day</b> service available", "<b>No hidden</b> fees"],
          body=body, faqs=faqs, related=related)
 
 
@@ -38,33 +38,33 @@ def symptom(path, nav, title, desc, h1, lead, notice, causes, checks, fix, cost,
 
 HOME = """
 <section class="home-hero" style="--hero:url('{{a:img/hero-building.webp}}')"><div class="wrap">
-<h1>Intercom systems for New York's apartment buildings</h1>
-<p>Repairs, service agreements and full system replacements for property managers, management companies and supers. 35 years. Buildings of 10 to 200+ apartments.</p>
-<div class="btn-row"><a class="btn btn-brass" href="#quote">Request a building survey</a><a class="btn btn-ghost" href="tel:+17182522730">Call 718-252-2730</a></div>
+<h1>Professional intercom installation and repair for New York buildings</h1>
+<p>Over 35 years of outstanding customer service. Jacob Intercom installs, repairs, maintains and upgrades intercom systems for apartment buildings, landlords, property managers and management companies throughout NYC.</p>
+<div class="btn-row"><a class="btn btn-brass" href="#quote">Get a free quote</a><a class="btn btn-ghost" href="tel:+17182522730">Call 718-252-2730</a></div>
 </div></section>
 
 <section class="home-proof" aria-label="At a glance"><div class="wrap">
-<div><b>35 years</b><span>in business in New York</span></div>
-<div><b>[NUMBER]</b><span>buildings under service</span></div>
-<div><b>15 brands</b><span>Lee-Dan to ButterflyMX</span></div>
-<div><b>All 5</b><span>boroughs, plus LI, Westchester, NJ</span></div>
+<div><b>35+ years</b><span>of intercom experience in NYC</span></div>
+<div><b>Same-day</b><span>service available</span></div>
+<div><b>Free</b><span>estimates and consultations</span></div>
+<div><b>All 5</b><span>boroughs of New York City</span></div>
 </div></section>
 
 <section class="home-services"><div class="wrap">
-<h2>What we do for your buildings</h2>
-<p class="home-sub">One contractor for every intercom in your portfolio, whatever the make or age.</p>
+<h2>Our services</h2>
+<p class="home-sub">Intercom systems, CCTV and access control for apartment buildings and commercial properties throughout NYC. Reliable service with quality solutions at competitive prices.</p>
 <div class="home-cards">
-<a class="home-card" href="{{u:intercom-repair/}}"><img src="{{a:img/shot-16.webp}}" alt="Intercom technician's tools laid out in an apartment lobby" width="1600" height="900" loading="lazy"><div><h3>Repairs and service calls</h3><p>Dead risers, failed amplifiers, door releases and damaged panels. Priced before work starts, with a written report after.</p><span class="more">Intercom repair</span></div></a>
-<a class="home-card" href="{{u:intercom-maintenance-contract/}}"><img src="{{a:img/shot-17.webp}}" alt="Inspection checklist and building keys on a desk" width="1600" height="900" loading="lazy"><div><h3>Service agreements</h3><p>Scheduled inspections, priority response and fixed rates across all your buildings, on one invoice.</p><span class="more">Service agreements</span></div></a>
-<a class="home-card" href="{{u:intercom-replacement/}}"><img src="{{a:img/shot-24.webp}}" alt="Old brass intercom panel beside a new video panel" width="1600" height="900" loading="lazy"><div><h3>Upgrades and replacements</h3><p>Whole-building conversions to video and smartphone entry, phased so tenants are never locked out.</p><span class="more">Building upgrades</span></div></a>
+<a class="home-card" href="{{u:intercom-repair/}}"><img src="{{a:img/shot-16.webp}}" alt="Intercom technician's tools laid out in an apartment lobby" width="1600" height="900" loading="lazy"><div><h3>Intercom repair</h3><p>We diagnose and repair existing intercom systems, including audio problems, door release problems and outdated equipment. Transparent repairs with no hidden fees.</p><span class="more">Intercom repair</span></div></a>
+<a class="home-card" href="{{u:intercom-maintenance-contract/}}"><img src="{{a:img/shot-17.webp}}" alt="Inspection checklist and building keys on a desk" width="1600" height="900" loading="lazy"><div><h3>Maintenance</h3><p>Regular maintenance keeps your intercom reliable: system inspections, performance checks, cleaning and updates that help prevent unexpected problems.</p><span class="more">Maintenance plans</span></div></a>
+<a class="home-card" href="{{u:intercom-replacement/}}"><img src="{{a:img/shot-24.webp}}" alt="Old brass intercom panel beside a new video panel" width="1600" height="900" loading="lazy"><div><h3>Upgrades and installation</h3><p>New video, wireless and IP intercom systems, and upgrades to your existing setup, including replacing old panels with vandal-resistant panels.</p><span class="more">Upgrades and replacements</span></div></a>
 </div>
 </div></section>
 
 <section class="home-trust"><div class="wrap">
 <div>
-<h2>Thirty-five years in New York's buildings</h2>
-<p>Jacob Intercom has worked with managers, supers and boards across the city since [YEAR]. We know the old systems most contractors won't touch, like [[lee-dan-intercom-systems/|Lee-Dan]], and we install the new ones properly.</p>
-<p>Licensed [LICENCE NO.] and fully insured. Certificates of insurance on request. [[about/|About Jacob Intercom]]</p>
+<h2>Expertise you can count on</h2>
+<p>For over 35 years, Jacob Intercom has helped apartment buildings and commercial properties across New York City install, repair and maintain reliable intercom systems. We work with all the major brands, and with older systems like [[lee-dan-intercom-systems/|Lee-Dan]] that many companies won't touch.</p>
+<p>We believe in working closely with our clients: tailoring each project to the building and giving top quality work at the best prices out there. [[about/|About Jacob Intercom]]</p>
 </div>
 <div>
 <blockquote><p>"Jacob Intercom helped us modernize our building with a wireless intercom. Residents appreciate the convenience, and we appreciate the increased security."</p><cite>Google review, rated 4.7 from 23 reviews</cite></blockquote>
@@ -73,9 +73,9 @@ HOME = """
 </div></section>
 """
 
-page(path="", nav="Home", no_reviews=True, home_form=True, title="Intercom Contractor for NYC Property Managers & Apartment Buildings | Jacob Intercom",
-     desc="Intercom repair, service agreements and whole-building system replacements for New York property managers, management companies and supers. Buildings of 10 to 200+ units. 35 years.",
-     h1="The intercom contractor for New York's managed buildings.", html=HOME)
+page(path="", nav="Home", no_reviews=True, home_form=True, title="Intercom Installation & Repair NYC for Apartment Buildings | Jacob Intercom",
+     desc="Professional intercom installation, repair and maintenance for NYC apartment buildings, landlords and property managers. Over 35 years of service. Call 718-252-2730 for a free quote.",
+     h1="Professional intercom installation and repair for New York buildings", html=HOME)
 
 # ───────────────────────────── Repair hub ─────────────────────────────
 
@@ -83,8 +83,8 @@ page(path="intercom-repair/", nav="Intercom repair",
      title="Intercom Repair NYC: Buzzers, Door Release, Audio & Video | Jacob Intercom",
      desc="Intercom repair for New York apartment buildings, co-ops and managed portfolios. One unit, one riser or the whole building, diagnosed and priced before work starts.",
      h1="Intercom repair in New York City",
-     lead="One dead apartment, a dead riser or a silent building: we find what failed, agree the price with you, and fix it. Most repairs take one visit.",
-     facts=["<b>35 years</b> servicing New York buildings", "Buildings of <b>10 to 200+</b> units", "<b>15 brands</b>, including Lee-Dan", "Price given <b>before</b> work starts"],
+     lead="Same-day service, expertise in wired and wireless systems, competitive pricing and transparent repairs. Whether it's one apartment or the whole building, we find the fault and fix it.",
+     facts=["<b>35 years</b> servicing New York buildings", "<b>Same-day</b> service available", "<b>15 brands</b>, including Lee-Dan", "Price given <b>before</b> work starts"],
      body="""
 <h2>Start with what it's doing</h2>
 <p>Almost every intercom call we get is one of six problems. Pick yours for the likely causes, what building staff can check first, and what the repair usually costs.</p>
@@ -361,7 +361,7 @@ page(path="lee-dan-intercom-systems/", nav="Lee-Dan",
      title="Lee-Dan Intercom Repair, Parts & Service NYC | Jacob Intercom",
      desc="Lee-Dan intercom repair in New York: IR-203, IR-204 and IR-205 apartment stations, PK-543 amplifiers and lobby panels. Repair, parts and upgrades on existing wiring.",
      h1="Lee-Dan intercom repair and service",
-     lead="Lee-Dan systems still run thousands of New York apartment buildings, and most can be kept running. We repair them, stock the parts, and plan the conversion when replacing is the better money.",
+     lead="Professional installation, repair and replacement for Lee-Dan IR-203, IR-204 and IR-205 intercom systems. We help property owners, managers and supers keep reliable building entry, and we tell you honestly when a repair makes more sense than a replacement.",
      facts=["<b>IR-203, IR-204, IR-205</b> stations", "<b>PK-543</b> amplifiers", "Lobby panels and parts", "<b>35 years</b> in business"],
      aside={"head": "Got a Lee-Dan that's stopped working?", "text": "Send a photo of the apartment station and the lobby panel. We can usually tell you the model and the likely fault from the picture."},
      body="""
@@ -369,6 +369,13 @@ page(path="lee-dan-intercom-systems/", nav="Lee-Dan",
 <h2>Why so many New York buildings have one</h2>
 <p>Lee-Dan Communications is a Long Island manufacturer that has supplied apartment intercoms to the New York market for decades. Its systems were fitted in walk-ups, pre-war elevator buildings and co-ops across the five boroughs, and a great many are still in daily use.</p>
 <p>The design is simple and the parts are sturdy, which is why they last. It is also why a Lee-Dan that has stopped working is usually worth repairing.</p>
+<h2>The Lee-Dan models we install and service</h2>
+<p>Jacob Intercom installs, repairs and replaces Lee-Dan IR-203, IR-204 and IR-205 intercom systems throughout NYC. We help choose the right model based on the building's existing wiring and what the system needs to do.</p>
+<ul>
+<li><strong>[[lee-dan-intercom-systems/ir-203/|IR-203]]:</strong> used to upgrade older bell or buzzer systems to modern voice intercoms while using the building's existing wiring.</li>
+<li><strong>[[lee-dan-intercom-systems/ir-204/|IR-204]]:</strong> a common and economical choice for new installations and standard 4-wire intercom replacements.</li>
+<li><strong>[[lee-dan-intercom-systems/ir-205/|IR-205]]:</strong> designed for older 5-wire buildings and specialty setups, including buildings with more than one entrance.</li>
+</ul>
 <h2>How to tell if yours is a Lee-Dan</h2>
 <ul>
 <li>The apartment station is a plain wall unit with <strong>Talk</strong>, <strong>Listen</strong> and <strong>Door</strong> buttons.</li>
@@ -430,7 +437,7 @@ REVIEW = '<div class="note"><p><strong>For Jacob to review before launch.</stron
 
 def ld(slug, nav, title, desc, h1, lead, body, faqs, facts=None):
     page(path=LD + slug + "/", nav=nav, title=title, desc=desc, h1=h1, lead=lead,
-         facts=facts or ["<b>Lee-Dan</b> specialists", "Buildings of <b>10 to 200+</b> units", "<b>35 years</b> in business"],
+         facts=facts or ["<b>Lee-Dan</b> specialists", "IR-203, IR-204 and IR-205", "<b>35 years</b> in business"],
          aside=LD_ASIDE, body=REVIEW + body, faqs=faqs, related=LD_RELATED)
 
 
@@ -993,7 +1000,7 @@ page(path="about/", nav="About",
      title="About Jacob Intercom: 35 Years of Intercom Work in New York",
      desc="Jacob Intercom has repaired and installed intercoms across New York for 35 years, from a base at 209 Avenue F in Brooklyn.",
      h1="About Jacob Intercom",
-     lead="Thirty-five years as the intercom contractor for New York apartment buildings, from Avenue F in Brooklyn.",
+     lead="At Jacob Intercom, we can help you save a lot of money. Over 35 years of experience with intercom systems, CCTV and access control, from our base on Avenue F in Brooklyn.",
      facts=["<b>35 years</b> in business", "Based in <b>Brooklyn</b>", "Licensed and insured"],
      body="""
 <div class="note"><p><strong>For Jacob to write or approve.</strong> This page should be in his words. The structure and the confirmed facts are in place. The rest is marked for him.</p></div>
@@ -1001,9 +1008,11 @@ page(path="about/", nav="About",
 <h2>How we started</h2>
 <p>[JACOB: HOW AND WHEN HE STARTED, AND WHAT THE WORK WAS LIKE THEN]</p>
 <h2>What we do</h2>
-<p>We repair and install intercoms, and the door hardware, access control and cameras that go with them. Our clients are the people who run New York's apartment buildings: property management companies, building managers and supers, co-op and condo boards, and owners with their own maintenance staff. Most buildings we look after have between 10 and 200 apartments.</p>
+<p>We repair and install intercoms, and the door hardware, access control and cameras that go with them. Our specialists have over 35 years of experience with intercom systems, CCTV, access control and much more. Most of our work is for the people who run New York's apartment buildings: landlords, property managers, management companies, supers and co-op boards.</p>
 <p>A large part of it is keeping older systems running. New York has thousands of intercoms that were fitted decades ago and still have years in them, and we would sooner repair one than replace it. We are known for [[lee-dan-intercom-systems/|Lee-Dan systems]] in particular.</p>
 <h2>How we work</h2>
+<p>We can install and repair any system at a low cost while working fast and efficiently. We are dedicated to bringing you quality products and services at prices that can't be beat, and we believe in working closely with our clients, tailoring each project and giving top quality performance at the best prices out there.</p>
+<p>Services include installation and repair of intercom systems, roof alarms, replacing intercom panels with vandal-resistant panels, upgrading your current intercom system for better performance, and more. Our technicians are available for a free consultation.</p>
 <ul>
 <li>We find the fault before we quote.</li>
 <li>We give the price before we start.</li>
@@ -1438,7 +1447,7 @@ def borough(path, name, title, stock, hoods, note):
          desc=f"Intercom repair and installation in {name}. Buzzers, door releases, video entry and Lee-Dan systems. Call 718-252-2730.",
          h1=f"Intercom repair and installation in {name}",
          lead=f"We repair and install intercoms in every kind of building in {name}. Priced before work starts.",
-         facts=["<b>35 years</b> in New York", "Buildings of <b>10 to 200+</b> units", "<b>4.7 stars</b> from 23 Google reviews"],
+         facts=["<b>35 years</b> in New York", "<b>Free</b> estimates", "<b>4.7 stars</b> from 23 Google reviews"],
          body=f"""
 <h2>{name} buildings and their intercoms</h2>
 {stock}
@@ -1470,7 +1479,7 @@ borough("intercom-installation-brooklyn/", "Brooklyn", "Intercom Repair & Instal
         "<p>Our Google listing ranks first for intercom repair around our office, and we reach most of south and central Brooklyn quickly.</p>")
 borough("intercom-installation-manhattan/", "Manhattan", "Intercom Repair & Installation Manhattan NY | Jacob Intercom",
         """<p>Manhattan has the city's densest mix of intercom systems: tenement walk-ups on the Lower East Side and in Harlem, pre-war co-ops on the Upper West and Upper East Sides, converted lofts downtown, townhouses in the Village, and doorman buildings where the intercom calls the front desk.</p>
-<p>Older audio systems are still common in walk-ups. [[co-op-condo-intercom/|Co-ops]] are often weighing an upgrade to video or phone answering,, and larger managed buildings are moving to cloud entry for remote directory management.</p>""",
+<p>Older audio systems are still common in walk-ups. [[co-op-condo-intercom/|Co-ops]] are often weighing an upgrade to video or phone answering, and larger managed buildings are moving to cloud entry for remote directory management.</p>""",
         ["Upper West Side", "Upper East Side", "Harlem", "Washington Heights", "Midtown", "Chelsea", "Greenwich Village", "East Village", "Lower East Side", "Tribeca", "Financial District"],
         "<p>Manhattan calls can also reach us on 212-837-2147.</p>")
 borough("intercom-installation-queens/", "Queens", "Intercom Repair & Installation Queens NY | Jacob Intercom",
@@ -2242,7 +2251,7 @@ def wider(slug, name, places, note):
          desc=f"Intercom repair, service agreements and system replacements for apartment buildings and co-ops in {name}. 35 years of experience. Call 718-252-2730.",
          h1=f"Intercom repair and installation in {name}",
          lead=f"We take on apartment buildings, co-ops and managed portfolios across {name}.",
-         facts=["<b>35 years</b> of intercom work", "Repair and installation", "Buildings of <b>10 to 200+</b> units"],
+         facts=["<b>35 years</b> of intercom work", "Repair and installation", "<b>Free</b> estimates"],
          body=f"""
 <h2>Where we work in {name}</h2>
 <p>{places}</p>
@@ -2308,7 +2317,7 @@ def hood(slug, name, bpath, bname, stock, systems, extra=""):
          desc=f"Intercom repair and installation in {name}, {bname}. Buzzers, door releases, video entry and Lee-Dan systems.",
          h1=f"Intercom service for {name} buildings",
          lead=f"Intercom repair, service agreements and system replacements for the apartment buildings and co-ops we look after in {name}.",
-         facts=["<b>35 years</b> in New York", "Buildings of <b>10 to 200+</b> units", "<b>4.7 stars</b> from 23 Google reviews"],
+         facts=["<b>35 years</b> in New York", "<b>Free</b> estimates", "<b>4.7 stars</b> from 23 Google reviews"],
          body=f"""
 <h2>{name}'s buildings</h2>
 <p>{stock}</p>
@@ -2537,10 +2546,10 @@ SURVEY_ASIDE = {"head": "Planning for several buildings?", "text": "Send the add
 
 page(path="property-managers/", nav="Portfolio programs",
      title="Intercom Vendor for NYC Property Management Companies | Jacob Intercom",
-     desc="One intercom vendor for your whole New York portfolio: building surveys, condition reports, phased replacement plans and one service agreement. Buildings of 10 to 200+ units.",
-     h1="One intercom vendor for the whole portfolio",
-     lead="For management companies running 5, 40 or 200 buildings: we survey every intercom you're responsible for, tell you what each one needs, and keep the lot running under one agreement and one invoice.",
-     facts=["<b>35 years</b> servicing New York buildings", "Buildings of <b>10 to 200+</b> units", "<b>One</b> contact, one invoice"],
+     desc="One intercom company for all your New York buildings: building surveys, condition reports, upgrade plans and maintenance, with one number to call. Over 35 years of service.",
+     h1="One intercom company for all your buildings",
+     lead="For management companies with several buildings: we look at every intercom you're responsible for, tell you honestly what each one needs, and keep them all running with one company to call.",
+     facts=["<b>35 years</b> servicing New York buildings", "<b>One</b> number to call", "<b>Free</b> building survey [CONFIRM]"],
      aside=SURVEY_ASIDE, related=MGR_RELATED,
      body="""
 <h2>The problem with five intercom vendors</h2>
@@ -2587,8 +2596,8 @@ page(path="property-managers/", nav="Portfolio programs",
 page(path="intercom-maintenance-contract/", nav="Service agreements",
      title="Intercom Service Agreements for NYC Buildings & Portfolios | Jacob Intercom",
      desc="Intercom service agreements for New York apartment buildings: scheduled inspections, priority response, fixed rates across your portfolio and one invoice.",
-     h1="Intercom service agreements",
-     lead="Most whole-building intercom failures give months of warning: a transformer running hot, a lobby panel taking in water, an amplifier fading. An agreement means someone is looking.",
+     h1="Intercom maintenance and service agreements",
+     lead="Regular maintenance is essential for keeping your intercom reliable and working at its best. Our maintenance plans include system inspections, performance checks and proactive fixes that help prevent unexpected problems and extend the life of your system.",
      facts=["Scheduled <b>inspections</b>", "<b>Priority</b> response", "Fixed rates, <b>one invoice</b>"],
      aside={"head": "Want an agreement price?", "text": "Tell us how many buildings, the apartments in each, and what systems they have. We'll send a price per building and for the portfolio."},
      related=MGR_RELATED,
@@ -2640,7 +2649,7 @@ page(path="intercom-replacement/", nav="Building upgrades",
      title="Building Intercom Replacement & Upgrades NYC | Jacob Intercom",
      desc="Whole-building intercom replacement in New York: Lee-Dan and legacy audio converted to video and smartphone entry, surveyed, phased and installed with the building occupied.",
      h1="Building intercom upgrades and system replacement",
-     lead="Converting a 40- or 150-unit building to a new system without leaving tenants stuck at the door. Surveyed first, priced in writing, and installed in phases with the old system live until the new one works.",
+     lead="From upgrading an existing system to a complete new installation, we deliver dependable intercom systems without sacrificing quality. We look at the wiring your building already has first, and keep the old system working until the new one is ready.",
      facts=["Existing risers <b>tested and reused</b>", "Old system <b>live</b> during changeover", "Written proposal after survey"],
      aside=SURVEY_ASIDE, related=MGR_RELATED,
      body="""
@@ -2674,7 +2683,7 @@ page(path="intercom-replacement/", nav="Building upgrades",
 <li><strong>Floor-by-floor changeover.</strong> Apartments switched in groups, scheduled with the super, so no line is dead for more than [HOURS].</li>
 <li><strong>Testing and handover.</strong> Every unit tested, the directory programmed, staff trained, admin logins and a system record handed to management.</li>
 </ol>
-<p>Typical duration for a [60]-unit building: [WEEKS]. [JACOB TO CONFIRM]</p>
+<p>Typical duration: [JACOB TO CONFIRM BY BUILDING SIZE].</p>
 
 <h2>Estimate a building</h2>
 """ + INSTALL_CALC.replace("<h2>Installation cost estimator</h2>", "") + """
@@ -2797,7 +2806,7 @@ page(path="projects/", nav="Projects",
      desc="Intercom replacements, conversions and portfolio programs Jacob Intercom has delivered in New York apartment buildings: building size, scope, schedule and outcome.",
      h1="Projects",
      lead="Building size, what was wrong, what we did, how long it took. Written up for managers deciding whether we can handle their buildings.",
-     facts=["Buildings of <b>10 to 200+</b> units", "Scope, schedule, outcome", "Published with permission"],
+     facts=["Apartment buildings across NYC", "Scope, schedule, outcome", "Published with permission"],
      related=MGR_RELATED,
      body="""
 <div class="note"><p><strong>Waiting on Jacob.</strong> The entries below are samples to show the layout. Each real project needs: building size and neighbourhood, the client type (management company, co-op board, owner), the problem, the scope, the system, the schedule, two or three photos, and permission to publish.</p></div>

@@ -258,8 +258,8 @@ def reviews():
 def quote(ctx):
     return f"""<section class="quote band-green" id="quote"><div class="wrap">
 <div class="col stack">
-<h2>Tell us about your buildings.</h2>
-<p style="font-size:1.15rem;max-width:30em">One building with a dead riser or forty buildings to bring under one vendor: send the basics and we'll come back with next steps, usually the same business day.</p>
+<h2>Call us now for a free quote</h2>
+<p style="font-size:1.15rem;max-width:30em">Tell us about your building and what's going on, or just call. Our technicians are available for a free consultation.</p>
 <p class="tel">{ctx.expand('{{tel}}')}</p>
 <p class="tel">{ctx.expand('{{tel2}}')}</p>
 <p><a href="mailto:jacobintercom@gmail.com" style="color:#fff">jacobintercom@gmail.com</a></p>
@@ -284,8 +284,8 @@ def home_quote(ctx):
     """Short enquiry block for the home page: four fields, phones beside it."""
     return f"""<section class="home-contact" id="quote"><div class="wrap">
 <div>
-<h2>Tell us about your buildings</h2>
-<p class="home-sub">One building or forty. We'll come back the same business day.</p>
+<h2>Call us now for a free quote</h2>
+<p class="home-sub">Our technicians are available for a free consultation. We look forward to working with you!</p>
 <p class="home-big">{ctx.expand('{{tel}}')}</p>
 <p class="home-big">{ctx.expand('{{tel2}}')}</p>
 <p class="home-addr">209 Avenue F, Brooklyn, NY 11218<br>Monday to Thursday 9 to 5, Friday 8 to 4</p>
@@ -295,7 +295,7 @@ def home_quote(ctx):
 <label for="h-company">Company<input id="h-company" name="company" type="text" autocomplete="organization"></label></div>
 <div class="form-2"><label for="h-phone">Phone<input id="h-phone" name="phone" type="tel" autocomplete="tel"></label>
 <label for="h-buildings">Number of buildings<input id="h-buildings" name="buildings" type="number" min="1" inputmode="numeric"></label></div>
-<button class="btn btn-brass" type="submit">Request a building survey</button>
+<button class="btn btn-brass" type="submit">Get a free quote</button>
 <p class="form-msg" role="status" hidden></p>
 </form>
 </div></section>"""
@@ -310,7 +310,7 @@ def footer(ctx):
 <div><strong>Find us on</strong>{"".join(f'<p><a href="{u}" rel="noopener">{n}</a></p>' if u else f'<p>{n} <mark class="todo">[{n.upper()} URL]</mark></p>' for n, u in PROFILES)}</div>
 <div><strong>Company</strong><p>{ctx.link('about/', 'About')}</p><p>{ctx.link('projects/', 'Projects')}</p><p>{ctx.link('vendor-onboarding/', 'Vendor onboarding')}</p><p>{ctx.link('superintendents/', 'For superintendents')}</p><p>{ctx.link('guides/', 'Guides')}</p><p>{ctx.link('reviews/', 'Reviews')}</p><p>{ctx.link('privacy/', 'Privacy')}</p></div>
 </div></footer>
-<div class="callbar"><a class="btn btn-brass" href="tel:{PHONE_TEL}">Call {PHONE}</a><a class="btn btn-ghost" href="#quote">Request a survey</a></div>
+<div class="callbar"><a class="btn btn-brass" href="tel:{PHONE_TEL}">Call {PHONE}</a><a class="btn btn-ghost" href="#quote">Free quote</a></div>
 <script src="{ctx.asset('site.js')}?v={ASSET_V}"></script>"""
 
 
@@ -335,7 +335,7 @@ def article(ctx):
 <h1>{p['h1']}</h1>
 <p class="lead">{ctx.expand(p['lead'])}</p>
 <ul class="facts">{facts}</ul>
-<div class="btn-row"><a class="btn btn-brass" href="tel:{PHONE_TEL}">Call {PHONE}</a><a class="btn btn-ghost" href="#quote">Request a building survey</a></div>
+<div class="btn-row"><a class="btn btn-brass" href="tel:{PHONE_TEL}">Call {PHONE}</a><a class="btn btn-ghost" href="#quote">Get a free quote</a></div>
 </div></section>
 <div class="article"><div class="wrap">
 <article class="prose{' prose-wide' if p.get('wide') else ''}">{fig}{ctx.expand(p['body'])}{faqs}</article>
