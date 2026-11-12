@@ -91,7 +91,7 @@ HOME = """
 <section class="home-trust"><div class="wrap">
 <div>
 <h2>Expertise you can count on</h2>
-<p>For over 35 years, Jacob Intercom has helped apartment buildings and commercial properties across New York City install, repair and maintain reliable intercom systems. We work with all the major brands, and with older systems like [[lee-dan-intercom-systems/|Lee-Dan]] that many companies won't touch.</p>
+<p>For over 35 years, Jacob Intercom has helped apartment buildings and commercial properties across New York City install, repair and maintain reliable intercom systems. We work with all the major brands, and with older systems like [[lee-dan-intercom-systems/|Lee-Dan]] and newer video and phone-based systems.</p>
 <p>We believe in working closely with our clients: tailoring each project to the building and giving top quality work at the best prices out there. [[about/|About Jacob Intercom]]</p>
 </div>
 <div>
@@ -511,8 +511,8 @@ def station(slug, model, wires, commons, where, extra):
 
 station("ir-203", "IR-203", 3, "two", "It is the one fitted when an old bell-and-buzzer system was upgraded to voice without running new wire.",
         "<p>That short wire count is the point of the IR-203. Buildings that had only a bell and a door buzzer already had enough wire in the walls for a three-wire intercom, so they could gain a voice system without opening the walls.</p>")
-station("ir-204", "IR-204", 4, "three", "It is the most common Lee-Dan station in New York walk-ups and small apartment buildings.",
-        "<p>The IR-204 is the standard choice and the one we replace most. The current IR-204E has a 2&frac12;-inch speaker, a white impact-resistant case about 7 inches tall and 5 wide, Braille markings on the buttons, and fits a standard single electrical box or mounts on the wall surface.</p>")
+station("ir-204", "IR-204", 4, "three", "It is the standard four-wire Lee-Dan station, found in many New York walk-ups and apartment buildings.",
+        "<p>The IR-204 is the standard choice and the one we replace most. The current IR-204E has Braille markings on its buttons as well as English labels and symbols, and fits a standard single electrical box or mounts on the wall surface.</p>")
 station("ir-205", "IR-205", 5, "four", "It is found on older five-wire systems and in buildings with more than one entrance.",
         "<p>The extra wire is what older five-wire systems and some multi-entrance buildings need. If your building was wired for five, a four-wire station will not do the job.</p>")
 
@@ -574,7 +574,7 @@ ld("lobby-panels", "Lobby panels",
 <h2>Repairing the panel</h2>
 <p>Buttons, the speaker and the microphone can each be replaced inside the existing panel. We also reseal panels that are letting water in and relabel the directory.</p>
 <h2>Replacing the panel</h2>
-<p>When the face is corroded or damaged throughout, a new panel is better value than replacing its parts one at a time. Lee-Dan panels are made in stainless steel and brass, flush or surface mounted, in sizes from two buttons up. We fit one that covers the old opening, connect it to the existing wires, and label every apartment.</p>
+<p>When the face is corroded or damaged throughout, a new panel is better value than replacing its parts one at a time. New panels come in different sizes and finishes, flush or surface mounted. We fit one that covers the old opening, connect it to the existing wires, and label every apartment.</p>
 <p>The apartments are not touched. If the stations upstairs work, a new panel gives the building a new front door without a new system.</p>
 <p>[JACOB: PANEL SIZES AND FINISHES HE STOCKS OR CAN GET QUICKLY]</p>
 <h2>What it costs</h2>
@@ -761,7 +761,7 @@ ld("parts", "Lee-Dan parts",
 <thead><tr><th scope="col">Part</th><th scope="col">What it is</th><th scope="col">Notes</th></tr></thead>
 <tbody>
 <tr><th scope="row">IR-203E</th><td>Three-wire apartment station</td><td>[[lee-dan-intercom-systems/ir-203/|About the IR-203]]</td></tr>
-<tr><th scope="row">IR-204E</th><td>Four-wire apartment station</td><td>The most common. [[lee-dan-intercom-systems/ir-204/|About the IR-204]]</td></tr>
+<tr><th scope="row">IR-204E</th><td>Four-wire apartment station</td><td>[[lee-dan-intercom-systems/ir-204/|About the IR-204]]</td></tr>
 <tr><th scope="row">IR-205E</th><td>Five-wire apartment station</td><td>[[lee-dan-intercom-systems/ir-205/|About the IR-205]]</td></tr>
 <tr><th scope="row">PK-543A</th><td>Amplifier and control unit for the building</td><td>[[lee-dan-intercom-systems/pk-543-amplifier/|About the PK-543]]</td></tr>
 <tr><th scope="row">PK-502B</th><td>Add-on unit for buildings with more than one entrance</td><td>Used alongside the PK-543A</td></tr>
@@ -770,7 +770,7 @@ ld("parts", "Lee-Dan parts",
 </tbody></table></div>
 <p>Lee-Dan and TekTone stations and amplifiers with the same model numbers are sold as direct replacements for each other, which widens the supply.</p>
 <h2>What the parts cost</h2>
-<p>The parts themselves are not expensive. In November 2026, distributors listed the IR-204E station at about $30 and the PK-543A amplifier at about $125. Most of the cost of a repair is finding the fault and fitting the part correctly.</p>
+<p>The parts themselves are not expensive. Most of the cost of a repair is finding the fault and fitting the right part correctly.</p>
 <h2>Parts we keep</h2>
 <p>[PARTS JACOB STOCKS, AND TYPICAL LEAD TIME FOR THE REST]</p>
 <h2>Fitting parts in-house</h2>
@@ -884,7 +884,6 @@ inst("wireless", "Wireless intercoms",
 <li>The old riser wiring has failed in many places and replacing it would mean opening finished walls.</li>
 <li>The building never had an intercom.</li>
 <li>A landmark or newly renovated building where running cable is not acceptable.</li>
-<li>A few apartments have dead lines and the rest are fine. Those apartments can go wireless while the others stay wired.</li>
 </ul>
 <h2>The trade-offs</h2>
 <ul>
@@ -925,7 +924,7 @@ inst("ip-smartphone", "IP and smartphone intercoms",
 <h2>Costs to plan for</h2>
 <p>These systems usually carry a monthly or yearly service fee per building or per apartment, on top of the installation. We set out both in the quote so the board or owner can compare it fairly with a wired system that has no ongoing fee.</p>
 <p>[IP INSTALL RANGE AND TYPICAL SERVICE FEES]</p>
-<h2>Systems we install</h2>
+<h2>Systems we work with</h2>
 <p>[[brands/butterflymx/|ButterflyMX]], [[brands/akuvox/|Akuvox]], [[brands/aiphone/|Aiphone]], [[brands/2n/|2N]], [[brands/doorbird/|DoorBird]] and [[brands/comelit/|Comelit]].</p>
 """,
      [("What if the internet goes down?", "Calls to phones stop until it returns. Residents can still use fobs or codes, and we recommend keeping a way in that doesn't depend on the connection."),
@@ -1279,7 +1278,7 @@ brand("butterflymx", "ButterflyMX", "ButterflyMX Installation, Repair & Troubles
 
 brand("comelit", "Comelit", "Comelit Intercom Repair & Installation NYC | Jacob Intercom",
       "Comelit intercom repair and installation in New York: Simplebus two-wire video and ViP network systems in apartment buildings.",
-      "Comelit is an Italian maker whose two-wire video systems are common in New York apartment buildings, including many co-ops that upgraded in the last twenty years.",
+      "Comelit is an Italian maker whose two-wire video systems are found in many New York apartment buildings.",
       """
 <h2>About Comelit</h2>
 <p>Comelit has made intercoms in Italy since the 1950s. In New York it is best known for video systems that run on two wires, which made it a popular choice for upgrading older buildings without rewiring.</p>
@@ -1379,7 +1378,7 @@ short_brand("siedle", "Siedle",
             ["Design-led door stations", "Module replacement", "Repair and service"])
 short_brand("elvox", "Elvox",
             "Elvox is an Italian intercom maker, now part of the Vimar group.",
-            "Video and audio systems in apartment buildings, many installed in the 1990s and 2000s.",
+            "Video and audio systems in apartment buildings.",
             """<p>We repair Elvox entry panels, monitors and handsets, power supplies and wiring. Where an older Elvox line is no longer supported, we advise on compatible replacements or an upgrade on the existing wire.</p>""",
             [("Are Elvox parts still available?", "For current lines, yes. Older lines vary, and we check before quoting."),
              ("Can an Elvox system be replaced without rewiring?", "Often. See [[intercom-replacement/|replacement and upgrades]].")],
@@ -1412,7 +1411,7 @@ short_brand("alpha-communications", "Alpha Communications",
             [("Are Alpha parts still available?", "For current lines, yes. We check older models before quoting.")],
             ["Apartment entry systems", "Repair and parts", "Wiring"])
 short_brand("pacific-electronics", "Pacific Electronics",
-            "Pacific Electronics made apartment entry systems found in older buildings.",
+            "Pacific Electronics apartment entry systems are found in many older buildings.",
             "Older apartment buildings that haven't replaced their original entry system.",
             """<p>We repair Pacific Electronics entry panels, stations and wiring where parts allow, and advise on compatible replacements where they don't.</p>""",
             [("Can a Pacific Electronics system still be repaired?", "Often, depending on the fault and the part. We test before quoting.")],
@@ -1469,7 +1468,7 @@ borough("intercom-installation-brooklyn/", "Brooklyn", "Intercom Repair & Instal
         """<p>Brooklyn is our home borough: the office is on Avenue F in Kensington. Its housing runs from brownstones and limestone rowhouses in Park Slope, Bed-Stuy and Crown Heights, to pre-war walk-ups and elevator buildings along Ocean Parkway, Eastern Parkway and in Flatbush, to co-ops in Brooklyn Heights and new towers downtown and in Williamsburg.</p>
 <p>That means every kind of intercom: [[lee-dan-intercom-systems/|Lee-Dan]] and TekTone audio in walk-ups, two-wire video in upgraded co-ops, and phone-based systems in new buildings.</p>""",
         ["Kensington", "Flatbush", "Midwood", "Borough Park", "Bay Ridge", "Sheepshead Bay", "Park Slope", "Bed-Stuy", "Crown Heights", "Williamsburg", "Brooklyn Heights", "Bushwick"],
-        "<p>Our Google listing ranks first for intercom repair around our office, and we reach most of south and central Brooklyn quickly.</p>")
+        "<p>Our office is on Avenue F, so we reach south and central Brooklyn quickly.</p>")
 borough("intercom-installation-manhattan/", "Manhattan", "Intercom Repair & Installation Manhattan NY | Jacob Intercom",
         """<p>Manhattan has the city's densest mix of intercom systems: tenement walk-ups on the Lower East Side and in Harlem, pre-war co-ops on the Upper West and Upper East Sides, converted lofts downtown, townhouses in the Village, and doorman buildings where the intercom calls the front desk.</p>
 <p>Older audio systems are still common in walk-ups. [[co-op-condo-intercom/|Co-ops]] are often weighing an upgrade to video or phone answering, and larger managed buildings are moving to cloud entry for remote directory management.</p>""",
@@ -1481,7 +1480,7 @@ borough("intercom-installation-queens/", "Queens", "Intercom Repair & Installati
         ["Astoria", "Long Island City", "Jackson Heights", "Elmhurst", "Forest Hills", "Rego Park", "Kew Gardens", "Flushing", "Bayside", "Sunnyside", "Woodside", "Ridgewood", "Jamaica"],
         "")
 borough("intercom-installation-bronx/", "the Bronx", "Intercom Repair & Installation Bronx NY | Jacob Intercom",
-        """<p>The Bronx has some of the city's finest pre-war apartment buildings, including the art deco blocks along the Grand Concourse, alongside large elevator buildings, garden apartments in Parkchester and Co-op City, and houses in Riverdale and Throgs Neck.</p>
+        """<p>The Bronx has some of the city's finest pre-war apartment buildings, including the art deco blocks along the Grand Concourse, alongside large elevator buildings, big complexes like Parkchester and Co-op City, and houses in Riverdale and Throgs Neck.</p>
 <p>Large buildings here often have long riser runs and several entrances, and many still run on older audio systems that are good candidates for an [[intercom-replacement/|upgrade on the existing wire]].</p>""",
         ["Riverdale", "Kingsbridge", "Fordham", "Grand Concourse", "Mott Haven", "Pelham Bay", "Throgs Neck", "Morris Park", "Parkchester"],
         "<p>Bronx calls can also reach us on 212-837-2147.</p>")
@@ -1868,7 +1867,7 @@ guide("intercom-repair-cost-nyc", "Repair costs",
       "Most intercom repairs in New York cost a few hundred dollars. What decides where yours falls is where the fault is and how easy it is to reach.",
       """
 <h2>Typical prices</h2>
-<p>Most single-fault repairs we do cost <strong>$100 to $300</strong>. Other New York companies publish similar figures: one lists $150 to $250 flat for common repairs, another a $250 diagnostic visit with parts extra.</p>
+<p>Most single-fault repairs we do cost <strong>$100 to $300</strong>.</p>
 <div class="tablebox"><table>
 <thead><tr><th scope="col">Repair</th><th scope="col">What it usually costs</th></tr></thead>
 <tbody>
@@ -1915,7 +1914,7 @@ guide("intercom-installation-cost-nyc", "Installation costs",
 <li><strong>The door.</strong> A new strike, closer or magnetic lock is often needed too.</li>
 </ol>
 <h2>Typical ranges</h2>
-<p>ButterflyMX, a smart-intercom maker, puts apartment building installations at about $500 to $5,000 or more for large properties. Our ranges by building size:</p>
+<p>Our ranges by building size:</p>
 <div class="tablebox"><table>
 <thead><tr><th scope="col">Building</th><th scope="col">Audio</th><th scope="col">Video</th></tr></thead>
 <tbody>
@@ -2167,7 +2166,7 @@ guide("best-intercom-systems-nyc-buildings", "Choosing a system",
 <li><strong>Who will manage it?</strong> Cloud systems need someone to add and remove residents.</li>
 <li><strong>What can you spend each year,</strong> not just upfront?</li>
 </ol>
-<h2>Systems we install most</h2>
+<h2>Systems we work with</h2>
 <ul>
 <li>[[dt-607entry-panels/|DT-607]] and [[brands/comelit/|Comelit]] two-wire video for older buildings.</li>
 <li>[[brands/aiphone/|Aiphone]] wired and network systems for most building sizes.</li>
@@ -2412,7 +2411,7 @@ BK, MN, QN, BX = "intercom-installation-brooklyn/", "intercom-installation-manha
 hood("kensington-flatbush", "Kensington and Flatbush", BK, "Brooklyn",
      "Our office is on Avenue F in Kensington, so this is home ground. The area is lined with six-storey pre-war elevator buildings along Ocean Parkway and Coney Island Avenue, Victorian detached houses in Ditmas Park and Prospect Park South, and walk-ups and mid-century apartment houses through Flatbush.",
      "Older Lee-Dan and TekTone audio systems in the walk-ups, two-wire video in buildings that have upgraded, and multi-entrance systems in the larger courtyard buildings. Victorian houses often have a single door station or an old whole-house intercom.",
-     "<p>Our Google listing ranks first for intercom repair around our office, and we are usually closest to these jobs.</p>")
+     "<p>Our office is on Avenue F, so we are usually close to these jobs.</p>")
 hood("park-slope", "Park Slope", BK, "Brooklyn",
      "Brownstone and limestone rowhouses fill the side streets, most divided into two to four apartments, with pre-war apartment buildings on Prospect Park West and the avenues.",
      "Walk-ups and pre-war elevator buildings on the avenues, many still on older audio, and a steady run of conversions to video on the existing risers.")
@@ -2690,8 +2689,8 @@ page(path="intercom-maintenance-contract/", nav="Service agreements",
 </tbody></table></div>
 
 <h2>Why it pays</h2>
-<p>A whole-building outage costs more than the repair. There's the emergency rate, the super's time letting residents' visitors in by hand, the propped-open front door, the complaints, and sometimes an HPD complaint on top. Two after-hours calls in a year usually cost more than an agreement.</p>
-<p>The inspection is where the money is saved. The faults that take out a whole building are visible early: a power supply reading low, corrosion on the panel's terminals, a strike drawing too much current. Found at an inspection they're a planned, daytime, single-visit repair.</p>
+<p>A whole-building outage costs more than the repair. There's the emergency rate, the super's time letting residents' visitors in by hand, the propped-open front door, the complaints, and sometimes an HPD complaint on top.</p>
+<p>The inspection is where the money is saved. Many of the faults that take out a whole building can be spotted early: a power supply reading low, corrosion on the panel's terminals, a strike drawing too much current. Found at an inspection they're a planned, daytime, single-visit repair.</p>
 
 <h2>What's not included</h2>
 <p>[PARTS, VANDALISM DAMAGE, SYSTEM REPLACEMENT: INCLUDED OR BILLED SEPARATELY]</p>

@@ -57,7 +57,7 @@
 
   // Cost estimators. Edit the figures here; a value in [BRACKETS] is still waiting on Jacob.
   var REPAIR = {
-    station: ['$100 to $300', 'Usually a new apartment station, fitted in under an hour.'],
+    station: ['$100 to $300', 'Usually a new apartment station.'],
     strike: ['$100 to $300', 'Adjusting or repairing the strike. A new strike costs more: [STRIKE PRICE].'],
     audio: ['$100 to $300', 'A new speaker or microphone in the panel, or a station repair.'],
     video: ['[VIDEO REPAIR RANGE]', 'Depends on the system and whether the camera, monitor or power has failed.'],
