@@ -57,18 +57,18 @@
 
   // Cost estimators. Edit the figures here; a value in [BRACKETS] is still waiting on Jacob.
   var REPAIR = {
-    station: ['$100 to $300', 'Usually a new apartment station.'],
-    strike: ['$100 to $300', 'Adjusting or repairing the strike. A new strike costs more: [STRIKE PRICE].'],
-    audio: ['$100 to $300', 'A new speaker or microphone in the panel, or a station repair.'],
-    video: ['[VIDEO REPAIR RANGE]', 'Depends on the system and whether the camera, monitor or power has failed.'],
-    panel: ['[PANEL RANGE]', 'From a few buttons to a full new panel on the existing wiring.'],
-    amp: ['[AMPLIFIER RANGE]', 'Usually the power supply or amplifier. One repair brings every apartment back.'],
-    wiring: ['[WIRING REPAIR RANGE]', 'A fault on a shared riser wire, traced and repaired.']
+    station: ['$200 to $400', 'Usually a new apartment station.'],
+    strike: ['$200 to $400', 'Adjusting or repairing the strike. A new strike: contact for price.'],
+    audio: ['$200 to $400', 'A new speaker or microphone in the panel, or a station repair.'],
+    video: ['Contact for price', 'Depends on the system and whether the camera, monitor or power has failed.'],
+    panel: ['Contact for price', 'From a few buttons to a full new panel on the existing wiring.'],
+    amp: ['Contact for price', 'Usually the power supply or amplifier. One repair brings every apartment back.'],
+    wiring: ['Contact for price', 'A fault on a shared riser wire, traced and repaired.']
   };
   var INSTALL = {
-    s: { audio: '[PRICE]', video: '[PRICE]', phone: '[PRICE]' },
-    m: { audio: '[PRICE]', video: '[PRICE]', phone: '[PRICE]' },
-    l: { audio: '[PRICE]', video: '[PRICE]', phone: '[PRICE]' },
+    s: { audio: 'Contact for price', video: 'Contact for price', phone: 'Contact for price' },
+    m: { audio: 'Contact for price', video: 'Contact for price', phone: 'Contact for price' },
+    l: { audio: 'Contact for price', video: 'Contact for price', phone: 'Contact for price' },
     xl: { audio: 'Quoted after a site visit', video: 'Quoted after a site visit', phone: 'Quoted after a site visit' }
   };
   var TYPE_NOTE = { audio: 'No monthly fee.', video: 'No monthly fee. Often runs on the existing wire.', phone: 'Usually carries a monthly service fee on top.' };

@@ -152,6 +152,9 @@ GOOGLE_REVIEW = "https://search.google.com/local/writereview?placeid=ChIJF42LFM5
 
 # Old WordPress URLs -> new pages (301). Borough, Lee-Dan and product URLs are unchanged.
 REDIRECTS = {
+    "/service-areas/long-island/": "/service-areas/",
+    "/service-areas/westchester/": "/service-areas/",
+    "/service-areas/new-jersey/": "/service-areas/",
     "/brownstone-intercom/": "/apartment-building-intercom/",
     "/home-intercom/": "/apartment-building-intercom/",
     "/guides/renters-broken-buzzer/": "/guides/tenant-intercom-complaints/",
@@ -270,7 +273,7 @@ def header(ctx):
 <a class="logo" href="{ctx.url('')}"><img src="{ctx.asset('logo-white.png')}" alt="Jacob Intercom, Intercom Specialist" width="400" height="86"></a>
 <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="menu-bars" aria-hidden="true"></span>Menu</button>
 <nav class="nav" id="site-nav" aria-label="Main">{nav}</nav>
-<div class="hdr-phones"><a href="tel:{PHONE_TEL}">{PHONE}</a><a href="tel:+12128372147">212-837-2147</a></div>
+<div class="hdr-phones"><a href="tel:{PHONE_TEL}">{PHONE}</a></div>
 </div></header>"""
 
 def reviews():
@@ -291,7 +294,6 @@ def quote(ctx):
 <h2>Call us now for a free quote</h2>
 <p style="font-size:1.15rem;max-width:30em">Tell us about your building and what's going on, or just call. Our technicians are available for a free consultation.</p>
 <p class="tel">{ctx.expand('{{tel}}')}</p>
-<p class="tel">{ctx.expand('{{tel2}}')}</p>
 <p><a href="mailto:jacobintercom@gmail.com" style="color:#fff">jacobintercom@gmail.com</a></p>
 </div>
 <form class="card" data-quote novalidate>
@@ -320,7 +322,6 @@ def home_quote(ctx):
 <img class="home-jacob" src="{ctx.asset('img/jacob-phone.webp')}" alt="Jacob of Jacob Intercom on the phone" width="634" height="628" loading="lazy">
 <div>
 <p class="home-big">{ctx.expand('{{tel}}')}</p>
-<p class="home-big">{ctx.expand('{{tel2}}')}</p>
 <p class="home-addr"><a href="mailto:jacobintercom@gmail.com">jacobintercom@gmail.com</a><br>209 Avenue F, Brooklyn, NY 11218<br>Monday to Thursday 9 to 5, Friday 8 to 4</p>
 </div>
 </div>
@@ -339,7 +340,7 @@ def home_quote(ctx):
 def footer(ctx):
     return f"""<footer class="site-footer"><div class="wrap">
 <div><a class="logo" href="{ctx.url('')}"><img src="{ctx.asset('logo-white.png')}" alt="Jacob Intercom" width="400" height="86" loading="lazy"></a><p>209 Avenue F, Brooklyn, NY 11218</p><p>Fully insured.</p><p>35 years in business.</p></div>
-<div><strong>Call or email</strong><p>{ctx.expand('{{tel}}')}</p><p>{ctx.expand('{{tel2}}')}</p><p><a href="mailto:jacobintercom@gmail.com">jacobintercom@gmail.com</a></p></div>
+<div><strong>Call or email</strong><p>{ctx.expand('{{tel}}')}</p><p><a href="mailto:jacobintercom@gmail.com">jacobintercom@gmail.com</a></p></div>
 <div><strong>Services</strong><p>{ctx.link('intercom-repair/', 'Intercom repair')}</p><p>{ctx.link('intercom-maintenance-contract/', 'Service agreements')}</p><p>{ctx.link('intercom-replacement/', 'Building upgrades')}</p><p>{ctx.link('property-managers/', 'Portfolio programs')}</p><p>{ctx.link('lee-dan-intercom-systems/', 'Lee-Dan systems')}</p></div>
 <div><strong>Service areas</strong><p>{ctx.link('service-areas/', 'All service areas')}</p><p>{ctx.link('intercom-installation-brooklyn/', 'Brooklyn')}, {ctx.link('intercom-installation-manhattan/', 'Manhattan')}, {ctx.link('intercom-installation-queens/', 'Queens')}</p><p>{ctx.link('intercom-installation-bronx/', 'The Bronx')}, {ctx.link('intercom-installation-staten-island/', 'Staten Island')}</p></div>
 <div><strong>Find us on</strong>{"".join(f'<p><a href="{u}" rel="noopener">{n}</a></p>' if u else f'<p>{n} <mark class="todo">[{n.upper()} URL]</mark></p>' for n, u in PROFILES)}</div>
@@ -381,7 +382,7 @@ def article(ctx):
 <article class="prose{' prose-wide' if p.get('wide') else ''}">{fig}{ctx.expand(p['body'])}{faqs}</article>
 {'' if p.get('wide') else '<!--aside-->'}<aside class="aside" aria-label="Get help"{' hidden' if p.get('wide') else ''}>
 <p class="big">{aside.get('head', 'Talk to someone who fixes these')}</p>
-<p>{ctx.expand(aside.get('text', 'Most repairs run $100 to $300. We find the fault and give you the price before any work starts.'))}</p>
+<p>{ctx.expand(aside.get('text', 'Most repairs run $200 to $400. We find the fault and give you the price before any work starts.'))}</p>
 <a class="btn btn-dark" href="tel:{PHONE_TEL}">Call {PHONE}</a>
 <a class="btn btn-outline" href="#quote">Send us the details</a>
 <p style="font-size:.92rem;color:var(--muted)">Monday to Thursday 9 to 5, Friday 8 to 4.</p>
