@@ -223,6 +223,8 @@ SHARE_IMAGES = {
     "guides/nyc-landlord-intercom-requirements/": ("share/guide-nyc-intercom-law.jpg", "Free guide: Does your building legally need an intercom?"),
     "guides/repair-or-replace-intercom/": ("share/guide-repair-or-replace.jpg", "Free guide: Repair or replace your intercom?"),
     "guides/tenant-intercom-complaints/": ("share/guide-tenant-complaints.jpg", "Free guide: Tenant says the buzzer is broken. Now what?"),
+    "guides/upgrade-buzzer-to-video/": ("share/guide-upgrade-to-video.jpg", "Free guide: Upgrade your old buzzer to video"),
+    "intercom-maintenance-contract/": ("share/maintenance-plans.jpg", "Intercom maintenance plans: fix it before tenants notice"),
 }
 
 
