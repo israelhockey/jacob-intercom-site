@@ -90,13 +90,43 @@
     update();
   });
 
-  // Quote forms: not connected to a mailbox yet, so say so instead of pretending to send.
+  // Quote forms: every submission is emailed to jacobintercom@gmail.com through FormSubmit.
+  var FORM_ENDPOINT = 'https://formsubmit.co/ajax/jacobintercom@gmail.com';
   document.querySelectorAll('form[data-quote]').forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var msg = form.querySelector('.form-msg');
+      var btn = form.querySelector('button[type="submit"]');
+      var val = function (n) { var f = form.elements[n]; return f ? f.value.trim() : ''; };
       msg.hidden = false;
-      msg.textContent = 'Preview only: this form is not connected yet. Call 718-252-2730 for now.';
+      if (val('_honey')) { msg.textContent = 'Thanks, we got your request.'; return; }
+      if (!val('name') || !(val('phone') || val('email'))) {
+        msg.textContent = 'Please add your name and a phone number or email so we can get back to you.';
+        return;
+      }
+      var data = {};
+      new FormData(form).forEach(function (v, k) { if (k !== '_honey' && String(v).trim()) data[k] = v; });
+      data._subject = 'New quote request from jacobintercom.com' + (val('company') ? ' (' + val('company') + ')' : '');
+      data._template = 'table';
+      data._captcha = 'false';
+      if (val('email')) data._replyto = val('email');
+      data.page = document.title + ' (' + location.pathname + ')';
+      btn.disabled = true;
+      msg.textContent = 'Sending...';
+      fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+        .then(function (res) {
+          if (!res.ok || String(res.j.success) === 'false') throw new Error('send failed');
+          form.reset();
+          msg.textContent = 'Thanks! Your request was sent to Jacob Intercom. We will get back to you shortly. For anything urgent, call 718-252-2730.';
+        })
+        .catch(function () {
+          msg.textContent = 'Sorry, that did not send. Please call 718-252-2730 or email jacobintercom@gmail.com.';
+        })
+        .then(function () { btn.disabled = false; });
     });
   });
 })();

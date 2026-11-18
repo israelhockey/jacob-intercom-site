@@ -100,15 +100,15 @@ HOME = """
 </div></section>
 """
 
-page(path="", nav="Home", no_reviews=True, home_form=True, title="Intercom Installation & Repair NYC for Apartment Buildings | Jacob Intercom",
-     desc="Professional intercom installation, repair and maintenance for NYC apartment buildings, landlords and property managers. Over 35 years of service. Call 718-252-2730 for a free quote.",
+page(path="", nav="Home", no_reviews=True, home_form=True, title="Intercom Installation & Repair NYC | Jacob Intercom",
+     desc="Intercom installation, repair and maintenance for NYC apartment buildings and property managers. Over 35 years of service. Free quote: 718-252-2730.",
      h1="Professional intercom installation and repair for New York buildings", html=HOME)
 
 # ───────────────────────────── Repair hub ─────────────────────────────
 
 page(path="intercom-repair/", nav="Intercom repair",
-     title="Intercom Repair NYC: Buzzers, Door Release, Audio & Video | Jacob Intercom",
-     desc="Intercom repair for New York apartment buildings, co-ops and managed portfolios. One unit, one riser or the whole building, diagnosed and priced before work starts.",
+     title="Intercom Repair NYC: Buzzers & Door Release | Jacob Intercom",
+     desc="Intercom repair for NYC apartment buildings, co-ops and portfolios. One unit, one riser or the whole building, diagnosed and priced before work starts.",
      h1="Intercom repair in New York City",
      lead="Same-day service, expertise in wired and wireless systems, competitive pricing and transparent repairs. Whether it's one apartment or the whole building, we find the fault and fix it.",
      facts=["<b>35 years</b> servicing New York buildings", "<b>Same-day</b> service available", "<b>15 brands</b>, including Lee-Dan", "Price given <b>before</b> work starts"],
@@ -238,8 +238,8 @@ symptom(
 
 symptom(
     "intercom-repair/no-audio/", "No sound or static",
-    "Intercom No Sound, Static or One-Way Audio: Repair NYC | Jacob Intercom",
-    "Tenants can't hear visitors, or visitors can't hear them? Intercom audio repair for New York buildings: the causes of silence, static and one-way sound.",
+    "Intercom No Sound or Static? Repair NYC | Jacob Intercom",
+    "Tenants can't hear visitors, or visitors can't hear them? Intercom audio repair for NYC buildings: what causes silence, static and one-way sound.",
     "No sound, static or one-way audio",
     "The buzzer rings, but the conversation doesn't work. One side can't hear, both are drowned in static, or there's a loud hum.",
     """<p>Audio faults come in a few forms: the tenant can hear the visitor but not the other way round; both sides get crackle or a loud hum; the sound is too faint to use; or tenants hear other apartments' visitors as well as their own.</p>
@@ -265,7 +265,7 @@ symptom(
 
 symptom(
     "intercom-repair/video/", "Video intercom repair",
-    "Video Intercom Repair NYC: Blank or Frozen Screen | Jacob Intercom",
+    "Video Intercom Repair NYC: Blank Screen | Jacob Intercom",
     "Building video intercom blank, frozen or not calling phones? Repair in New York for wired, IP and cloud entry systems. Causes, checks and costs.",
     "Video intercom repair",
     "The sound works but the picture doesn't, or the screen is dark, frozen or too poor to recognise anyone.",
@@ -318,7 +318,7 @@ symptom(
 
 symptom(
     "intercom-repair/not-working/", "Intercom not working",
-    "Intercom Not Working? What to Check and Who to Call in NYC | Jacob Intercom",
+    "Intercom Not Working? What to Check | Jacob Intercom",
     "Whole-building intercom not working? The causes of a dead system, what to check before you call, and repair costs in New York.",
     "Intercom not working",
     "No buzz, no sound, no door release. When the whole system goes quiet, the cause is usually one failed part, and it is usually in the basement.",
@@ -386,7 +386,7 @@ page(path="intercom-repair/emergency/", nav="Emergency repair",
 
 page(path="lee-dan-intercom-systems/", nav="Lee-Dan",
      title="Lee-Dan Intercom Repair, Parts & Service NYC | Jacob Intercom",
-     desc="Lee-Dan intercom repair in New York: IR-203, IR-204 and IR-205 apartment stations, PK-543 amplifiers and lobby panels. Repair, parts and upgrades on existing wiring.",
+     desc="Lee-Dan intercom repair in NYC: IR-203, IR-204 and IR-205 stations, PK-543 amplifiers and lobby panels. Repairs, parts and upgrades on existing wiring.",
      h1="Lee-Dan intercom repair and service",
      lead="Professional installation, repair and replacement for Lee-Dan IR-203, IR-204 and IR-205 intercom systems. We help property owners, managers and supers keep reliable building entry, and we tell you honestly when a repair makes more sense than a replacement.",
      facts=["<b>IR-203, IR-204, IR-205</b> stations", "<b>PK-543</b> amplifiers", "Lobby panels and parts", "<b>35 years</b> in business"],
@@ -467,7 +467,7 @@ def ld(slug, nav, title, desc, h1, lead, body, faqs, facts=None):
 
 
 def station(slug, model, wires, commons, where, extra):
-    ld(slug, model, f"Lee-Dan {model} Intercom Station: Repair & Replacement NYC | Jacob Intercom",
+    ld(slug, model, f"Lee-Dan {model} Station Repair NYC | Jacob Intercom",
        f"Lee-Dan {model} {wires}-wire apartment intercom station: how to identify it, what goes wrong, and repair or replacement in New York.",
        f"Lee-Dan {model} apartment station",
        f"The {model} is Lee-Dan's {wires}-wire apartment station. {where}",
@@ -513,7 +513,7 @@ station("ir-205", "IR-205", 5, "four", "It is found on older five-wire systems a
         "<p>The extra wire is what older five-wire systems and some multi-entrance buildings need. If your building was wired for five, a four-wire station will not do the job.</p>")
 
 ld("pk-543-amplifier", "PK-543 amplifier",
-   "Lee-Dan PK-543 Amplifier Repair & Replacement NYC | Jacob Intercom",
+   "Lee-Dan PK-543 Amplifier Repair NYC | Jacob Intercom",
    "The Lee-Dan PK-543A amplifier powers the whole building's intercom. Signs it has failed, what can be adjusted, and replacement in New York.",
    "Lee-Dan PK-543 amplifier",
    "The PK-543 is the centre of a Lee-Dan system. When the whole building goes quiet, this is usually where the fault is.",
@@ -580,8 +580,8 @@ ld("lobby-panels", "Lobby panels",
     ("Do you update the names on the directory?", "Yes, as part of a repair or as a job by itself.")])
 
 ld("wiring", "Wiring guide",
-   "Lee-Dan Intercom Wiring Explained: 3, 4 and 5 Wire Systems | Jacob Intercom",
-   "How Lee-Dan intercom wiring works: common and selective wires, the difference between 3, 4 and 5-wire systems, and why the wire count matters for repairs and upgrades.",
+   "Lee-Dan Intercom Wiring: 3, 4 and 5 Wire | Jacob Intercom",
+   "How Lee-Dan intercom wiring works: common and selective wires, 3, 4 and 5-wire systems, and why the wire count matters for repairs and upgrades.",
    "Lee-Dan wiring guide",
    "Almost every mistake made on a Lee-Dan system comes down to the wire count. Here is how the wiring works, in plain terms.",
    """
@@ -745,8 +745,8 @@ ld("replacement", "Replacement and upgrades",
    facts=["Reuse the <b>existing wiring</b> where possible", "Audio renewal or <b>video upgrade</b>", "Written quote after testing"])
 
 ld("parts", "Lee-Dan parts",
-   "Lee-Dan Intercom Parts: Stations, Amplifiers & Panels | Jacob Intercom",
-   "Lee-Dan intercom parts: IR-203E, IR-204E and IR-205E stations, the PK-543A amplifier, transformers and lobby panel components. What each part is and what it does.",
+   "Lee-Dan Intercom Parts & Stations | Jacob Intercom",
+   "Lee-Dan intercom parts: IR-203E, IR-204E and IR-205E stations, the PK-543A amplifier, transformers and lobby panel parts, and what each one does.",
    "Lee-Dan parts",
    "Lee-Dan parts are still sold. Here is what each one is, what it replaces, and when building staff can fit it.",
    """
@@ -792,8 +792,8 @@ def inst(slug, nav, title, desc, h1, lead, body, faqs):
 
 
 inst("", "Intercom installation",
-     "Intercom Installation NYC: Apartment Buildings, Co-ops & Condos | Jacob Intercom",
-     "Intercom installation across New York for 35 years. Audio, video, wireless and smartphone entry. We test the existing wire first so you don't pay to open walls you don't need to.",
+     "Intercom Installation NYC | Jacob Intercom",
+     "Intercom installation across New York for 35 years: audio, video, wireless and smartphone entry. We test the existing wire first to avoid opening walls.",
      "Intercom installation in New York City",
      "A new intercom is mostly a wiring decision. We test what is already in the walls first, because reusing it is the difference between a two-day job and a two-week one.",
      """
@@ -866,7 +866,7 @@ inst("video", "Video intercoms",
       ("What happens if the internet goes down?", "A wired video system keeps working. A network system depends on the connection, so we recommend a wired or backup path for the door release.")])
 
 inst("wireless", "Wireless intercoms",
-     "Wireless Intercom Installation for NYC Apartment Buildings | Jacob Intercom",
+     "Wireless Intercom Installation NYC | Jacob Intercom",
      "Wireless intercom installation in New York for buildings where the wiring has failed or was never there. How it works, where it fits, and its limits.",
      "Wireless intercom installation",
      "When the wire in the walls is finished, or was never there, a wireless system avoids opening them. It has trade-offs worth knowing first.",
@@ -895,7 +895,7 @@ inst("wireless", "Wireless intercoms",
 
 inst("ip-smartphone", "IP and smartphone intercoms",
      "IP & Smartphone Intercom Installation NYC | Jacob Intercom",
-     "IP and smartphone intercom installation in New York. Answer the door from your phone, give delivery codes, manage residents online. What the building needs first.",
+     "IP and smartphone intercom installation in New York: answer the door from your phone, give delivery codes and manage residents online.",
      "IP and smartphone intercoms",
      "The door calls your phone, wherever you are. For buildings with reliable internet and a lot of deliveries, this is where intercoms have gone.",
      """
@@ -1022,7 +1022,7 @@ def btype(path, nav, title, desc, h1, lead, body, faqs):
 
 
 btype("apartment-building-intercom/", "Apartment buildings",
-      "Apartment Building Intercom Systems NYC: Repair & Installation | Jacob Intercom",
+      "Apartment Building Intercom Systems NYC | Jacob Intercom",
       "Intercom systems for New York apartment buildings: how they work, which type suits your building, and what repair and installation involve.",
       "Apartment building intercom systems",
       "A building intercom has to work for every resident, every day, for years. Here is how to choose one, keep it running, and replace it when the time comes.",
@@ -1065,7 +1065,7 @@ btype("apartment-building-intercom/", "Apartment buildings",
        ("How long does a building intercom last?", "Wired systems commonly run for decades with parts replaced along the way. Network systems are usually replaced sooner, when software support ends.")])
 
 btype("co-op-condo-intercom/", "Co-ops and condos",
-      "Co-op & Condo Intercom Systems NYC: Repair, Replacement & Board Quotes | Jacob Intercom",
+      "Co-op & Condo Intercom Systems NYC | Jacob Intercom",
       "Intercom repair and replacement for New York co-ops and condos. Written options a board can vote on, insurance paperwork, and resident notice handled.",
       "Co-op and condo intercoms",
       "In a co-op or condo, an intercom replacement goes through a board, a managing agent and every shareholder's front door. We plan for all three.",
@@ -1143,7 +1143,7 @@ def brand(slug, name, title, desc, lead, body, faqs, facts):
 
 page(path="brands/", nav="Brands",
      title="Intercom Brands We Repair & Install in NYC | Jacob Intercom",
-     desc="We repair and install intercoms from 15 manufacturers: Lee-Dan, Aiphone, ButterflyMX, Comelit, Akuvox, TekTone, Mircom, Siedle, Elvox, DoorBird, 2N, DoorKing and more.",
+     desc="We repair and install intercoms from 15 manufacturers, including Lee-Dan, Aiphone, ButterflyMX, Comelit, Akuvox, TekTone, Mircom and Siedle.",
      h1="Intercom brands we service",
      lead="Fifteen makes, old and new. Whatever is on your wall, there is a good chance we have repaired one like it.",
      facts=["<b>15</b> manufacturers", "Old and current systems", "Repair, parts and installation"],
@@ -1176,7 +1176,7 @@ page(path="brands/", nav="Brands",
 """,
      related=[("intercom-repair/", "Intercom repair"), (INST, "Intercom installation"), ("lee-dan-intercom-systems/", "Lee-Dan systems"), ("contact/", "Contact us")])
 
-brand("aiphone", "Aiphone", "Aiphone Intercom Repair & Installation NYC: GT, IX, IXG, JO | Jacob Intercom",
+brand("aiphone", "Aiphone", "Aiphone Intercom Repair & Installation NYC | Jacob Intercom",
       "Aiphone intercom repair and installation in New York. A guide to the GT, IX, IXG, JO and AX series: which is which, what goes wrong, and repair costs.",
       "Aiphone is one of the most common video intercom makers in New York buildings. This is a guide to which Aiphone system you have, what goes wrong with it, and what repairs cost.",
       """
@@ -1215,8 +1215,8 @@ brand("aiphone", "Aiphone", "Aiphone Intercom Repair & Installation NYC: GT, IX,
        ("How long do Aiphone systems last?", "Well-maintained wired Aiphone systems commonly run for many years. Monitors and panel parts are replaced along the way.")],
       ["GT, IXG, IX, AX and JO series", "Monitors, panels and wiring", "Repair and upgrades"])
 
-brand("butterflymx", "ButterflyMX", "ButterflyMX Installation, Repair & Troubleshooting NYC | Jacob Intercom",
-      "ButterflyMX installation and repair in New York. How the system works, what it costs to run, common problems with calls, the app and door release, and how to fix them.",
+brand("butterflymx", "ButterflyMX", "ButterflyMX Installation & Repair NYC | Jacob Intercom",
+      "ButterflyMX installation and repair in New York: how the system works, running costs, and fixes for common call, app and door release problems.",
       "ButterflyMX is a phone-based video intercom that started in New York and is now in many of its buildings. This is a plain guide to how it works, what it costs to run, and what to do when it stops working.",
       """
 <h2>How ButterflyMX works</h2>
@@ -1466,7 +1466,7 @@ borough("intercom-installation-bronx/", "the Bronx", "Intercom Repair & Installa
 <p>Large buildings here often have long riser runs and several entrances, and many still run on older audio systems that are good candidates for an [[intercom-replacement/|upgrade on the existing wire]].</p>""",
         ["Riverdale", "Kingsbridge", "Fordham", "Grand Concourse", "Mott Haven", "Pelham Bay", "Throgs Neck", "Morris Park", "Parkchester"],
         "")
-borough("intercom-installation-staten-island/", "Staten Island", "Intercom Repair & Installation Staten Island NY | Jacob Intercom",
+borough("intercom-installation-staten-island/", "Staten Island", "Intercom Repair & Installation Staten Island | Jacob Intercom",
         """<p>Staten Island is mostly one and two-family houses, with apartment buildings and co-ops along the North Shore and near the ferry, and garden apartment complexes elsewhere.</p>
 <p>Our work there is in the apartment buildings, co-ops and garden complexes.</p>""",
         ["St. George", "Stapleton", "Tompkinsville", "New Brighton", "West Brighton", "Port Richmond", "Great Kills", "Tottenville", "New Dorp"],
@@ -1484,7 +1484,7 @@ def svc(path, nav, title, desc, h1, lead, body, faqs, facts):
 
 
 svc("access-control/", "Access control",
-    "Access Control Installation NYC: Fobs, Codes & Card Readers | Jacob Intercom",
+    "Access Control Installation NYC | Jacob Intercom",
     "Access control for New York apartment buildings and offices: key fobs, codes, card readers and phone access, installed with the door hardware they control.",
     "Access control systems",
     "An intercom lets visitors in. Access control lets residents and staff in, without keys, and keeps a record of who did.",
@@ -1514,7 +1514,7 @@ svc("access-control/", "Access control",
      ("What happens in a power cut?", "It depends on the lock. Magnetic locks release, strikes can be set to stay locked. Exits must always open from inside.")],
     ["Fobs, codes and phone access", "Installed with the <b>door hardware</b>", "Works alongside the intercom"])
 svc("access-control/key-fob/", "Key fob systems",
-    "Key Fob Entry Systems for NYC Apartment Buildings | Jacob Intercom",
+    "Key Fob Entry Systems for NYC Buildings | Jacob Intercom",
     "Key fob entry systems for New York apartment buildings: how they work, what they cost, and how to manage lost fobs and new residents.",
     "Key fob entry systems",
     "Residents tap a fob instead of turning a key. When one is lost, it is switched off, not replaced with a new set of locks.",
@@ -1538,7 +1538,7 @@ svc("access-control/key-fob/", "Key fob systems",
      ("How much does a replacement fob cost?", "Contact us for a price: {{tel}}.")],
     ["Tap to enter", "Lost fobs switched off <b>at once</b>", "Works with the intercom"])
 svc("access-control/electric-strikes-maglocks/", "Strikes and magnetic locks",
-    "Electric Strike & Magnetic Lock Installation NYC | Jacob Intercom",
+    "Electric Strike & Maglock Installation NYC | Jacob Intercom",
     "Electric strike and magnetic lock installation and repair in New York. Which to choose for your door, how they fail, and what they cost.",
     "Electric strikes and magnetic locks",
     "The part that actually lets people in. Get it wrong and the best intercom in the world buzzes a door that won't open.",
@@ -1570,7 +1570,7 @@ svc("access-control/electric-strikes-maglocks/", "Strikes and magnetic locks",
      ("Can you fit a strike to an old door?", "Yes, in most cases. Surface-mounted strikes avoid cutting historic frames.")],
     ["Strikes and magnetic locks", "Repair and installation", "Fitted to <b>code</b>"])
 svc("security-cameras/", "Security cameras",
-    "Security Camera Installation NYC: Buildings, Entrances & Stores | Jacob Intercom",
+    "Security Camera Installation NYC | Jacob Intercom",
     "Security camera installation and repair in New York for apartment buildings, entrances, stores and homes. Placement, recording and remote viewing.",
     "Security camera installation",
     "Cameras where they help: the entrance, the mailroom, the hallways and the back door, recorded and viewable on your phone.",
@@ -1652,7 +1652,7 @@ def product(path, nav, title, desc, h1, lead, body, faqs, facts, related=PROD_RE
 
 product("akuvox-r29/", "R29 Akuvox",
         "Akuvox R29 Intercom Installation NYC | Jacob Intercom",
-        "Akuvox R29 video intercom installation in NYC: the R29 outdoor door station with the C316 indoor monitor or calls to residents' mobile phones. Free quote.",
+        "Akuvox R29 video intercom installation in NYC: the R29 outdoor door station with the C316 indoor monitor or calls to residents' mobile phones.",
         "Akuvox R29 intercom installation",
         "Akuvox intercom systems provide secure, convenient access control for residential and commercial buildings. Jacob Intercom installs and sets up the Akuvox R29 to improve building security and make access easier for residents, tenants and visitors.",
         """
@@ -1682,7 +1682,7 @@ product("akuvox-r29/", "R29 Akuvox",
         related=[("brands/akuvox/", "Akuvox"), ("intercom-installation/ip-smartphone/", "IP and smartphone intercoms"), ("access-control/", "Access control"), ("contact/", "Contact us")])
 
 product("dt-607entry-panels/", "DT-607 entry panels",
-        "DT-607 Entry Panels: 2-Wire Video Intercom Installation NYC | Jacob Intercom",
+        "DT-607 2-Wire Video Entry Panel NYC | Jacob Intercom",
         "DT-607 2-wire video entry panels with a 170° or 105° camera, built-in card/fob reader and 1 to 4 buttons. Installed by Jacob Intercom in NYC. Free quote.",
         "DT-607 entry panels",
         "Entry panels with a 170° or 105° camera, a built-in card and fob reader, and 1, 2, 3 or 4 buttons. A non-polar 2-wire system for simple installation.",
@@ -1726,8 +1726,8 @@ product("dt-607entry-panels/", "DT-607 entry panels",
         related=[("dx-471-monitor/", "DX-471 monitor"), ("intercom-installation/video/", "Video intercoms"), ("access-control/key-fob/", "Key fob systems"), ("contact/", "Contact us")])
 
 product("dvt-104/", "DVT-104",
-        "DVT-104 Intercom System with IP Camera: Installation NYC | Jacob Intercom",
-        "The DVT-104 intercom system with an IP camera and proximity tag reader. No wiring to apartments, no indoor monitors, calls to residents' phones. Up to 115 apartments.",
+        "DVT-104 Intercom with IP Camera NYC | Jacob Intercom",
+        "The DVT-104 intercom with IP camera and tag reader: no wiring to apartments, no indoor monitors, calls to residents' phones. Up to 115 apartments.",
         "DVT-104 intercom system",
         "An intercom system combined with an IP camera and a proximity tag reader. Manage calls from anywhere, see the caller and open the door from your cell phone.",
         """
@@ -1767,7 +1767,7 @@ product("dvt-104/", "DVT-104",
         related=[("intercom-installation/ip-smartphone/", "IP and smartphone intercoms"), ("intercom-replacement/", "Upgrades and replacements"), ("access-control/", "Access control"), ("contact/", "Contact us")])
 
 product("dx-471-monitor/", "DX-471 monitor",
-        "DX-471 7-Inch Touch Screen Monitor, WiFi & Mobile: Installation NYC | Jacob Intercom",
+        "DX-471 7-Inch Touch Screen Monitor NYC | Jacob Intercom",
         "The DX-471 7-inch touch screen 2-wire video intercom monitor with WiFi and mobile app. Up to 256 apartments. Installed by Jacob Intercom in NYC. Free quote.",
         "DX-471 monitor",
         "A 7-inch touch screen monitor, WiFi and mobile enabled. See and screen visitors, talk two ways and unlock the door from the monitor or your phone.",
@@ -1832,7 +1832,7 @@ GUIDES = [
 ]
 
 page(path=G, nav="Guides",
-     title="Intercom Guides for NYC Property Managers, Supers & Boards | Jacob Intercom",
+     title="Intercom Guides for NYC Property Managers | Jacob Intercom",
      desc="Plain guides to intercom costs, repairs, wiring, upgrades and NYC intercom law, written by technicians with 35 years of New York jobs.",
      h1="Intercom guides",
      lead="What we explain to customers every week, written down. Costs, how systems work, what to check, and what the law says.",
@@ -1882,7 +1882,7 @@ guide("intercom-repair-cost-nyc", "Repair costs",
        ("Why do quotes vary so much between companies?", "Some price the repair, some price a replacement. Ask each one what they think has failed.")])
 
 guide("intercom-installation-cost-nyc", "Installation costs",
-      "Intercom Installation Cost in NYC (2026 Guide) | Jacob Intercom",
+      "Intercom Installation Cost NYC (2026) | Jacob Intercom",
       "What a new intercom costs in New York: by building size and system type, what drives the price, and the ongoing fees to compare.",
       "What intercom installation costs in NYC",
       "A new intercom can cost a few hundred dollars for a house or tens of thousands for a large building. Four things decide the price.",
@@ -1905,7 +1905,7 @@ guide("intercom-installation-cost-nyc", "Installation costs",
        ("Are there grants or tax breaks for intercom upgrades?", "Some building programs can apply. Ask your accountant or managing agent.")])
 
 guide("repair-or-replace-intercom", "Repair or replace",
-      "Repair or Replace Your Intercom? A Decision Guide | Jacob Intercom",
+      "Repair or Replace Your Intercom? | Jacob Intercom",
       "How to decide whether to repair or replace an apartment intercom: the signs, the costs, and the questions to ask before you sign a quote.",
       "Repair or replace your intercom?",
       "Most intercoms we're called to can be repaired. Here is how to tell when yours is one of the ones that can't.",
@@ -1940,8 +1940,8 @@ guide("repair-or-replace-intercom", "Repair or replace",
       [("My intercom is 30 years old. Should I replace it?", "Age alone isn't a reason. Many 30-year-old systems still work well with occasional parts. Replace when it keeps failing or can't do what the building needs.")])
 
 guide("nyc-landlord-intercom-requirements", "NYC intercom law",
-      "NYC Intercom Requirements for Owners & Landlords (Multiple Dwelling Law 50-a) | Jacob Intercom",
-      "What New York law requires of building owners and landlords for intercoms and self-locking entrance doors under Multiple Dwelling Law 50-a, and how managers stay compliant.",
+      "NYC Intercom Law for Landlords (MDL 50-a) | Jacob Intercom",
+      "What NY Multiple Dwelling Law 50-a requires of owners and landlords for intercoms and self-locking entrance doors, and how managers stay compliant.",
       "NYC intercom requirements for owners",
       "In many New York apartment buildings, a working intercom and a self-locking front door are a legal requirement, not an amenity.",
       """
@@ -2012,7 +2012,7 @@ guide("how-apartment-intercoms-work", "How intercoms work",
        ("Where is the amplifier?", "Usually in the basement near the electric meters, or in a closet near the entrance.")])
 
 guide("intercom-wiring-explained", "Intercom wiring",
-      "Intercom Wiring Explained: 2, 3, 4 and 5 Wire Systems | Jacob Intercom",
+      "Intercom Wiring Explained: 2 to 5 Wire | Jacob Intercom",
       "How apartment intercom wiring works: 2-wire, 3-wire, 4-wire and 5-wire systems, common and selective wires, and why the wire count matters.",
       "Intercom wiring explained",
       "The number of wires to each apartment decides which parts fit, which faults are possible, and what you can upgrade to without opening walls.",
@@ -2084,8 +2084,8 @@ guide("apartment-intercom-troubleshooting", "Troubleshooting by symptom",
 """)
 
 guide("tenant-intercom-complaints", "Tenant intercom complaints",
-      "Handling Tenant Intercom Complaints: A Guide for NYC Property Managers | Jacob Intercom",
-      "When a tenant reports a broken buzzer: how property managers and supers triage intercom complaints, what to tell the tenant, what the law expects, and how to avoid HPD violations.",
+      "Tenant Intercom Complaints: A Manager Guide | Jacob Intercom",
+      "When a tenant reports a broken buzzer: how managers and supers triage intercom complaints, what to tell the tenant and how to avoid HPD violations.",
       "When a tenant reports a broken intercom",
       "A guide for property managers and supers: how to triage the complaint, what to tell the tenant, and how to close it out before it becomes an HPD violation.",
       """
@@ -2117,7 +2117,7 @@ guide("tenant-intercom-complaints", "Tenant intercom complaints",
       facts=["For <b>managers and supers</b>", "Triage, log, fix, close out", "Avoiding HPD violations"])
 
 guide("best-intercom-systems-nyc-buildings", "Choosing a system",
-      "Choosing an Intercom for a NYC Apartment Building (2026) | Jacob Intercom",
+      "Best Intercom Systems for NYC Buildings | Jacob Intercom",
       "How to choose an intercom for a New York apartment building: audio, two-wire video, phone-based and IP systems compared on cost, reliability and fees.",
       "Choosing an intercom for a NYC building",
       "There isn't one best intercom. There's a best fit for your building's wiring, residents and budget. Here's how we help buildings choose.",
@@ -2150,7 +2150,7 @@ guide("best-intercom-systems-nyc-buildings", "Choosing a system",
 """)
 
 guide("wired-vs-wireless-intercom", "Wired or wireless",
-      "Wired vs Wireless Intercom for Apartment Buildings | Jacob Intercom",
+      "Wired vs Wireless Apartment Intercoms | Jacob Intercom",
       "Wired or wireless intercom for a New York building? Reliability, cost, monthly fees and when each makes sense.",
       "Wired or wireless intercom?",
       "Wireless sounds simpler. Often it is. But in a building that already has wire in the walls, wired usually wins on cost and reliability.",
@@ -2203,7 +2203,7 @@ guide("upgrade-buzzer-to-video", "Upgrading to video",
 """)
 
 guide("co-op-intercom-replacement", "Co-op replacement",
-      "Intercom Replacement for NYC Co-op Boards: A Step-by-Step Guide | Jacob Intercom",
+      "Co-op Intercom Replacement: A Board Guide | Jacob Intercom",
       "A step-by-step guide for New York co-op and condo boards replacing an intercom: inspection, options, board approval, resident notice and changeover.",
       "Intercom replacement for co-op boards",
       "A guide for boards and managing agents taking an intercom replacement from first complaint to finished job.",
@@ -2306,7 +2306,7 @@ HOODS = []
 def hood(slug, name, bpath, bname, stock, systems, extra=""):
     HOODS.append((slug, name, bname))
     page(path=f"service-areas/{slug}/", nav=name,
-         title=f"Intercom Repair {name}, {bname} | Jacob Intercom",
+         title=(f"Intercom Repair {name}, {bname} | Jacob Intercom" if len(name) + len(bname) < 26 else f"Intercom Repair {name} | Jacob Intercom"),
          desc=f"Intercom repair and installation in {name}, {bname}. Buzzers, door releases, video entry and Lee-Dan systems.",
          h1=f"Intercom service for {name} buildings",
          lead=f"Intercom repair, service agreements and system replacements for the apartment buildings and co-ops we look after in {name}.",
@@ -2534,8 +2534,8 @@ MGR_RELATED = [("property-managers/", "Portfolio programs"), ("intercom-maintena
 SURVEY_ASIDE = {"head": "Planning for several buildings?", "text": "Send the addresses, the unit counts and what you know about each system. We'll propose a survey schedule and come back with a condition report for every building."}
 
 page(path="property-managers/", nav="Portfolio programs",
-     title="Intercom Vendor for NYC Property Management Companies | Jacob Intercom",
-     desc="One intercom company for all your New York buildings: building surveys, condition reports, upgrade plans and maintenance, with one number to call. Over 35 years of service.",
+     title="Intercom Vendor for NYC Property Managers | Jacob Intercom",
+     desc="One intercom company for all your NYC buildings: surveys, condition reports, upgrade plans and maintenance, with one number to call. 35+ years of service.",
      h1="One intercom company for all your buildings",
      lead="For management companies with several buildings: we look at every intercom you're responsible for, tell you honestly what each one needs, and keep them all running with one company to call.",
      facts=["<b>35 years</b> servicing New York buildings", "<b>One</b> number to call", "<b>Free</b> estimates"],
@@ -2582,7 +2582,7 @@ page(path="property-managers/", nav="Portfolio programs",
            ("Who do our supers call?", "One number, {{tel}}, for every building on the program. We keep the record for each address, so the call starts with us already knowing the system.")])
 
 page(path="intercom-maintenance-contract/", nav="Service agreements",
-     title="Intercom Service Agreements for NYC Buildings & Portfolios | Jacob Intercom",
+     title="Intercom Maintenance Contracts NYC | Jacob Intercom",
      desc="Intercom service agreements for New York apartment buildings: scheduled inspections, priority response, fixed rates across your portfolio and one invoice.",
      h1="Intercom maintenance and service agreements",
      lead="Regular maintenance is essential for keeping your intercom reliable and working at its best. Our maintenance plans include system inspections, performance checks and proactive fixes that help prevent unexpected problems and extend the life of your system.",
@@ -2625,7 +2625,7 @@ page(path="intercom-maintenance-contract/", nav="Service agreements",
 
 page(path="intercom-replacement/", nav="Building upgrades",
      title="Building Intercom Replacement & Upgrades NYC | Jacob Intercom",
-     desc="Whole-building intercom replacement in New York: Lee-Dan and legacy audio converted to video and smartphone entry, surveyed, phased and installed with the building occupied.",
+     desc="Whole-building intercom replacement in NYC: Lee-Dan and older audio systems upgraded to video and smartphone entry, with the building occupied.",
      h1="Building intercom upgrades and system replacement",
      lead="From upgrading an existing system to a complete new installation, we deliver dependable intercom systems without sacrificing quality. We look at the wiring your building already has first, and keep the old system working until the new one is ready.",
      facts=["Existing risers <b>tested and reused</b>", "Old system <b>live</b> during changeover", "Written proposal after survey"],
@@ -2680,7 +2680,7 @@ page(path="intercom-replacement/", nav="Building upgrades",
            ("What warranty comes with a new system?", "Every installation comes with a 1-year warranty. Contact us for details on the manufacturer's warranty for your system.")])
 
 page(path="superintendents/", nav="For superintendents",
-     title="Intercom Help for NYC Building Superintendents | Jacob Intercom",
+     title="Intercom Help for NYC Building Supers | Jacob Intercom",
      desc="For New York supers: how to describe an intercom fault so it's fixed in one visit, what to check first, and how we schedule apartment access around you.",
      h1="For superintendents",
      lead="You're the first call when the buzzer stops working. Here's how to get it fixed in one visit, and what we do to make your job easier.",
@@ -2733,7 +2733,7 @@ page(path="superintendents/", nav="For superintendents",
            ("Who approves the work, me or management?", "Whoever your company has set as the approver. On agreement buildings, contact us for details on pre-approved repairs.")])
 
 page(path="vendor-onboarding/", nav="Vendor onboarding",
-     title="Vendor Onboarding: Certificate of Insurance & W-9 | Jacob Intercom",
+     title="Vendor Onboarding: COI & W-9 | Jacob Intercom",
      desc="Approving Jacob Intercom as a vendor: certificates of insurance, W-9, invoicing terms and job reporting for New York management companies.",
      h1="Vendor onboarding",
      lead="Everything your accounts payable and compliance teams need to approve us, ready before the first job.",
@@ -2773,8 +2773,8 @@ page(path="vendor-onboarding/", nav="Vendor onboarding",
            ("Do you accept purchase orders?", "Yes. We carry your PO or work order number on every invoice.")])
 
 page(path="projects/", nav="Projects",
-     title="Intercom Projects in New York Apartment Buildings | Jacob Intercom",
-     desc="Intercom replacements, conversions and portfolio programs Jacob Intercom has delivered in New York apartment buildings: building size, scope, schedule and outcome.",
+     title="Intercom Projects in NYC Buildings | Jacob Intercom",
+     desc="Intercom replacements, upgrades, service agreements and urgent repairs for New York apartment buildings by Jacob Intercom. References on request.",
      h1="Projects",
      lead="The kind of work we do for New York property managers, co-op boards and owners.",
      facts=["Apartment buildings across NYC", "<b>35 years</b> in business", "References on request"],
@@ -2787,8 +2787,8 @@ page(path="projects/", nav="Projects",
 """)
 
 page(path="pricing/", nav="How we price",
-     title="Intercom Pricing for NYC Buildings: Repairs, Agreements & Replacements | Jacob Intercom",
-     desc="How Jacob Intercom prices work for New York property managers: repairs priced before work starts, agreements per building, and replacements quoted per unit after a survey.",
+     title="Intercom Repair & Installation Prices NYC | Jacob Intercom",
+     desc="How Jacob Intercom prices work: repairs priced before work starts (most $200 to $400), agreements per building, and replacements quoted after a survey.",
      h1="How we price",
      lead="No open-ended invoices. Repairs are priced before work starts, agreements are a fixed rate per building, and replacements are quoted in writing after a survey.",
      facts=["Price agreed <b>before</b> work starts", "Fixed agreement rates", "Written proposals for replacements"],
@@ -2832,7 +2832,7 @@ page(path="pricing/", nav="How we price",
 
 page(path="contact/", nav="Contact",
      title="Request a Building Survey or Service Call | Jacob Intercom",
-     desc="Contact Jacob Intercom about a building or a portfolio: service calls, service agreements, system replacements and vendor documents. 718-252-2730. 209 Avenue F, Brooklyn.",
+     desc="Contact Jacob Intercom about a building or portfolio: service calls, service agreements, replacements and vendor documents. Call 718-252-2730.",
      h1="Request a building survey or service call",
      lead="Tell us the buildings and what you need. For a single repair, calling is quickest. For agreements, replacements and portfolios, the form below gets the right details to us first.",
      facts=["<b>718-252-2730</b>", "<b>Free</b> estimates", "Mon to Thu 9 to 5, Fri 8 to 4"], no_reviews=True,

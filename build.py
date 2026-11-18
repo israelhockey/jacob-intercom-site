@@ -297,6 +297,7 @@ def quote(ctx):
 <p><a href="mailto:jacobintercom@gmail.com" style="color:#fff">jacobintercom@gmail.com</a></p>
 </div>
 <form class="card" data-quote novalidate>
+<input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
 <div class="form-2"><label for="q-name">Name<input id="q-name" name="name" type="text" autocomplete="name"></label>
 <label for="q-company">Company<input id="q-company" name="company" type="text" autocomplete="organization"></label></div>
 <div class="form-2"><label for="q-role">Your role<select id="q-role" name="role"><option>Property manager</option><option>Building manager or super</option><option>Management company owner</option><option>Co-op or condo board</option><option>Building owner</option><option>Other</option></select></label>
@@ -327,6 +328,7 @@ def home_quote(ctx):
 </div>
 </div>
 <form class="card" data-quote novalidate>
+<input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
 <div class="form-2"><label for="h-name">Name<input id="h-name" name="name" type="text" autocomplete="name"></label>
 <label for="h-company">Company<input id="h-company" name="company" type="text" autocomplete="organization"></label></div>
 <div class="form-2"><label for="h-phone">Phone<input id="h-phone" name="phone" type="tel" autocomplete="tel"></label>
