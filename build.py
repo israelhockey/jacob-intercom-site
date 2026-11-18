@@ -152,6 +152,17 @@ GOOGLE_REVIEW = "https://search.google.com/local/writereview?placeid=ChIJF42LFM5
 
 # Old WordPress URLs -> new pages (301). Borough, Lee-Dan and product URLs are unchanged.
 REDIRECTS = {
+    # Old WordPress URLs still known to Google (from Search Console, Nov 2026)
+    "/r29/": "/akuvox-r29/",
+    "/c316/": "/akuvox-r29/",
+    "/mail-boxes/": "/",
+    "/ntercom-installation-queens/": "/intercom-installation-queens/",
+    "/blog/why-do-your-brooklyn-apartment-need-a-smart-intercom-system/": "/intercom-installation-brooklyn/",
+    "/blog/why-apartment-buildings-in-nyc-need-professional-security-services/": "/apartment-building-intercom/",
+    "/blog/when-does-your-intercom-system-due-for-an-upgrade/": "/guides/repair-or-replace-intercom/",
+    "/blog/choosing-the-right-intercom-system-for-co-ops-and-condos/": "/co-op-condo-intercom/",
+    "/blog/preventing-unauthorized-entry-in-nyc-condos-co-ops/": "/access-control/",
+    "/blog/silence-on-the-line-essential-signs-your-building-intercom-system-requires-urgent-repair-or-inspection/": "/intercom-repair/",
     "/service-areas/long-island/": "/service-areas/",
     "/service-areas/westchester/": "/service-areas/",
     "/service-areas/new-jersey/": "/service-areas/",
