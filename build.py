@@ -218,6 +218,14 @@ def crumbs(ctx):
     return trail
 
 
+# Pages with their own link-preview image (1200x630) instead of the site-wide share.jpg
+SHARE_IMAGES = {
+    "guides/nyc-landlord-intercom-requirements/": ("share/guide-nyc-intercom-law.jpg", "Free guide: Does your building legally need an intercom?"),
+    "guides/repair-or-replace-intercom/": ("share/guide-repair-or-replace.jpg", "Free guide: Repair or replace your intercom?"),
+    "guides/tenant-intercom-complaints/": ("share/guide-tenant-complaints.jpg", "Free guide: Tenant says the buzzer is broken. Now what?"),
+}
+
+
 def head(ctx):
     p = ctx.page
     title = "Jacob Intercom Preview" if (ctx.mode == "preview" and p["path"] == "") else p["title"]
@@ -227,7 +235,8 @@ def head(ctx):
     if ctx.mode == "site":
         out.append(f'<link rel="canonical" href="{BASE}/{p["path"]}">')
         t, d = html.escape(p["title"], quote=True), html.escape(p["desc"], quote=True)
-        share = f"{PUBLIC_URL}/assets/share.jpg"
+        sp = SHARE_IMAGES.get(p["path"])
+        share = f"{PUBLIC_URL}/assets/{sp[0] if sp else 'share.jpg'}"
         out += [f'<meta property="og:type" content="website">',
                 f'<meta property="og:site_name" content="Jacob Intercom">',
                 f'<meta property="og:url" content="{PUBLIC_URL}/{p["path"]}">',
@@ -236,7 +245,7 @@ def head(ctx):
                 f'<meta property="og:image" content="{share}">',
                 '<meta property="og:image:width" content="1200">',
                 '<meta property="og:image:height" content="630">',
-                '<meta property="og:image:alt" content="Jacob Intercom: New York intercom repair and installation for 35 years">',
+                f'<meta property="og:image:alt" content="{html.escape(sp[1] if sp else "Jacob Intercom: New York intercom repair and installation for 35 years", quote=True)}">',
                 '<meta name="twitter:card" content="summary_large_image">',
                 f'<meta name="twitter:image" content="{share}">']
     else:
